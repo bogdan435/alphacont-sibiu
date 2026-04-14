@@ -7,7 +7,14 @@ function getBlogDirectory(locale: string) {
   return path.join(process.cwd(), `content/blog/${safeLocale}`);
 }
 
-export async function getBlogPosts(locale: string) {
+type BlogPostMeta = {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+};
+
+export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
   const blogDirectory = getBlogDirectory(locale);
   const files = await fs.readdir(blogDirectory);
 
@@ -44,4 +51,9 @@ export async function getBlogPostBySlug(locale: string, slug: string) {
     date: data.date || "",
     content,
   };
+}
+
+export async function getRelatedBlogPosts(locale: string, currentSlug: string) {
+  const posts = await getBlogPosts(locale);
+  return posts.filter((post) => post.slug !== currentSlug).slice(0, 3);
 }

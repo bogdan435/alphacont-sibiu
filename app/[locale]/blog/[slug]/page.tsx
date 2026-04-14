@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
-import { getBlogPostBySlug } from "@/lib/blog";
+import { getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/blog";
 import { getBaseUrl } from "@/lib/seo";
 
 type LocaleBlogPostPageProps = {
@@ -36,6 +36,7 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
   const { locale, slug } = await params;
   const safeLocale = locale === "en" ? "en" : "ro";
   const post = await getBlogPostBySlug(safeLocale, slug);
+  const relatedPosts = await getRelatedBlogPosts(safeLocale, slug);
 
   return (
     <main>
@@ -68,6 +69,27 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
 
       <section className="article-content">
         <ReactMarkdown>{post.content}</ReactMarkdown>
+      </section>
+
+      <section>
+        <div className="section-header">
+          <p className="section-kicker">Blog</p>
+          <h2>{safeLocale === "ro" ? "Articole similare" : "Related articles"}</h2>
+        </div>
+        <ul className="blog-list">
+          {relatedPosts.map((relatedPost) => (
+            <li key={relatedPost.slug}>
+              <Link
+                href={`/${safeLocale}/blog/${relatedPost.slug}`}
+                className="blog-card-link"
+              >
+                {relatedPost.title}
+              </Link>
+              <p className="blog-description">{relatedPost.description}</p>
+              <small className="blog-date">{relatedPost.date}</small>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );
