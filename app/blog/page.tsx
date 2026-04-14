@@ -32,12 +32,14 @@ export default async function BlogPage() {
 
       <section>
         <h2>Articole disponibile</h2>
-        <ul>
+        <ul className="blog-list">
           {posts.map((post) => (
             <li key={post.slug}>
-              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-              <p>{post.description}</p>
-              <small>{post.date}</small>
+              <Link href={`/blog/${post.slug}`} className="blog-card-link">
+                {post.title}
+              </Link>
+              <p className="blog-description">{post.description}</p>
+              <small className="blog-date">{post.date}</small>
             </li>
           ))}
         </ul>

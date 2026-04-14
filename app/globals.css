@@ -235,3 +235,37 @@ li {
 .article-content li {
   margin-bottom: 8px;
 }
+
+.blog-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 24px 0 0;
+}
+
+.blog-list li {
+  margin-bottom: 20px;
+}
+
+.blog-card-link {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #1f3c3a;
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.blog-card-link:hover {
+  text-decoration: underline;
+}
+
+.blog-description {
+  margin: 0 0 10px;
+  color: #394645;
+}
+
+.blog-date {
+  color: #6a7675;
+  font-size: 14px;
+  font-weight: 600;
+}
