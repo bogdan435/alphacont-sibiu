@@ -71,17 +71,59 @@ export default async function LocalePage({ params }: LocalePageProps) {
       </nav>
 
       <section className="hero">
-        <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
-        <h1>{homeContent.heroTitle}</h1>
-        <p>{homeContent.heroText}</p>
-        <p>{homeContent.heroSubtext}</p>
-        <a href="#contact" className="button">
-          {homeContent.heroButton}
-        </a>
+        <div className="hero-layout">
+          <div className="hero-copy">
+            <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
+            <h1>{homeContent.heroTitle}</h1>
+            <p className="hero-lead">{homeContent.heroText}</p>
+            <p>{homeContent.heroSubtext}</p>
+            <div className="hero-actions">
+              <a href="#contact" className="button">
+                {homeContent.heroButton}
+              </a>
+              <Link href={`/${safeLocale}/blog`} className="button button-secondary">
+                {safeLocale === "ro" ? "Citeste articole" : "Read articles"}
+              </Link>
+            </div>
+          </div>
+
+          <div className="hero-sidecard">
+            <p className="sidecard-label">
+              {safeLocale === "ro" ? "Pentru companii din Sibiu" : "For businesses in Sibiu"}
+            </p>
+            <h2>
+              {safeLocale === "ro"
+                ? "Ordine in acte, claritate in cifre, mai putin stres administrativ."
+                : "Order in documents, clarity in numbers, less administrative stress."}
+            </h2>
+            <ul className="hero-points">
+              <li>
+                {safeLocale === "ro"
+                  ? "Contabilitate, salarizare si fiscalitate intr-un singur loc"
+                  : "Accounting, payroll, and tax support in one place"}
+              </li>
+              <li>
+                {safeLocale === "ro"
+                  ? "Comunicare clara pentru antreprenori si firme locale"
+                  : "Clear communication for entrepreneurs and local companies"}
+              </li>
+              <li>
+                {safeLocale === "ro"
+                  ? "Sprijin practic pentru firme noi si afaceri in crestere"
+                  : "Practical support for new and growing businesses"}
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section id="services">
-        <SectionTitle title={homeContent.servicesTitle} />
+        <div className="section-header">
+          <p className="section-kicker">
+            {safeLocale === "ro" ? "Servicii" : "Services"}
+          </p>
+          <SectionTitle title={homeContent.servicesTitle} />
+        </div>
         <div className="services-grid">
           {homeContent.services.map((service) => (
             <div key={service} className="service-card">
@@ -92,18 +134,28 @@ export default async function LocalePage({ params }: LocalePageProps) {
       </section>
 
       <section id="why">
-        <SectionTitle title={homeContent.whyTitle} />
-        <ul>
+        <div className="section-header">
+          <p className="section-kicker">
+            {safeLocale === "ro" ? "De ce ALPHACONT GROUP" : "Why ALPHACONT GROUP"}
+          </p>
+          <SectionTitle title={homeContent.whyTitle} />
+        </div>
+        <div className="benefit-grid">
           {homeContent.whyItems.map((item) => (
-            <li key={item}>{item}</li>
+            <div key={item} className="benefit-card">
+              <p>{item}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
       <section>
-        <SectionTitle
-          title={safeLocale === "ro" ? "Articole recente" : "Latest articles"}
-        />
+        <div className="section-header">
+          <p className="section-kicker">Blog</p>
+          <SectionTitle
+            title={safeLocale === "ro" ? "Articole recente" : "Latest articles"}
+          />
+        </div>
         <ul className="blog-list">
           {latestPosts.map((post) => (
             <li key={post.slug}>
@@ -121,14 +173,27 @@ export default async function LocalePage({ params }: LocalePageProps) {
       </section>
 
       <section id="contact" className="contact-section">
-        <SectionTitle title={homeContent.contactTitle} />
-        <p>Email: {homeContent.contactEmail}</p>
-        <p>Telefon 1: {homeContent.contactPhone}</p>
-        <p>Telefon 2: {homeContent.contactPhoneSecondary}</p>
-        <p>{homeContent.contactCity}</p>
-        <a href={`mailto:${homeContent.contactEmail}`} className="contact-link">
-          {safeLocale === "ro" ? "Trimite email" : "Send email"}
-        </a>
+        <div className="contact-layout">
+          <div className="contact-copy">
+            <p className="section-kicker">Contact</p>
+            <SectionTitle title={homeContent.contactTitle} />
+            <p>
+              {safeLocale === "ro"
+                ? "Daca vrei sa discutam despre contabilitate, salarizare sau organizarea financiara a firmei, ne poti contacta direct."
+                : "If you want to discuss accounting, payroll, or the financial organization of your business, contact us directly."}
+            </p>
+          </div>
+
+          <div className="contact-card">
+            <p>Email: {homeContent.contactEmail}</p>
+            <p>Telefon 1: {homeContent.contactPhone}</p>
+            <p>Telefon 2: {homeContent.contactPhoneSecondary}</p>
+            <p>{homeContent.contactCity}</p>
+            <a href={`mailto:${homeContent.contactEmail}`} className="contact-link">
+              {safeLocale === "ro" ? "Trimite email" : "Send email"}
+            </a>
+          </div>
+        </div>
       </section>
     </main>
   );

@@ -64,7 +64,7 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
       <section className="hero">
         <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
         <h1>{safeLocale === "ro" ? "Blog ALPHACONT GROUP" : "ALPHACONT GROUP Blog"}</h1>
-        <p>
+        <p className="hero-lead">
           {safeLocale === "ro"
             ? "Articole utile pentru antreprenori, PFA-uri si firme din Sibiu."
             : "Useful articles for entrepreneurs, sole traders, and companies in Sibiu."}
@@ -72,7 +72,10 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
       </section>
 
       <section>
-        <h2>{safeLocale === "ro" ? "Articole disponibile" : "Available articles"}</h2>
+        <div className="section-header">
+          <p className="section-kicker">Blog</p>
+          <h2>{safeLocale === "ro" ? "Articole disponibile" : "Available articles"}</h2>
+        </div>
         <ul className="blog-list">
           {posts.map((post) => (
             <li key={post.slug}>

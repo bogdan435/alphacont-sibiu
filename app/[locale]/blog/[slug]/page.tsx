@@ -62,8 +62,8 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
       <section className="hero">
         <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
         <h1>{post.title}</h1>
-        <p>{post.description}</p>
-        <p>{post.date}</p>
+        <p className="hero-lead">{post.description}</p>
+        <p className="blog-date">{post.date}</p>
       </section>
 
       <section className="article-content">
