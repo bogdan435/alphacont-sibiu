@@ -1,3 +1,4 @@
+import ReactMarkdown from "react-markdown";
 import { getBlogPostBySlug } from "@/lib/blog";
 
 type BlogPostPageProps = {
@@ -33,9 +34,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <h1>{post.slug.replace(/-/g, " ")}</h1>
       </section>
 
-      <section>
-        <h2>Continut articol</h2>
-        <pre>{post.content}</pre>
+      <section className="article-content">
+        <ReactMarkdown>{post.content}</ReactMarkdown>
       </section>
     </main>
   );

@@ -216,3 +216,22 @@ li {
     padding: 24px;
   }
 }
+
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.article-content p {
+  margin-bottom: 16px;
+}
+
+.article-content ul {
+  margin-bottom: 16px;
+}
+
+.article-content li {
+  margin-bottom: 8px;
+}
