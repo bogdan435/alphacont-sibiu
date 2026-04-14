@@ -31,7 +31,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <section className="hero">
         <p className="locale-label">Romana</p>
-        <h1>{post.slug.replace(/-/g, " ")}</h1>
+        <h1>{post.title}</h1>
+        <p>{post.description}</p>
+        <p>{post.date}</p>
       </section>
 
       <section className="article-content">

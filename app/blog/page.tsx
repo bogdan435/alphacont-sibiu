@@ -35,6 +35,8 @@ export default async function BlogPage() {
           {posts.map((post) => (
             <li key={post.slug}>
               <a href={`/blog/${post.slug}`}>{post.title}</a>
+              <p>{post.description}</p>
+              <small>{post.date}</small>
             </li>
           ))}
         </ul>
