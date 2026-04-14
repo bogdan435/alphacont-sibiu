@@ -1,24 +1,24 @@
 export const homeContent = {
   heroTitle: "ALPHACONT GROUP",
   heroText:
-    "Contabilitate clara si sprijin fiscal pentru firme din judetul Sibiu.",
+    "Servicii de contabilitate, salarizare si consultanta fiscala pentru firme din Sibiu.",
   heroSubtext:
-    "Lucram cu antreprenori, PFA-uri si societati comerciale care au nevoie de ordine, rigoare si raspunsuri rapide.",
+    "Ajutam antreprenori, PFA-uri si societati comerciale sa lucreze mai organizat, sa respecte termenele fiscale si sa aiba mai multa claritate in deciziile financiare.",
   heroButton: "Solicita o discutie",
 
   servicesTitle: "Cu ce te putem ajuta",
   services: [
-    "Contabilitate financiara completa",
-    "Salarizare si administrare personal",
-    "Consultanta fiscala",
-    "Sprijin pentru firme noi",
+    "Contabilitate financiara completa pentru firme mici si medii",
+    "Salarizare si administrare de personal",
+    "Consultanta fiscala pentru decizii mai sigure",
+    "Sprijin pentru firme noi si afaceri in crestere",
   ],
 
   whyTitle: "De ce sa lucrezi cu noi",
   whyItems: [
-    "Comunicare clara, fara explicatii complicate.",
-    "Respectarea termenelor fiscale.",
-    "Servicii gandite pentru afaceri locale din Sibiu.",
+    "Explicam clar ce ai de facut si ce obligatii trebuie urmarite.",
+    "Respectam termenele si punem ordine in documente si raportari.",
+    "Lucram practic, cu focus pe nevoile reale ale firmelor din Sibiu.",
   ],
 
   contactTitle: "Contact",

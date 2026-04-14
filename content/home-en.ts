@@ -1,24 +1,24 @@
 export const homeContent = {
   heroTitle: "ALPHACONT GROUP",
   heroText:
-    "Clear accounting and tax support for businesses in Sibiu County.",
+    "Accounting, payroll, and tax advisory services for businesses in Sibiu.",
   heroSubtext:
-    "We work with entrepreneurs, sole traders, and companies that need order, accuracy, and fast answers.",
+    "We help entrepreneurs, sole traders, and companies stay organized, meet tax deadlines, and make financial decisions with more confidence.",
   heroButton: "Request a consultation",
 
   servicesTitle: "How we can help",
   services: [
-    "Full financial accounting",
+    "Full financial accounting for small and medium-sized businesses",
     "Payroll and personnel administration",
-    "Tax advisory",
-    "Support for newly established businesses",
+    "Tax advisory for safer business decisions",
+    "Support for newly established and growing businesses",
   ],
 
   whyTitle: "Why work with us",
   whyItems: [
-    "Clear communication, without unnecessary complexity.",
-    "Respect for fiscal deadlines.",
-    "Services designed for local businesses in Sibiu.",
+    "We explain clearly what matters and what actions are required.",
+    "We help keep documents, reporting, and deadlines under control.",
+    "We work practically, with attention to the real needs of businesses in Sibiu.",
   ],
 
   contactTitle: "Contact",
