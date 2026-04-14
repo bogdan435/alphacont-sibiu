@@ -5,6 +5,7 @@ import SectionTitle from "@/components/SectionTitle";
 import { getHomeContent } from "@/lib/home";
 import { getBaseUrl, getLocaleMetadata } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
+import { getLocalBusinessSchema } from "@/lib/schema";
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>;
@@ -36,9 +37,17 @@ export default async function LocalePage({ params }: LocalePageProps) {
   const safeLocale = locale === "en" ? "en" : "ro";
   const homeContent = getHomeContent(safeLocale);
   const latestPosts = (await getBlogPosts(safeLocale)).slice(0, 3);
+  const localBusinessSchema = getLocalBusinessSchema(safeLocale);
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
+      />
+
       <nav className="topbar">
         <div className="logo">
           <Image
@@ -114,7 +123,8 @@ export default async function LocalePage({ params }: LocalePageProps) {
       <section id="contact" className="contact-section">
         <SectionTitle title={homeContent.contactTitle} />
         <p>Email: {homeContent.contactEmail}</p>
-        <p>Telefon: {homeContent.contactPhone}</p>
+        <p>Telefon 1: {homeContent.contactPhone}</p>
+        <p>Telefon 2: {homeContent.contactPhoneSecondary}</p>
         <p>{homeContent.contactCity}</p>
         <a href={`mailto:${homeContent.contactEmail}`} className="contact-link">
           {safeLocale === "ro" ? "Trimite email" : "Send email"}
