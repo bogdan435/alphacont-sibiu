@@ -1,4 +1,8 @@
-export default function BlogPage() {
+import { getBlogPosts } from "@/lib/blog";
+
+export default async function BlogPage() {
+  const posts = await getBlogPosts();
+
   return (
     <main>
       <nav className="topbar">
@@ -28,9 +32,11 @@ export default function BlogPage() {
       <section>
         <h2>Articole disponibile</h2>
         <ul>
-          <li>
-            <a href="/blog/primul-articol">Primul articol</a>
-          </li>
+          {posts.map((post) => (
+            <li key={post.slug}>
+              <a href={`/blog/${post.slug}`}>{post.title}</a>
+            </li>
+          ))}
         </ul>
       </section>
     </main>
