@@ -23,6 +23,7 @@ export const homeContent = {
 
   contactTitle: "Contact",
   contactEmail: "contact@alphacont.ro",
-  contactPhone: "+40 000 000 000",
-  contactCity: "Sibiu, Romania",
+  contactPhone: "0040721644296",
+  contactPhoneSecondary: "00393347412487",
+  contactCity: "55 Octavian Goga Street, 550370 Sibiu, Sibiu County, Romania",
 };
