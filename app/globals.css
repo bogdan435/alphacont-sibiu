@@ -269,3 +269,10 @@ li {
   font-size: 14px;
   font-weight: 600;
 }
+
+.language-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}

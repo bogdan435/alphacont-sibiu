@@ -2,9 +2,13 @@ import { promises as fs } from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const blogDirectory = path.join(process.cwd(), "content/blog/ro");
+function getBlogDirectory(locale: string) {
+  const safeLocale = locale === "en" ? "en" : "ro";
+  return path.join(process.cwd(), `content/blog/${safeLocale}`);
+}
 
-export async function getBlogPosts() {
+export async function getBlogPosts(locale: string) {
+  const blogDirectory = getBlogDirectory(locale);
   const files = await fs.readdir(blogDirectory);
 
   const posts = await Promise.all(
@@ -27,7 +31,8 @@ export async function getBlogPosts() {
   return posts;
 }
 
-export async function getBlogPostBySlug(slug: string) {
+export async function getBlogPostBySlug(locale: string, slug: string) {
+  const blogDirectory = getBlogDirectory(locale);
   const fullPath = path.join(blogDirectory, `${slug}.md`);
   const fileContents = await fs.readFile(fullPath, "utf8");
   const { data, content } = matter(fileContents);
