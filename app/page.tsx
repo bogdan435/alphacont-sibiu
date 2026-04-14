@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionTitle from "@/components/SectionTitle";
 import { homeContent as homeContentRo } from "@/content/home-ro";
 import { homeContent as homeContentEn } from "@/content/home-en";
@@ -23,7 +24,7 @@ export default function Home() {
         <div className="nav-links">
           <a href="#services">Servicii</a>
           <a href="#why">Avantaje</a>
-          <a href="/blog">Blog</a>
+          <Link href="/blog">Blog</Link>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -49,7 +50,6 @@ export default function Home() {
         </div>
       </section>
 
-
       <section id="why">
         <SectionTitle title={homeContent.whyTitle} />
         <ul>
@@ -68,7 +68,6 @@ export default function Home() {
           Trimite email
         </a>
       </section>
-
     </main>
   );
 }

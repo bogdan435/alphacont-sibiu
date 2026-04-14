@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getBlogPosts } from "@/lib/blog";
 
 export default async function BlogPage() {
@@ -18,8 +19,8 @@ export default async function BlogPage() {
           </div>
         </div>
         <div className="nav-links">
-          <a href="/">Acasa</a>
-          <a href="/blog">Blog</a>
+          <Link href="/">Acasa</Link>
+          <Link href="/blog">Blog</Link>
         </div>
       </nav>
 
@@ -34,7 +35,7 @@ export default async function BlogPage() {
         <ul>
           {posts.map((post) => (
             <li key={post.slug}>
-              <a href={`/blog/${post.slug}`}>{post.title}</a>
+              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
               <p>{post.description}</p>
               <small>{post.date}</small>
             </li>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { getBlogPostBySlug } from "@/lib/blog";
 
@@ -24,8 +25,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
         <div className="nav-links">
-          <a href="/">Acasa</a>
-          <a href="/blog">Blog</a>
+          <Link href="/">Acasa</Link>
+          <Link href="/blog">Blog</Link>
         </div>
       </nav>
 
