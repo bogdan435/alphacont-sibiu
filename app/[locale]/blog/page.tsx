@@ -1,10 +1,38 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getBlogPosts } from "@/lib/blog";
+import { getBaseUrl } from "@/lib/seo";
 
 type LocaleBlogPageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: LocaleBlogPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = locale === "en" ? "en" : "ro";
+  const baseUrl = getBaseUrl();
+
+  return {
+    title:
+      safeLocale === "ro"
+        ? "Blog ALPHACONT GROUP | Contabilitate Sibiu"
+        : "ALPHACONT GROUP Blog | Accounting Sibiu",
+    description:
+      safeLocale === "ro"
+        ? "Articole utile despre contabilitate, fiscalitate si salarizare pentru firme din Sibiu."
+        : "Useful articles about accounting, tax, and payroll for businesses in Sibiu.",
+    alternates: {
+      canonical: `${baseUrl}/${safeLocale}/blog`,
+      languages: {
+        ro: `${baseUrl}/ro/blog`,
+        en: `${baseUrl}/en/blog`,
+      },
+    },
+  };
+}
 
 export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
   const { locale } = await params;

@@ -1,11 +1,34 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
 import { getHomeContent } from "@/lib/home";
+import { getBaseUrl, getLocaleMetadata } from "@/lib/seo";
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: LocalePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = locale === "en" ? "en" : "ro";
+  const metadata = getLocaleMetadata(safeLocale);
+  const baseUrl = getBaseUrl();
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    alternates: {
+      canonical: `${baseUrl}/${safeLocale}`,
+      languages: {
+        ro: `${baseUrl}/ro`,
+        en: `${baseUrl}/en`,
+      },
+    },
+  };
+}
 
 export default async function LocalePage({ params }: LocalePageProps) {
   const { locale } = await params;
@@ -31,8 +54,8 @@ export default async function LocalePage({ params }: LocalePageProps) {
         <div className="nav-links">
           <a href="#services">{safeLocale === "ro" ? "Servicii" : "Services"}</a>
           <a href="#why">{safeLocale === "ro" ? "Avantaje" : "Benefits"}</a>
-          <Link href={`//blog`}>Blog</Link>
-          <a href="#contact">{safeLocale === "ro" ? "Contact" : "Contact"}</a>
+          <Link href={`/${safeLocale}/blog`}>Blog</Link>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
 
