@@ -276,3 +276,35 @@ li {
   margin-top: 20px;
   flex-wrap: wrap;
 }
+
+.blog-list li {
+  padding: 20px 0;
+  border-bottom: 1px solid #e5dfd5;
+}
+
+.blog-list li:last-child {
+  border-bottom: none;
+}
+
+.blog-card-link {
+  line-height: 1.2;
+}
+
+.blog-description {
+  max-width: 70ch;
+}
+
+.article-content {
+  max-width: 80ch;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  color: #1f3c3a;
+}
+
+.article-content p,
+.article-content li {
+  color: #2e3837;
+}

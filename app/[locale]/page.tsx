@@ -4,6 +4,7 @@ import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
 import { getHomeContent } from "@/lib/home";
 import { getBaseUrl, getLocaleMetadata } from "@/lib/seo";
+import { getBlogPosts } from "@/lib/blog";
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>;
@@ -34,6 +35,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
   const { locale } = await params;
   const safeLocale = locale === "en" ? "en" : "ro";
   const homeContent = getHomeContent(safeLocale);
+  const latestPosts = (await getBlogPosts(safeLocale)).slice(0, 3);
 
   return (
     <main>
@@ -85,6 +87,26 @@ export default async function LocalePage({ params }: LocalePageProps) {
         <ul>
           {homeContent.whyItems.map((item) => (
             <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <SectionTitle
+          title={safeLocale === "ro" ? "Articole recente" : "Latest articles"}
+        />
+        <ul className="blog-list">
+          {latestPosts.map((post) => (
+            <li key={post.slug}>
+              <Link
+                href={`/${safeLocale}/blog/${post.slug}`}
+                className="blog-card-link"
+              >
+                {post.title}
+              </Link>
+              <p className="blog-description">{post.description}</p>
+              <small className="blog-date">{post.date}</small>
+            </li>
           ))}
         </ul>
       </section>

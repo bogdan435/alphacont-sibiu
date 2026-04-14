@@ -28,7 +28,7 @@ export async function getBlogPosts(locale: string) {
       })
   );
 
-  return posts;
+  return posts.sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export async function getBlogPostBySlug(locale: string, slug: string) {
