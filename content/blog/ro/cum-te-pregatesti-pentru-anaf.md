@@ -1,26 +1,26 @@
 ---
-title: "Cum te pregatesti pentru controale sau verificari ANAF"
-description: "Cateva lucruri esentiale pe care o firma trebuie sa le aiba in ordine pentru a face fata mai usor unei verificari."
+title: "Cum te pregătești pentru controale sau verificări ANAF"
+description: "Câteva lucruri esențiale pe care o firmă trebuie să le aibă în ordine pentru a face față mai ușor unei verificări."
 date: "2026-04-14"
 locale: "ro"
 category: "Fiscalitate"
 tags: ["ANAF", "control", "documente"]
 ---
 
-# Cum te pregatesti pentru controale sau verificari ANAF
+# Cum te pregătești pentru controale sau verificări ANAF
 
-Verificarile fiscale sunt mai usor de gestionat atunci cand documentele firmei sunt ordonate si actualizate.
+Verificările fiscale sunt mai ușor de gestionat atunci când documentele firmei sunt ordonate și actualizate.
 
-## Ce trebuie sa stii
+## Ce trebuie să știi
 
-Pregatirea nu incepe in ziua controlului. Ea incepe prin pastrarea unei evidente clare si prin colaborarea constanta cu partea contabila.
+Pregătirea nu începe în ziua controlului. Ea începe prin păstrarea unei evidențe clare și prin colaborarea constantă cu partea contabilă.
 
-## Documente sau pasi utili
+## Documente sau pași utili
 
 - arhivarea documentelor justificative
-- verificarea contractelor si documentelor de personal
-- pastrarea unei evidente clare a facturilor si platilor
+- verificarea contractelor și documentelor de personal
+- păstrarea unei evidențe clare a facturilor și plăților
 
 ## Concluzie
 
-O firma organizata raspunde mai usor si cu mai putin stres in fata unei verificari.
+O firmă organizată răspunde mai ușor și cu mai puțin stres în fața unei verificări.

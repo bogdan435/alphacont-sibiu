@@ -1,49 +1,50 @@
 export const homeContent = {
-  heroTitle: "ALPHACONT GROUP",
+  heroTitle: "Contabilitate clară pentru firme din Sibiu",
   heroText:
-    "Servicii de contabilitate, salarizare si consultanta fiscala pentru firme din Sibiu.",
+    "Contabilitate, salarizare și consultanță fiscală pentru SRL-uri, PFA-uri și afaceri în creștere.",
   heroSubtext:
-    "Ajutam antreprenori, PFA-uri si societati comerciale sa lucreze mai organizat, sa respecte termenele fiscale si sa aiba mai multa claritate in deciziile financiare.",
-  heroButton: "Solicita o discutie",
-  heroBadge: "Contabilitate si fiscalitate pentru judetul Sibiu",
+    "Ajutăm firme din Sibiu să țină sub control documentele, termenele ANAF și fluxul financiar, fără surprize la final de lună.",
+  heroButton: "Programează o discuție",
+  heroBadge: "ALPHACONT GROUP",
 
   servicesTitle: "Cu ce te putem ajuta",
   services: [
-    "Contabilitate financiara completa pentru firme mici si medii",
-    "Salarizare si administrare de personal",
-    "Consultanta fiscala pentru decizii mai sigure",
-    "Sprijin pentru firme noi si afaceri in crestere",
+    "Contabilitate completă pentru SRL-uri și PFA-uri",
+    "Salarizare și administrare de personal fără erori și întârzieri",
+    "Consultanță fiscală pentru decizii mai sigure",
+    "Suport pentru firme noi: înființare, organizare și flux de documente",
   ],
 
-  whyTitle: "De ce sa lucrezi cu noi",
+  whyTitle: "De ce să lucrezi cu noi",
   whyItems: [
-    "Explicam clar ce ai de facut si ce obligatii trebuie urmarite.",
-    "Respectam termenele si punem ordine in documente si raportari.",
-    "Lucram practic, cu focus pe nevoile reale ale firmelor din Sibiu.",
+    "Lucrăm cu PFA-uri, SRL-uri și microîntreprinderi din Sibiu și din împrejurimi.",
+    "Răspundem, de obicei, în aceeași zi lucrătoare.",
+    "Punem ordine în documente, salarii și termene fiscale.",
+    "Te ajutăm să știi ce taxe urmează și ce ai de pregătit, înainte să apară surprize.",
   ],
-  latestArticlesTitle: "Articole recente",
+  latestArticlesTitle: "Articole utile pentru antreprenori",
 
-  faqTitle: "Intrebari frecvente",
+  faqTitle: "Întrebări frecvente",
   faqs: [
     {
-      question: "Cu ce tipuri de clienti lucrati?",
+      question: "Cu ce tipuri de clienți lucrați?",
       answer:
-        "Lucram cu PFA-uri, firme mici si medii, precum si cu antreprenori aflati la inceput de drum care au nevoie de contabilitate, salarizare si consultanta fiscala.",
+        "Lucrăm cu PFA-uri, SRL-uri și firme mici și medii din Sibiu și din împrejurimi, precum și cu antreprenori aflați la început de drum.",
     },
     {
-      question: "Pot colabora cu voi daca am o firma nou infiintata?",
+      question: "Lucrați și cu firme nou înființate?",
       answer:
-        "Da. Putem ajuta cu organizarea initiala a documentelor, stabilirea fluxului contabil si clarificarea obligatiilor fiscale de baza.",
+        "Da. Te putem ajuta cu organizarea inițială a documentelor, stabilirea fluxului contabil și clarificarea obligațiilor fiscale de bază.",
     },
     {
       question: "Cum transmit documentele pentru contabilitate?",
       answer:
-        "Documentele pot fi transmise organizat, periodic, in format fizic sau digital, astfel incat raportarea si evidenta sa ramana clare si la zi.",
+        "Documentele pot fi transmise organizat, periodic, în format fizic sau digital, astfel încât evidența și raportarea să rămână clare și la zi.",
     },
     {
-      question: "Oferiti si servicii de salarizare?",
+      question: "Oferiți și servicii de salarizare?",
       answer:
-        "Da. Gestionam salarizarea, documentele de personal si obligatiile aferente, astfel incat procesul sa fie corect si predictibil.",
+        "Da. Gestionăm salarizarea, documentele de personal și obligațiile aferente, astfel încât procesul să fie corect și predictibil.",
     },
   ],
 
@@ -53,6 +54,7 @@ export const homeContent = {
   contactPhoneSecondary: "00393347412487",
   contactCity: "Str. Octavian Goga 55, 550370 Sibiu, Jud. Sibiu",
   whatsappNumber: "40721644296",
+  contactPromise: "Răspundem, de obicei, în aceeași zi lucrătoare.",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu",
 };

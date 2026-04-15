@@ -50,12 +50,14 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
             height={66}
           />
           <div className="logo-support">
-            <span>Accounting & Tax</span>
+            <span>
+              {safeLocale === "ro" ? "Contabilitate & Fiscalitate" : "Accounting & Tax"}
+            </span>
           </div>
         </div>
         <div className="topbar-right">
           <div className="nav-links">
-            <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasa" : "Home"}</Link>
+            <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasă" : "Home"}</Link>
             <Link href={`/${safeLocale}/blog`}>Blog</Link>
           </div>
           <div className="language-switch" aria-label="Language switch">
@@ -76,10 +78,9 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
       </nav>
 
       <section className="hero">
-        <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
         <h1>{post.title}</h1>
         <p className="hero-lead">{post.description}</p>
-        <p className="blog-date">{post.date}</p>
+        <p className="blog-date">{post.formattedDate}</p>
         <div className="post-meta">
           <span className="post-category">{post.category}</span>
           <div className="post-tags">
@@ -111,7 +112,7 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
                 {relatedPost.title}
               </Link>
               <p className="blog-description">{relatedPost.description}</p>
-              <small className="blog-date">{relatedPost.date}</small>
+              <small className="blog-date">{relatedPost.formattedDate}</small>
             </li>
           ))}
         </ul>

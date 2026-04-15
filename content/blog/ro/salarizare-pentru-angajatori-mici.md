@@ -1,6 +1,6 @@
 ---
 title: "Salarizare pentru angajatori mici"
-description: "Ce trebuie sa urmareasca un angajator mic in procesul de salarizare si administrare de personal."
+description: "Ce trebuie să urmărească un angajator mic în procesul de salarizare și administrare de personal."
 date: "2026-04-14"
 locale: "ro"
 category: "Salarizare"
@@ -9,18 +9,18 @@ tags: ["salarizare", "angajatori", "personal"]
 
 # Salarizare pentru angajatori mici
 
-Pentru firmele mici, salarizarea trebuie sa fie corecta, predictibila si bine documentata. Chiar si erorile mici pot produce neclaritati si costuri inutile.
+Pentru firmele mici, salarizarea trebuie să fie corectă, predictibilă și bine documentată. Chiar și erorile mici pot produce neclarități și costuri inutile.
 
-## Ce trebuie sa stii
+## Ce trebuie să știi
 
-Procesul de salarizare include nu doar plata efectiva, ci si documentele de personal, calculul corect al sumelor si declaratiile aferente.
+Procesul de salarizare include nu doar plata efectivă, ci și documentele de personal, calculul corect al sumelor și declarațiile aferente.
 
-## Documente sau pasi utili
+## Documente sau pași utili
 
-- contracte de munca actualizate
-- evidenta concediilor si absentelor
-- verificarea statelor de plata inainte de transmitere
+- contracte de muncă actualizate
+- evidența concediilor și absențelor
+- verificarea statelor de plată înainte de transmitere
 
 ## Concluzie
 
-Un proces bine organizat de salarizare ajuta firma sa lucreze mai sigur si mai eficient.
+Un proces bine organizat de salarizare ajută firma să lucreze mai sigur și mai eficient.

@@ -1,26 +1,26 @@
 ---
-title: "Greseli contabile frecvente in firmele mici"
-description: "Cateva dintre cele mai comune greseli contabile care apar in activitatea firmelor mici si cum pot fi evitate."
+title: "Greșeli contabile frecvente în firmele mici"
+description: "Câteva dintre cele mai comune greșeli contabile care apar în activitatea firmelor mici și cum pot fi evitate."
 date: "2026-04-14"
 locale: "ro"
 category: "Contabilitate"
-tags: ["greseli", "contabilitate", "firma mica"]
+tags: ["greșeli", "contabilitate", "firmă mică"]
 ---
 
-# Greseli contabile frecvente in firmele mici
+# Greșeli contabile frecvente în firmele mici
 
-Multe firme mici se confrunta cu probleme repetitive in organizarea documentelor si transmiterea informatiilor contabile.
+Multe firme mici se confruntă cu probleme repetitive în organizarea documentelor și transmiterea informațiilor contabile.
 
-## Ce trebuie sa stii
+## Ce trebuie să știi
 
-Cele mai multe greseli nu apar din rea intentie, ci din lipsa de timp, claritate sau proceduri simple. Tocmai de aceea, organizarea constanta conteaza mult.
+Cele mai multe greșeli nu apar din rea intenție, ci din lipsă de timp, claritate sau proceduri simple. Tocmai de aceea, organizarea constantă contează mult.
 
-## Documente sau pasi utili
+## Documente sau pași utili
 
-- centralizarea documentelor lunar, nu intamplator
-- verificarea facturilor lipsa
-- pastrarea unui flux clar intre firma si contabilitate
+- centralizarea documentelor lunar, nu întâmplător
+- verificarea facturilor lipsă
+- păstrarea unui flux clar între firmă și contabilitate
 
 ## Concluzie
 
-Evitarea greselilor contabile incepe cu o rutina simpla si bine urmata.
+Evitarea greșelilor contabile începe cu o rutină simplă și bine urmată.

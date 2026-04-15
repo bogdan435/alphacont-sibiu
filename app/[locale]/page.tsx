@@ -46,7 +46,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
 
   const trustItems =
     safeLocale === "ro"
-      ? ["Sibiu", "Contabilitate", "Salarizare", "Fiscalitate"]
+      ? ["SRL-uri", "PFA-uri", "Salarizare", "Fiscalitate"]
       : ["Sibiu", "Accounting", "Payroll", "Tax"];
 
   return (
@@ -74,7 +74,9 @@ export default async function LocalePage({ params }: LocalePageProps) {
             height={66}
           />
           <div className="logo-support">
-            <span>Accounting & Tax</span>
+            <span>
+              {safeLocale === "ro" ? "Contabilitate & Fiscalitate" : "Accounting & Tax"}
+            </span>
           </div>
         </div>
         <div className="topbar-right">
@@ -104,7 +106,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
       <section className="hero hero-redesign">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
             <p className="hero-badge">{homeContent.heroBadge}</p>
             <h1>{homeContent.heroTitle}</h1>
             <p className="hero-lead">{homeContent.heroText}</p>
@@ -122,8 +123,8 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </p>
             <p className="hero-panel-text">
               {safeLocale === "ro"
-                ? "Lucram simplu, clar si organizat pentru firme care vor ordine in documente si liniste in termenele fiscale."
-                : "We work in a clear and practical way for businesses that want order in their documents and confidence around deadlines."}
+                ? "Lucrăm direct și clar pentru firme care vor să știe ce taxe urmează, cum se organizează documentele și ce au de făcut mai departe."
+                : "We work in a direct and practical way for businesses that want clarity around documents, tax deadlines, and next steps."}
             </p>
             <div className="trust-list">
               {trustItems.map((item) => (
@@ -146,7 +147,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
           </div>
           <p className="split-copy">
             {safeLocale === "ro"
-              ? "Contabilitate, salarizare si consultanta fiscala pentru firme care au nevoie de structurare mai buna si decizii mai clare."
+              ? "Contabilitate, salarizare și consultanță fiscală pentru firme care au nevoie de mai multă ordine și de decizii mai sigure."
               : "Accounting, payroll, and tax advisory for businesses that need better structure and clearer decisions."}
           </p>
         </div>
@@ -170,7 +171,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
           </div>
           <p className="split-copy">
             {safeLocale === "ro"
-              ? "Mai putine explicatii complicate, mai multa claritate practica pentru administrarea financiara a firmei."
+              ? "Mai puține explicații complicate și mai multă claritate practică pentru documente, salarii și obligații fiscale."
               : "Less unnecessary complexity, more practical clarity for the financial side of your business."}
           </p>
         </div>
@@ -192,7 +193,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
           <div className="blog-section-copy">
             <p className="split-copy">
               {safeLocale === "ro"
-                ? "Articole scurte si practice pentru PFA-uri, SRL-uri si firme care vor sa inteleaga mai bine obligatiile contabile si fiscale."
+                ? "Articole scurte și practice pentru PFA-uri, SRL-uri și firme care vor să înțeleagă mai bine obligațiile contabile și fiscale."
                 : "Short, practical articles for sole traders and companies that want to better understand accounting and tax obligations."}
             </p>
             <Link href={`/${safeLocale}/blog`} className="blog-section-link">
@@ -204,7 +205,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
         {featuredPost ? (
           <div className="blog-preview-layout">
             <article className="featured-article">
-              <small className="blog-date">{featuredPost.date}</small>
+              <small className="blog-date">{featuredPost.formattedDate}</small>
               <Link
                 href={`/${safeLocale}/blog/${featuredPost.slug}`}
                 className="featured-article-link"
@@ -217,7 +218,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
             <div className="secondary-articles">
               {secondaryPosts.map((post) => (
                 <article key={post.slug} className="secondary-article">
-                  <small className="blog-date">{post.date}</small>
+                  <small className="blog-date">{post.formattedDate}</small>
                   <Link
                     href={`/${safeLocale}/blog/${post.slug}`}
                     className="secondary-article-link"
@@ -239,7 +240,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
           </div>
           <p className="split-copy">
             {safeLocale === "ro"
-              ? "Cateva raspunsuri rapide pentru intrebarile care apar cel mai des la inceputul unei colaborari."
+              ? "Câteva răspunsuri rapide pentru întrebările care apar cel mai des la începutul unei colaborări."
               : "A few quick answers to the questions that appear most often at the start of a collaboration."}
           </p>
         </div>
@@ -258,34 +259,45 @@ export default async function LocalePage({ params }: LocalePageProps) {
           <div className="contact-copy">
             <p className="section-kicker">Contact</p>
             <p className="contact-urgency">
-              {safeLocale === "ro" ? "Raspuns rapid" : "Fast response"}
+              {safeLocale === "ro" ? "Răspuns rapid" : "Fast response"}
             </p>
             <SectionTitle
               title={
                 safeLocale === "ro"
-                  ? "Solicita o discutie clara si directa"
-                  : "Request a clear and direct consultation"
+                  ? "Hai să discutăm despre firma ta"
+                  : "Let’s talk about your business"
               }
             />
             <p className="contact-lead">
               {safeLocale === "ro"
-                ? "Daca ai nevoie de sprijin pentru contabilitate, salarizare sau fiscalitate, ne poti scrie direct si iti raspundem rapid."
+                ? "Dacă ai nevoie de sprijin pentru contabilitate, salarizare sau fiscalitate, ne poți scrie direct și îți răspundem rapid."
                 : "If you need support with accounting, payroll, or tax matters, write to us directly and we will reply promptly."}
             </p>
+            <p className="contact-promise">{homeContent.contactPromise}</p>
             <div className="contact-primary-actions">
               <a
                 href={`mailto:${homeContent.contactEmail}`}
                 className="button contact-button-primary"
               >
-                {safeLocale === "ro" ? "Trimite un email" : "Send an email"}
+                {safeLocale === "ro" ? "Cere o ofertă" : "Request a quote"}
               </a>
+            </div>
+            <div className="contact-secondary-actions">
               <a
                 href={`https://wa.me/${homeContent.whatsappNumber}`}
-                className="button contact-button-secondary"
+                className="contact-secondary-link whatsapp-link"
                 target="_blank"
                 rel="noreferrer"
               >
-                {safeLocale === "ro" ? "WhatsApp" : "WhatsApp"}
+                {safeLocale === "ro" ? "Scrie pe WhatsApp" : "Message us on WhatsApp"}
+              </a>
+              <a
+                href={homeContent.mapsUrl}
+                className="contact-secondary-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Google Maps
               </a>
             </div>
           </div>
@@ -299,33 +311,26 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </div>
 
             <div className="contact-row">
-              <p className="contact-label">{safeLocale === "ro" ? "Telefon" : "Phone"}</p>
-              <div className="contact-phone-buttons">
-                <a href={`tel:${homeContent.contactPhone}`} className="phone-button">
-                  <span className="phone-country">RO</span>
-                  <span>{primaryPhoneDisplay}</span>
-                </a>
-                <a href={`tel:${homeContent.contactPhoneSecondary}`} className="phone-button">
-                  <span className="phone-country">IT</span>
-                  <span>{secondaryPhoneDisplay}</span>
-                </a>
-              </div>
+              <p className="contact-label">
+                {safeLocale === "ro" ? "Telefon România" : "Romania phone"}
+              </p>
+              <a href={`tel:${homeContent.contactPhone}`} className="contact-value">
+                {primaryPhoneDisplay}
+              </a>
+            </div>
+
+            <div className="contact-row">
+              <p className="contact-label">
+                {safeLocale === "ro" ? "Telefon Italia" : "Italy phone"}
+              </p>
+              <a href={`tel:${homeContent.contactPhoneSecondary}`} className="contact-value">
+                {secondaryPhoneDisplay}
+              </a>
             </div>
 
             <div className="contact-row">
               <p className="contact-label">{safeLocale === "ro" ? "Adresa" : "Address"}</p>
               <p className="contact-value">{homeContent.contactCity}</p>
-            </div>
-
-            <div className="contact-actions">
-              <a
-                href={homeContent.mapsUrl}
-                className="contact-link contact-link-compact"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Google Maps
-              </a>
             </div>
           </div>
         </div>

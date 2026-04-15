@@ -1,6 +1,6 @@
 ---
 title: "Contabilitate PFA Sibiu"
-description: "Ce trebuie sa stie un PFA din Sibiu despre contabilitate, taxe si evidenta documentelor."
+description: "Ce trebuie să știe un PFA din Sibiu despre contabilitate, taxe și evidența documentelor."
 date: "2026-04-14"
 locale: "ro"
 category: "PFA"
@@ -9,18 +9,18 @@ tags: ["contabilitate", "PFA", "Sibiu"]
 
 # Contabilitate PFA Sibiu
 
-Un PFA din Sibiu are nevoie de o evidenta clara a veniturilor, cheltuielilor si documentelor justificative. O organizare buna reduce erorile si ajuta la respectarea termenelor fiscale.
+Un PFA din Sibiu are nevoie de o evidență clară a veniturilor, cheltuielilor și documentelor justificative. O organizare bună reduce erorile și ajută la respectarea termenelor fiscale.
 
-## Ce trebuie sa stii
+## Ce trebuie să știi
 
-Activitatea unui PFA trebuie urmarita constant, nu doar inainte de depunerea declaratiilor. Documentele trebuie pastrate ordonat si verificate periodic.
+Activitatea unui PFA trebuie urmărită constant, nu doar înainte de depunerea declarațiilor. Documentele trebuie păstrate ordonat și verificate periodic.
 
-## Documente sau pasi utili
+## Documente sau pași utili
 
 - facturi emise si primite
-- chitante si extrase bancare
-- centralizare lunara a veniturilor si cheltuielilor
+- chitanțe și extrase bancare
+- centralizare lunară a veniturilor și cheltuielilor
 
 ## Concluzie
 
-O evidenta contabila bine tinuta ajuta un PFA sa evite probleme si sa ia decizii mai bune.
+O evidență contabilă bine ținută ajută un PFA să evite probleme și să ia decizii mai bune.

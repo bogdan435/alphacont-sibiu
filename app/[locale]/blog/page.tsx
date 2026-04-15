@@ -22,7 +22,7 @@ export async function generateMetadata({
         : "ALPHACONT GROUP Blog | Accounting Sibiu",
     description:
       safeLocale === "ro"
-        ? "Articole utile despre contabilitate, fiscalitate si salarizare pentru firme din Sibiu."
+        ? "Articole utile despre contabilitate, fiscalitate și salarizare pentru firme din Sibiu."
         : "Useful articles about accounting, tax, and payroll for businesses in Sibiu.",
     alternates: {
       canonical: `${baseUrl}/${safeLocale}/blog`,
@@ -51,12 +51,14 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
             height={66}
           />
           <div className="logo-support">
-            <span>Accounting & Tax</span>
+            <span>
+              {safeLocale === "ro" ? "Contabilitate & Fiscalitate" : "Accounting & Tax"}
+            </span>
           </div>
         </div>
         <div className="topbar-right">
           <div className="nav-links">
-            <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasa" : "Home"}</Link>
+            <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasă" : "Home"}</Link>
             <Link href={`/${safeLocale}/blog`}>Blog</Link>
           </div>
           <div className="language-switch" aria-label="Language switch">
@@ -76,32 +78,31 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
         </div>
       </nav>
 
-      <section className="hero">
-        <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
+      <section className="hero blog-hero">
         <h1>{safeLocale === "ro" ? "Blog ALPHACONT GROUP" : "ALPHACONT GROUP Blog"}</h1>
         <p className="hero-lead">
           {safeLocale === "ro"
-            ? "Articole utile pentru antreprenori, PFA-uri si firme din Sibiu."
+            ? "Articole utile pentru antreprenori, PFA-uri și firme din Sibiu."
             : "Useful articles for entrepreneurs, sole traders, and companies in Sibiu."}
         </p>
       </section>
 
-      <section>
+      <section className="content-section">
         <div className="section-header">
           <p className="section-kicker">Blog</p>
           <h2>{safeLocale === "ro" ? "Articole disponibile" : "Available articles"}</h2>
         </div>
-        <ul className="blog-list">
+        <div className="blog-index-grid">
           {posts.map((post) => (
-            <li key={post.slug}>
+            <article key={post.slug} className="blog-index-card">
+              <small className="blog-date">{post.formattedDate}</small>
               <Link href={`/${safeLocale}/blog/${post.slug}`} className="blog-card-link">
                 {post.title}
               </Link>
               <p className="blog-description">{post.description}</p>
-              <small className="blog-date">{post.date}</small>
-            </li>
+            </article>
           ))}
-        </ul>
+        </div>
       </section>
     </main>
   );

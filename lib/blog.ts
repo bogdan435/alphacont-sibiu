@@ -12,9 +12,26 @@ type BlogPostMeta = {
   title: string;
   description: string;
   date: string;
+  formattedDate: string;
   category: string;
   tags: string[];
 };
+
+export function formatBlogDate(date: string, locale: string) {
+  const safeLocale = locale === "en" ? "en-GB" : "ro-RO";
+  const parsed = new Date(`${date}T12:00:00Z`);
+
+  if (Number.isNaN(parsed.getTime())) {
+    return date;
+  }
+
+  return new Intl.DateTimeFormat(safeLocale, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(parsed);
+}
 
 export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
   const blogDirectory = getBlogDirectory(locale);
@@ -33,6 +50,7 @@ export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
           title: data.title || file.replace(".md", "").replace(/-/g, " "),
           description: data.description || "",
           date: data.date || "",
+          formattedDate: formatBlogDate(data.date || "", locale),
           category: data.category || "",
           tags: Array.isArray(data.tags) ? data.tags : [],
         };
@@ -53,6 +71,7 @@ export async function getBlogPostBySlug(locale: string, slug: string) {
     title: data.title || slug.replace(/-/g, " "),
     description: data.description || "",
     date: data.date || "",
+    formattedDate: formatBlogDate(data.date || "", locale),
     category: data.category || "",
     tags: Array.isArray(data.tags) ? data.tags : [],
     content,

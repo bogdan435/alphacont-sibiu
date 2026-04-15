@@ -1,26 +1,26 @@
 ---
-title: "Cand merita sa externalizezi contabilitatea"
-description: "Semnele care arata ca o firma mica sau medie are nevoie de un partener extern pentru contabilitate."
+title: "Când merită să externalizezi contabilitatea"
+description: "Semnele care arată că o firmă mică sau medie are nevoie de un partener extern pentru contabilitate."
 date: "2026-04-14"
 locale: "ro"
-category: "Consultanta"
+category: "Consultanță"
 tags: ["externalizare", "contabilitate", "business"]
 ---
 
-# Cand merita sa externalizezi contabilitatea
+# Când merită să externalizezi contabilitatea
 
-Multe firme incep prin a gestiona contabilitatea intr-un mod minim, dar pe masura ce activitatea creste apar riscuri si blocaje.
+Multe firme încep prin a gestiona contabilitatea într-un mod minim, dar pe măsură ce activitatea crește apar riscuri și blocaje.
 
-## Ce trebuie sa stii
+## Ce trebuie să știi
 
-Externalizarea devine utila atunci cand timpul intern se pierde pe documente, termene si clarificari fiscale in loc sa fie folosit pentru dezvoltarea afacerii.
+Externalizarea devine utilă atunci când timpul intern se pierde pe documente, termene și clarificări fiscale în loc să fie folosit pentru dezvoltarea afacerii.
 
-## Documente sau pasi utili
+## Documente sau pași utili
 
-- verifica volumul lunar de documente
-- analizeaza cate intrebari fiscale apar frecvent
-- estimeaza timpul pierdut cu administrarea interna
+- verifică volumul lunar de documente
+- analizează câte întrebări fiscale apar frecvent
+- estimează timpul pierdut cu administrarea internă
 
 ## Concluzie
 
-Un partener extern poate aduce ordine, predictibilitate si mai multa claritate financiara.
+Un partener extern poate aduce ordine, predictibilitate și mai multă claritate financiară.

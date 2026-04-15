@@ -1,26 +1,26 @@
 ---
-title: "Declaratii fiscale pentru o firma mica"
-description: "Ce declaratii fiscale trebuie urmarite de o firma mica si de ce conteaza organizarea lor corecta."
+title: "Declarații fiscale pentru o firmă mică"
+description: "Ce declarații fiscale trebuie urmărite de o firmă mică și de ce contează organizarea lor corectă."
 date: "2026-04-14"
 locale: "ro"
 category: "Fiscalitate"
-tags: ["declaratii", "fiscalitate", "firma mica"]
+tags: ["declarații", "fiscalitate", "firmă mică"]
 ---
 
-# Declaratii fiscale pentru o firma mica
+# Declarații fiscale pentru o firmă mică
 
-O firma mica trebuie sa urmareasca atent declaratiile fiscale si termenele asociate acestora. Lipsa unei organizari clare poate duce la erori, intarzieri si costuri suplimentare.
+O firmă mică trebuie să urmărească atent declarațiile fiscale și termenele asociate acestora. Lipsa unei organizări clare poate duce la erori, întârzieri și costuri suplimentare.
 
-## Ce trebuie sa stii
+## Ce trebuie să știi
 
-Declaratiile nu trebuie tratate doar ca o obligatie administrativa. Ele influenteaza modul in care firma isi mentine conformitatea si evita problemele ulterioare.
+Declarațiile nu trebuie tratate doar ca o obligație administrativă. Ele influențează modul în care firma își menține conformitatea și evită problemele ulterioare.
 
-## Documente sau pasi utili
+## Documente sau pași utili
 
 - stabilirea unui calendar fiscal clar
-- verificarea periodica a documentelor justificative
-- colaborarea constanta cu contabilitatea
+- verificarea periodică a documentelor justificative
+- colaborarea constantă cu contabilitatea
 
 ## Concluzie
 
-O evidenta buna si termenele respectate reduc riscurile si ofera mai multa stabilitate firmei.
+O evidență bună și termenele respectate reduc riscurile și oferă mai multă stabilitate firmei.
