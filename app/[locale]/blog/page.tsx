@@ -47,9 +47,12 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
             src="/logo-blue.svg"
             alt="ALPHACONT GROUP logo"
             className="logo-image"
-            width={280}
-            height={77}
+            width={240}
+            height={66}
           />
+          <div className="logo-support">
+            <span>Accounting & Tax</span>
+          </div>
         </div>
         <div className="topbar-right">
           <div className="nav-links">

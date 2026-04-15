@@ -37,8 +37,17 @@ export default async function LocalePage({ params }: LocalePageProps) {
   const safeLocale = locale === "en" ? "en" : "ro";
   const homeContent = getHomeContent(safeLocale);
   const latestPosts = (await getBlogPosts(safeLocale)).slice(0, 3);
+  const [featuredPost, ...secondaryPosts] = latestPosts;
   const localBusinessSchema = getLocalBusinessSchema(safeLocale);
   const faqSchema = getFaqSchema(homeContent.faqs);
+
+  const primaryPhoneDisplay = "+40 721 644 296";
+  const secondaryPhoneDisplay = "+39 334 741 2487";
+
+  const trustItems =
+    safeLocale === "ro"
+      ? ["Sibiu", "Contabilitate", "Salarizare", "Fiscalitate"]
+      : ["Sibiu", "Accounting", "Payroll", "Tax"];
 
   return (
     <main>
@@ -61,9 +70,12 @@ export default async function LocalePage({ params }: LocalePageProps) {
             src="/logo-blue.svg"
             alt="ALPHACONT GROUP logo"
             className="logo-image"
-            width={280}
-            height={77}
+            width={240}
+            height={66}
           />
+          <div className="logo-support">
+            <span>Accounting & Tax</span>
+          </div>
         </div>
         <div className="topbar-right">
           <div className="nav-links">
@@ -89,111 +101,147 @@ export default async function LocalePage({ params }: LocalePageProps) {
         </div>
       </nav>
 
-      <section className="hero">
-        <div className="hero-layout">
+      <section className="hero hero-redesign">
+        <div className="hero-grid">
           <div className="hero-copy">
             <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
             <p className="hero-badge">{homeContent.heroBadge}</p>
             <h1>{homeContent.heroTitle}</h1>
             <p className="hero-lead">{homeContent.heroText}</p>
-            <p>{homeContent.heroSubtext}</p>
+            <p className="hero-summary">{homeContent.heroSubtext}</p>
             <div className="hero-actions">
               <a href="#contact" className="button">
                 {homeContent.heroButton}
               </a>
-              <Link href={`/${safeLocale}/blog`} className="button button-secondary">
-                {safeLocale === "ro" ? "Citeste articole" : "Read articles"}
-              </Link>
             </div>
           </div>
 
-          <div className="hero-sidecard">
-            <p className="sidecard-label">
-              {safeLocale === "ro" ? "Pentru companii din Sibiu" : "For businesses in Sibiu"}
+          <div className="hero-panel">
+            <p className="section-kicker hero-panel-kicker">
+              {safeLocale === "ro" ? "Sprijin local" : "Local support"}
             </p>
-            <h2>
+            <p className="hero-panel-text">
               {safeLocale === "ro"
-                ? "Ordine in acte, claritate in cifre, mai putin stres administrativ."
-                : "Order in documents, clarity in numbers, less administrative stress."}
-            </h2>
-            <ul className="hero-points">
-              <li>
-                {safeLocale === "ro"
-                  ? "Contabilitate, salarizare si fiscalitate intr-un singur loc"
-                  : "Accounting, payroll, and tax support in one place"}
-              </li>
-              <li>
-                {safeLocale === "ro"
-                  ? "Comunicare clara pentru antreprenori si firme locale"
-                  : "Clear communication for entrepreneurs and local companies"}
-              </li>
-              <li>
-                {safeLocale === "ro"
-                  ? "Sprijin practic pentru firme noi si afaceri in crestere"
-                  : "Practical support for new and growing businesses"}
-              </li>
-            </ul>
+                ? "Lucram simplu, clar si organizat pentru firme care vor ordine in documente si liniste in termenele fiscale."
+                : "We work in a clear and practical way for businesses that want order in their documents and confidence around deadlines."}
+            </p>
+            <div className="trust-list">
+              {trustItems.map((item) => (
+                <span key={item} className="trust-item">
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="services">
-        <div className="section-header">
-          <p className="section-kicker">
-            {safeLocale === "ro" ? "Servicii" : "Services"}
+      <section id="services" className="content-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Servicii" : "Services"}
+            </p>
+            <SectionTitle title={homeContent.servicesTitle} />
+          </div>
+          <p className="split-copy">
+            {safeLocale === "ro"
+              ? "Contabilitate, salarizare si consultanta fiscala pentru firme care au nevoie de structurare mai buna si decizii mai clare."
+              : "Accounting, payroll, and tax advisory for businesses that need better structure and clearer decisions."}
           </p>
-          <SectionTitle title={homeContent.servicesTitle} />
         </div>
         <div className="services-grid">
-          {homeContent.services.map((service) => (
-            <div key={service} className="service-card">
+          {homeContent.services.map((service, index) => (
+            <article key={service} className="service-card">
+              <span className="service-number">0{index + 1}</span>
               <p>{service}</p>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <section id="why">
-        <div className="section-header">
-          <p className="section-kicker">
-            {safeLocale === "ro" ? "De ce ALPHACONT GROUP" : "Why ALPHACONT GROUP"}
+      <section id="why" className="content-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "De ce ALPHACONT GROUP" : "Why ALPHACONT GROUP"}
+            </p>
+            <SectionTitle title={homeContent.whyTitle} />
+          </div>
+          <p className="split-copy">
+            {safeLocale === "ro"
+              ? "Mai putine explicatii complicate, mai multa claritate practica pentru administrarea financiara a firmei."
+              : "Less unnecessary complexity, more practical clarity for the financial side of your business."}
           </p>
-          <SectionTitle title={homeContent.whyTitle} />
         </div>
         <div className="benefit-grid">
           {homeContent.whyItems.map((item) => (
-            <div key={item} className="benefit-card">
+            <article key={item} className="benefit-card">
               <p>{item}</p>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <section>
-        <div className="section-header">
-          <p className="section-kicker">Blog</p>
-          <SectionTitle title={homeContent.latestArticlesTitle} />
+      <section className="content-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">Blog</p>
+            <SectionTitle title={homeContent.latestArticlesTitle} />
+          </div>
+          <div className="blog-section-copy">
+            <p className="split-copy">
+              {safeLocale === "ro"
+                ? "Articole scurte si practice pentru PFA-uri, SRL-uri si firme care vor sa inteleaga mai bine obligatiile contabile si fiscale."
+                : "Short, practical articles for sole traders and companies that want to better understand accounting and tax obligations."}
+            </p>
+            <Link href={`/${safeLocale}/blog`} className="blog-section-link">
+              {safeLocale === "ro" ? "Vezi toate articolele" : "See all articles"}
+            </Link>
+          </div>
         </div>
-        <ul className="blog-list">
-          {latestPosts.map((post) => (
-            <li key={post.slug}>
+
+        {featuredPost ? (
+          <div className="blog-preview-layout">
+            <article className="featured-article">
+              <small className="blog-date">{featuredPost.date}</small>
               <Link
-                href={`/${safeLocale}/blog/${post.slug}`}
-                className="blog-card-link"
+                href={`/${safeLocale}/blog/${featuredPost.slug}`}
+                className="featured-article-link"
               >
-                {post.title}
+                {featuredPost.title}
               </Link>
-              <p className="blog-description">{post.description}</p>
-              <small className="blog-date">{post.date}</small>
-            </li>
-          ))}
-        </ul>
+              <p className="featured-article-copy">{featuredPost.description}</p>
+            </article>
+
+            <div className="secondary-articles">
+              {secondaryPosts.map((post) => (
+                <article key={post.slug} className="secondary-article">
+                  <small className="blog-date">{post.date}</small>
+                  <Link
+                    href={`/${safeLocale}/blog/${post.slug}`}
+                    className="secondary-article-link"
+                  >
+                    {post.title}
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </section>
 
-      <section>
-        <div className="section-header">
-          <p className="section-kicker">FAQ</p>
-          <SectionTitle title={homeContent.faqTitle} />
+      <section className="content-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">FAQ</p>
+            <SectionTitle title={homeContent.faqTitle} />
+          </div>
+          <p className="split-copy">
+            {safeLocale === "ro"
+              ? "Cateva raspunsuri rapide pentru intrebarile care apar cel mai des la inceputul unei colaborari."
+              : "A few quick answers to the questions that appear most often at the start of a collaboration."}
+          </p>
         </div>
         <div className="faq-list">
           {homeContent.faqs.map((faq) => (
@@ -205,45 +253,78 @@ export default async function LocalePage({ params }: LocalePageProps) {
         </div>
       </section>
 
-      <section id="contact" className="contact-section">
+      <section id="contact" className="contact-section contact-redesign">
         <div className="contact-layout">
           <div className="contact-copy">
             <p className="section-kicker">Contact</p>
-            <SectionTitle title={homeContent.contactTitle} />
-            <p>
-              {safeLocale === "ro"
-                ? "Daca vrei sa discutam despre contabilitate, salarizare sau organizarea financiara a firmei, ne poti contacta direct."
-                : "If you want to discuss accounting, payroll, or the financial organization of your business, contact us directly."}
+            <p className="contact-urgency">
+              {safeLocale === "ro" ? "Raspuns rapid" : "Fast response"}
             </p>
-          </div>
-
-          <div className="contact-card">
-            <p className="contact-label">Email</p>
-            <p>{homeContent.contactEmail}</p>
-            <p className="contact-label">{safeLocale === "ro" ? "Telefon" : "Phone"}</p>
-            <p>{homeContent.contactPhone}</p>
-            <p>{homeContent.contactPhoneSecondary}</p>
-            <p className="contact-label">{safeLocale === "ro" ? "Adresa" : "Address"}</p>
-            <p>{homeContent.contactCity}</p>
-            <div className="contact-actions">
-              <a href={`mailto:${homeContent.contactEmail}`} className="contact-link">
-                {safeLocale === "ro" ? "Trimite email" : "Send email"}
+            <SectionTitle
+              title={
+                safeLocale === "ro"
+                  ? "Solicita o discutie clara si directa"
+                  : "Request a clear and direct consultation"
+              }
+            />
+            <p className="contact-lead">
+              {safeLocale === "ro"
+                ? "Daca ai nevoie de sprijin pentru contabilitate, salarizare sau fiscalitate, ne poti scrie direct si iti raspundem rapid."
+                : "If you need support with accounting, payroll, or tax matters, write to us directly and we will reply promptly."}
+            </p>
+            <div className="contact-primary-actions">
+              <a
+                href={`mailto:${homeContent.contactEmail}`}
+                className="button contact-button-primary"
+              >
+                {safeLocale === "ro" ? "Trimite un email" : "Send an email"}
               </a>
               <a
                 href={`https://wa.me/${homeContent.whatsappNumber}`}
-                className="contact-link"
+                className="button contact-button-secondary"
                 target="_blank"
                 rel="noreferrer"
               >
-                {safeLocale === "ro" ? "Scrie pe WhatsApp" : "Message on WhatsApp"}
+                {safeLocale === "ro" ? "WhatsApp" : "WhatsApp"}
               </a>
+            </div>
+          </div>
+
+          <div className="contact-card">
+            <div className="contact-row">
+              <p className="contact-label">Email</p>
+              <a href={`mailto:${homeContent.contactEmail}`} className="contact-value">
+                {homeContent.contactEmail}
+              </a>
+            </div>
+
+            <div className="contact-row">
+              <p className="contact-label">{safeLocale === "ro" ? "Telefon" : "Phone"}</p>
+              <div className="contact-phone-buttons">
+                <a href={`tel:${homeContent.contactPhone}`} className="phone-button">
+                  <span className="phone-country">RO</span>
+                  <span>{primaryPhoneDisplay}</span>
+                </a>
+                <a href={`tel:${homeContent.contactPhoneSecondary}`} className="phone-button">
+                  <span className="phone-country">IT</span>
+                  <span>{secondaryPhoneDisplay}</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="contact-row">
+              <p className="contact-label">{safeLocale === "ro" ? "Adresa" : "Address"}</p>
+              <p className="contact-value">{homeContent.contactCity}</p>
+            </div>
+
+            <div className="contact-actions">
               <a
                 href={homeContent.mapsUrl}
-                className="contact-link"
+                className="contact-link contact-link-compact"
                 target="_blank"
                 rel="noreferrer"
               >
-                {safeLocale === "ro" ? "Vezi pe Google Maps" : "Open in Google Maps"}
+                Google Maps
               </a>
             </div>
           </div>
