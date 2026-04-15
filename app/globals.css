@@ -79,34 +79,13 @@ li {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #18388b;
 }
 
 .logo-image {
-  width: 190px;
+  width: 280px;
   height: auto;
   display: block;
   flex-shrink: 0;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-
-.logo-text strong {
-  font-size: 22px;
-}
-
-.logo-text span {
-  margin-top: 4px;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #54627d;
 }
 
 .nav-links {
@@ -378,6 +357,20 @@ li {
   flex-wrap: wrap;
 }
 
+.intro-card {
+  padding: 40px;
+}
+
+.intro-lead {
+  max-width: 34ch;
+  color: #43506a;
+}
+
+.intro-button {
+  background: #18388b;
+  color: white;
+}
+
 .article-content {
   max-width: 80ch;
   padding-top: 40px;
@@ -423,7 +416,7 @@ li {
   }
 
   .logo-image {
-    width: 150px;
+    width: 220px;
   }
 
   .hero-layout,

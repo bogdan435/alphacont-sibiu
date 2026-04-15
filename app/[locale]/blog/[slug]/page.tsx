@@ -46,13 +46,9 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
             src="/logo-blue.svg"
             alt="ALPHACONT GROUP logo"
             className="logo-image"
-            width={190}
-            height={52}
+            width={280}
+            height={77}
           />
-          <div className="logo-text">
-            <strong>ALPHACONT GROUP</strong>
-            <span>Accounting & Tax</span>
-          </div>
         </div>
         <div className="nav-links">
           <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasa" : "Home"}</Link>

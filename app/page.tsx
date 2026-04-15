@@ -4,29 +4,27 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      <section className="hero">
+      <section className="intro-card">
         <div className="logo">
           <Image
             src="/logo-blue.svg"
             alt="ALPHACONT GROUP logo"
             className="logo-image"
-            width={190}
-            height={52}
+            width={280}
+            height={77}
           />
-          <div className="logo-text">
-            <strong>ALPHACONT GROUP</strong>
-            <span>Accounting & Tax</span>
-          </div>
         </div>
 
         <h1>Alege limba / Choose language</h1>
-        <p>Selecteaza versiunea site-ului pe care vrei sa o vizitezi.</p>
+        <p className="intro-lead">
+          Selecteaza versiunea site-ului pe care vrei sa o vizitezi.
+        </p>
 
         <div className="language-links">
-          <Link href="/ro" className="button">
+          <Link href="/ro" className="button intro-button">
             Romana
           </Link>
-          <Link href="/en" className="button">
+          <Link href="/en" className="button intro-button">
             English
           </Link>
         </div>

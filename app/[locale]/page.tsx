@@ -61,13 +61,9 @@ export default async function LocalePage({ params }: LocalePageProps) {
             src="/logo-blue.svg"
             alt="ALPHACONT GROUP logo"
             className="logo-image"
-            width={190}
-            height={52}
+            width={280}
+            height={77}
           />
-          <div className="logo-text">
-            <strong>ALPHACONT GROUP</strong>
-            <span>Accounting & Tax</span>
-          </div>
         </div>
         <div className="nav-links">
           <a href="#services">{safeLocale === "ro" ? "Servicii" : "Services"}</a>
