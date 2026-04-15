@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
+import SiteFooter from "@/components/SiteFooter";
 import { getHomeContent } from "@/lib/home";
 import { getBaseUrl, getLocaleMetadata } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
@@ -35,6 +36,7 @@ export async function generateMetadata({
 export default async function LocalePage({ params }: LocalePageProps) {
   const { locale } = await params;
   const safeLocale = locale === "en" ? "en" : "ro";
+  const baseUrl = getBaseUrl();
   const homeContent = getHomeContent(safeLocale);
   const latestPosts = (await getBlogPosts(safeLocale)).slice(0, 3);
   const [featuredPost, ...secondaryPosts] = latestPosts;
@@ -43,11 +45,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
 
   const primaryPhoneDisplay = "+40 721 644 296";
   const secondaryPhoneDisplay = "+39 334 741 2487";
-
-  const trustItems =
-    safeLocale === "ro"
-      ? ["SRL-uri", "PFA-uri", "Salarizare", "Fiscalitate"]
-      : ["Sibiu", "Accounting", "Payroll", "Tax"];
 
   return (
     <main>
@@ -104,36 +101,45 @@ export default async function LocalePage({ params }: LocalePageProps) {
       </nav>
 
       <section className="hero hero-redesign">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <h1>{homeContent.heroTitle}</h1>
-            <p className="hero-lead">{homeContent.heroText}</p>
-            <p className="hero-summary">{homeContent.heroSubtext}</p>
-            <div className="hero-actions">
-              <a href="#contact" className="button">
-                {homeContent.heroButton}
-              </a>
-            </div>
+        <div className="hero-copy">
+          <h1>{homeContent.heroTitle}</h1>
+          <p className="hero-lead">{homeContent.heroText}</p>
+          <p className="hero-summary">{homeContent.heroSubtext}</p>
+          <div className="hero-actions">
+            <a href={`mailto:${homeContent.contactEmail}`} className="button">
+              {homeContent.heroButton}
+            </a>
+            <a
+              href={`https://wa.me/${homeContent.whatsappNumber}`}
+              className="button button-secondary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {homeContent.heroSecondaryButton}
+            </a>
           </div>
-
-          <div className="hero-panel">
-            <p className="section-kicker hero-panel-kicker">
-              {safeLocale === "ro" ? "Sprijin local" : "Local support"}
-            </p>
-            <p className="hero-panel-text">
-              {safeLocale === "ro"
-                ? "Lucrăm direct și clar pentru firme care vor să știe ce taxe urmează, cum se organizează documentele și ce au de făcut mai departe."
-                : "We work in a direct and practical way for businesses that want clarity around documents, tax deadlines, and next steps."}
-            </p>
-            <div className="trust-list">
-              {trustItems.map((item) => (
-                <span key={item} className="trust-item">
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
+          <p className="hero-response-line">{homeContent.heroResponseLine}</p>
         </div>
+      </section>
+
+      <section className="trust-strip">
+        <ul className="trust-strip-list">
+          {safeLocale === "ro" ? (
+            <>
+              <li>Firmă locală în Sibiu</li>
+              <li>Lucrăm cu SRL-uri, PFA-uri și firme nou înființate</li>
+              <li>Răspuns în aceeași zi lucrătoare</li>
+              <li>Documente transmise digital sau fizic</li>
+            </>
+          ) : (
+            <>
+              <li>Local firm in Sibiu</li>
+              <li>We work with LLCs, sole traders, and newly established businesses</li>
+              <li>Reply within the same working day</li>
+              <li>Documents can be sent digitally or physically</li>
+            </>
+          )}
+        </ul>
       </section>
 
       <section id="services" className="content-section">
@@ -150,13 +156,13 @@ export default async function LocalePage({ params }: LocalePageProps) {
               : "Accounting, payroll, and tax advisory for businesses that need better structure and clearer decisions."}
           </p>
         </div>
-        <ul className="services-list">
+        <div className="services-segments">
           {homeContent.services.map((service) => (
-            <li key={service} className="service-item">
-              {service}
-            </li>
+            <article key={service} className="service-segment">
+              <h3>{service}</h3>
+            </article>
           ))}
-        </ul>
+        </div>
       </section>
 
       <section id="why" className="content-section">
@@ -169,8 +175,8 @@ export default async function LocalePage({ params }: LocalePageProps) {
           </div>
           <p className="split-copy">
             {safeLocale === "ro"
-              ? "Mai puține explicații complicate și mai multă claritate practică pentru documente, salarii și obligații fiscale."
-              : "Less unnecessary complexity, more practical clarity for the financial side of your business."}
+              ? "Mai puține formulări generale și mai multe lucruri concrete care îți ușurează colaborarea, lună de lună."
+              : "Less promise language and more concrete things that make the collaboration easier month after month."}
           </p>
         </div>
         <div className="benefit-grid">
@@ -179,6 +185,38 @@ export default async function LocalePage({ params }: LocalePageProps) {
               <p>{item}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="content-section about-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Despre noi" : "About us"}
+            </p>
+            <SectionTitle title={homeContent.aboutTitle} />
+          </div>
+          <p className="split-copy">
+            {safeLocale === "ro"
+              ? "Pentru acest tip de serviciu contează să știi cu cine lucrezi, unde se află biroul și cum se desfășoară colaborarea."
+              : "For this kind of service, it matters to know who you work with, where the office is, and how the collaboration works."}
+          </p>
+        </div>
+        <div className="about-layout">
+          <p className="about-copy">{homeContent.aboutText}</p>
+          <div className="about-card">
+            <p>{safeLocale === "ro" ? "Birou local în Sibiu" : "Local office in Sibiu"}</p>
+            <p>
+              {safeLocale === "ro"
+                ? "Comunicare directă prin email, telefon și WhatsApp"
+                : "Direct communication by email, phone, and WhatsApp"}
+            </p>
+            <p>
+              {safeLocale === "ro"
+                ? "Lucrăm cu SRL-uri, PFA-uri și firme nou înființate"
+                : "We work with LLCs, sole traders, and newly established businesses"}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -272,14 +310,100 @@ export default async function LocalePage({ params }: LocalePageProps) {
                 : "If you need support with accounting, payroll, or tax matters, write to us directly and we will reply promptly."}
             </p>
             <p className="contact-promise">{homeContent.contactPromise}</p>
-            <div className="contact-primary-actions">
-              <a
-                href={`mailto:${homeContent.contactEmail}`}
-                className="button contact-button-primary"
-              >
-                {safeLocale === "ro" ? "Cere o ofertă" : "Request a quote"}
-              </a>
-            </div>
+            <form
+              action={`https://formsubmit.co/${homeContent.contactEmail}`}
+              method="POST"
+              className="lead-form"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value={
+                  safeLocale === "ro"
+                    ? "Cerere ofertă nouă - website ALPHACONT GROUP"
+                    : "New quote request - ALPHACONT GROUP website"
+                }
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input
+                type="hidden"
+                name="_next"
+                value={`${baseUrl}/${safeLocale}?sent=1#contact`}
+              />
+
+              <div className="form-grid">
+                <label className="form-field">
+                  <span>{safeLocale === "ro" ? "Nume" : "Name"}</span>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder={safeLocale === "ro" ? "Numele tău" : "Your name"}
+                  />
+                </label>
+
+                <label className="form-field">
+                  <span>{safeLocale === "ro" ? "Firmă" : "Company"}</span>
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder={safeLocale === "ro" ? "Numele firmei" : "Company name"}
+                  />
+                </label>
+
+                <label className="form-field">
+                  <span>Email</span>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder={safeLocale === "ro" ? "adresa@firma.ro" : "name@company.com"}
+                  />
+                </label>
+
+                <label className="form-field">
+                  <span>{safeLocale === "ro" ? "Telefon" : "Phone"}</span>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder={safeLocale === "ro" ? "+40..." : "+40..."}
+                  />
+                </label>
+
+                <label className="form-field">
+                  <span>{safeLocale === "ro" ? "Tip firmă" : "Business type"}</span>
+                  <select name="business_type" defaultValue="">
+                    <option value="" disabled>
+                      {safeLocale === "ro" ? "Selectează" : "Select"}
+                    </option>
+                    <option value="SRL">SRL / LLC</option>
+                    <option value="PFA">PFA / Sole trader</option>
+                    <option value={safeLocale === "ro" ? "Firmă nouă" : "New business"}>
+                      {safeLocale === "ro" ? "Firmă nouă" : "New business"}
+                    </option>
+                  </select>
+                </label>
+
+                <label className="form-field form-field-full">
+                  <span>{safeLocale === "ro" ? "Mesaj" : "Message"}</span>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    required
+                    placeholder={
+                      safeLocale === "ro"
+                        ? "Spune-ne pe scurt cu ce ai nevoie de ajutor."
+                        : "Tell us briefly what you need help with."
+                    }
+                  />
+                </label>
+              </div>
+
+              <button type="submit" className="button contact-button-primary form-submit">
+                {safeLocale === "ro" ? "Cere ofertă" : "Request a quote"}
+              </button>
+            </form>
             <div className="contact-secondary-actions">
               <a
                 href={`https://wa.me/${homeContent.whatsappNumber}`}
@@ -333,6 +457,8 @@ export default async function LocalePage({ params }: LocalePageProps) {
           </div>
         </div>
       </section>
+
+      <SiteFooter locale={safeLocale} />
     </main>
   );
 }

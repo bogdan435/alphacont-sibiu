@@ -4,6 +4,7 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/blog";
 import { getBaseUrl } from "@/lib/seo";
+import SiteFooter from "@/components/SiteFooter";
 
 type LocaleBlogPostPageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -117,6 +118,8 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
           ))}
         </ul>
       </section>
+
+      <SiteFooter locale={safeLocale} />
     </main>
   );
 }

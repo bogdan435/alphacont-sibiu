@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getBlogPosts } from "@/lib/blog";
 import { getBaseUrl } from "@/lib/seo";
+import SiteFooter from "@/components/SiteFooter";
 
 type LocaleBlogPageProps = {
   params: Promise<{ locale: string }>;
@@ -104,6 +105,8 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
           ))}
         </div>
       </section>
+
+      <SiteFooter locale={safeLocale} />
     </main>
   );
 }

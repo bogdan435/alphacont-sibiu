@@ -1,27 +1,34 @@
 export const homeContent = {
-  heroTitle: "Clear accounting for businesses in Sibiu",
+  heroTitle:
+    "Accounting for LLCs and sole traders in Sibiu, without delays and without tax surprises",
   heroText:
-    "Accounting, payroll, and tax advisory for LLCs, sole traders, and growing businesses.",
+    "We take over accounting, payroll, and tax clarifications so you always know what is due, which documents are missing, and what comes next this month.",
   heroSubtext:
-    "We help businesses in Sibiu keep documents, deadlines, and monthly decisions under control, without unpleasant surprises.",
-  heroButton: "Book a consultation",
+    "We help you keep documents in order, stay on top of deadlines, and make safer decisions without stress or unpleasant surprises.",
+  heroButton: "Request a same-day quote",
+  heroSecondaryButton: "Chat on WhatsApp",
+  heroResponseLine: "We usually reply within the same working day.",
   heroBadge: "ALPHACONT GROUP",
 
   servicesTitle: "How we can help",
   services: [
-    "Complete accounting for LLCs and sole traders",
-    "Payroll and personnel administration without errors or delays",
-    "Tax advisory for safer business decisions",
-    "Support for new businesses: setup, organization, and document flow",
+    "For LLCs",
+    "For sole traders",
+    "For newly established businesses",
   ],
 
-  whyTitle: "Why work with us",
+  whyTitle: "Why us",
   whyItems: [
-    "We work with sole traders, LLCs, and small businesses in Sibiu and nearby areas.",
-    "We usually reply within the same working day.",
-    "We keep documents, payroll, and tax deadlines under control.",
-    "We help you understand what is due next, before surprises appear at month-end.",
+    "You speak directly with the accountant, not through three intermediaries.",
+    "Monthly document checklist.",
+    "Reminders before important deadlines.",
+    "Support for new and growing businesses.",
+    "Documents can be sent digitally or physically.",
+    "Fast replies on WhatsApp and email.",
   ],
+  aboutTitle: "About us",
+  aboutText:
+    "ALPHACONT GROUP is a local Sibiu office working with sole traders, LLCs, and newly established businesses. We focus on direct communication, clear next steps, and a predictable month-to-month collaboration.",
   latestArticlesTitle: "Useful articles for business owners",
 
   faqTitle: "Frequently asked questions",
