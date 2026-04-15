@@ -106,7 +106,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
       <section className="hero hero-redesign">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="hero-badge">{homeContent.heroBadge}</p>
             <h1>{homeContent.heroTitle}</h1>
             <p className="hero-lead">{homeContent.heroText}</p>
             <p className="hero-summary">{homeContent.heroSubtext}</p>
@@ -151,14 +150,13 @@ export default async function LocalePage({ params }: LocalePageProps) {
               : "Accounting, payroll, and tax advisory for businesses that need better structure and clearer decisions."}
           </p>
         </div>
-        <div className="services-grid">
-          {homeContent.services.map((service, index) => (
-            <article key={service} className="service-card">
-              <span className="service-number">0{index + 1}</span>
-              <p>{service}</p>
-            </article>
+        <ul className="services-list">
+          {homeContent.services.map((service) => (
+            <li key={service} className="service-item">
+              {service}
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       <section id="why" className="content-section">

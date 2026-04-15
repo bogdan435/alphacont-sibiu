@@ -371,13 +371,35 @@ li {
   font-weight: 600;
 }
 
-.service-number {
-  display: inline-flex;
-  margin-bottom: 14px;
-  color: #c46a2d;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+.services-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+}
+
+.service-item {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 24px;
+  color: #28344d;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.service-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #c46a2d;
+  transform: translateY(-50%);
 }
 
 .benefit-grid {
@@ -770,7 +792,8 @@ li {
   .hero-grid,
   .split-header,
   .blog-preview-layout,
-  .blog-index-grid {
+  .blog-index-grid,
+  .services-list {
     grid-template-columns: 1fr;
   }
 
@@ -835,6 +858,10 @@ li {
   .faq-item,
   .contact-card {
     border-radius: 16px;
+  }
+
+  .service-item {
+    font-size: 19px;
   }
 
   .blog-card-link {
