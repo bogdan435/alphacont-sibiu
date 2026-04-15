@@ -5,6 +5,7 @@ export const homeContent = {
   heroSubtext:
     "Ajutam antreprenori, PFA-uri si societati comerciale sa lucreze mai organizat, sa respecte termenele fiscale si sa aiba mai multa claritate in deciziile financiare.",
   heroButton: "Solicita o discutie",
+  heroBadge: "Contabilitate si fiscalitate pentru judetul Sibiu",
 
   servicesTitle: "Cu ce te putem ajuta",
   services: [
@@ -20,6 +21,7 @@ export const homeContent = {
     "Respectam termenele si punem ordine in documente si raportari.",
     "Lucram practic, cu focus pe nevoile reale ale firmelor din Sibiu.",
   ],
+  latestArticlesTitle: "Articole recente",
 
   faqTitle: "Intrebari frecvente",
   faqs: [

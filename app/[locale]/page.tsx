@@ -93,6 +93,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
         <div className="hero-layout">
           <div className="hero-copy">
             <p className="locale-label">{safeLocale === "ro" ? "Romana" : "English"}</p>
+            <p className="hero-badge">{homeContent.heroBadge}</p>
             <h1>{homeContent.heroTitle}</h1>
             <p className="hero-lead">{homeContent.heroText}</p>
             <p>{homeContent.heroSubtext}</p>
@@ -171,9 +172,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
       <section>
         <div className="section-header">
           <p className="section-kicker">Blog</p>
-          <SectionTitle
-            title={safeLocale === "ro" ? "Articole recente" : "Latest articles"}
-          />
+          <SectionTitle title={homeContent.latestArticlesTitle} />
         </div>
         <ul className="blog-list">
           {latestPosts.map((post) => (
@@ -219,9 +218,12 @@ export default async function LocalePage({ params }: LocalePageProps) {
           </div>
 
           <div className="contact-card">
-            <p>Email: {homeContent.contactEmail}</p>
-            <p>Telefon 1: {homeContent.contactPhone}</p>
-            <p>Telefon 2: {homeContent.contactPhoneSecondary}</p>
+            <p className="contact-label">Email</p>
+            <p>{homeContent.contactEmail}</p>
+            <p className="contact-label">{safeLocale === "ro" ? "Telefon" : "Phone"}</p>
+            <p>{homeContent.contactPhone}</p>
+            <p>{homeContent.contactPhoneSecondary}</p>
+            <p className="contact-label">{safeLocale === "ro" ? "Adresa" : "Address"}</p>
             <p>{homeContent.contactCity}</p>
             <div className="contact-actions">
               <a href={`mailto:${homeContent.contactEmail}`} className="contact-link">

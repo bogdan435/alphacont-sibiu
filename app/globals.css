@@ -68,7 +68,7 @@ li {
 .topbar {
   max-width: 1100px;
   margin: 0 auto 24px;
-  padding: 20px 4px;
+  padding: 8px 4px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,6 +97,7 @@ li {
 .nav-links {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .nav-links a {
@@ -134,7 +135,7 @@ li {
 }
 
 .hero {
-  padding: 40px;
+  padding: 48px;
   background:
     linear-gradient(135deg, #18388b 0%, #234ba6 55%, #315db7 100%);
   color: white;
@@ -158,7 +159,19 @@ li {
 
 .hero-lead {
   max-width: 32ch;
-  font-size: 22px;
+  font-size: 24px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  margin: 0 0 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .hero-actions {
@@ -221,7 +234,7 @@ li {
 }
 
 .section-header {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .section-kicker,
@@ -287,7 +300,7 @@ li {
 
 .blog-list li {
   margin-bottom: 0;
-  padding: 20px 0;
+  padding: 24px 0;
   border-bottom: 1px solid #e5dfd5;
 }
 
@@ -327,7 +340,7 @@ li {
 }
 
 .faq-item {
-  padding: 18px 20px;
+  padding: 20px 22px;
   border-radius: 18px;
   background: #f3f6fc;
   border: 1px solid rgba(24, 56, 139, 0.08);
@@ -362,15 +375,24 @@ li {
 }
 
 .contact-card {
-  padding: 22px;
+  padding: 24px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(24, 56, 139, 0.08);
 }
 
+.contact-label {
+  margin: 14px 0 6px;
+  color: #18388b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .contact-link {
   display: inline-block;
-  margin-top: 12px;
+  margin-top: 10px;
   color: #18388b;
   font-weight: bold;
   text-decoration: none;
@@ -380,8 +402,8 @@ li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
-  margin-top: 8px;
+  gap: 6px;
+  margin-top: 12px;
 }
 
 .language-links {
@@ -467,7 +489,7 @@ li {
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 40px;
   }
 
   .hero-lead {

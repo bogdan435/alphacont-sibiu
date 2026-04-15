@@ -5,6 +5,7 @@ export const homeContent = {
   heroSubtext:
     "We help entrepreneurs, sole traders, and companies stay organized, meet tax deadlines, and make financial decisions with more confidence.",
   heroButton: "Request a consultation",
+  heroBadge: "Accounting and tax support for Sibiu County",
 
   servicesTitle: "How we can help",
   services: [
@@ -20,6 +21,7 @@ export const homeContent = {
     "We help keep documents, reporting, and deadlines under control.",
     "We work practically, with attention to the real needs of businesses in Sibiu.",
   ],
+  latestArticlesTitle: "Latest articles",
 
   faqTitle: "Frequently asked questions",
   faqs: [
