@@ -1,31 +1,58 @@
 export const homeContent = {
   heroTitle:
-    "Contabilitate pentru SRL-uri și PFA-uri din Sibiu, fără întârzieri și fără surprize fiscale",
+    "Contabilitate pentru firme din Sibiu care vor control, nu doar depuneri",
   heroText:
-    "Preluăm contabilitatea, salarizarea și clarificările fiscale, ca tu să știi ce ai de plată, ce documente lipsesc și ce urmează luna asta.",
+    "Știi în fiecare lună ce ai de plată, ce urmează și ce riscuri ai, fără stres.",
   heroSubtext:
-    "Te ajutăm să ai ordine în documente, să respecți termenele și să iei decizii mai sigure, fără stres și fără surprize.",
-  heroButton: "Cere ofertă în aceeași zi",
+    "Preluăm contabilitatea, salarizarea și clarificările fiscale pentru SRL-uri, PFA-uri și firme în creștere, ca tu să ai mai mult control și mai puține surprize.",
+  heroButton: "Cere ofertă azi",
   heroSecondaryButton: "Discută pe WhatsApp",
   heroResponseLine: "Răspundem, de obicei, în aceeași zi lucrătoare.",
   heroBadge: "ALPHACONT GROUP",
 
-  servicesTitle: "Cu ce te putem ajuta",
+  servicesTitle: "Pentru cine lucrăm",
   services: [
-    "Pentru SRL-uri",
-    "Pentru PFA-uri",
-    "Pentru firme nou înființate",
+    "SRL-uri",
+    "PFA-uri",
+    "ONG-uri",
+    "Firme nou înființate",
+    "Firme în creștere",
+    "Înființare SRL / PFA",
   ],
 
   whyTitle: "De ce noi",
   whyItems: [
-    "Comunici direct cu contabilul, nu prin 3 intermediari.",
+    "Comunici direct cu contabilul.",
+    "Îți spunem din timp ce taxe urmează.",
     "Checklist lunar de documente.",
-    "Notificări înainte de termene importante.",
-    "Suport pentru firme noi și firme în creștere.",
-    "Predare documente digital sau fizic.",
-    "Răspuns rapid pe WhatsApp și email.",
+    "Răspuns rapid pe WhatsApp.",
+    "Lucrăm digital.",
   ],
+  complexityTitle: "Nu doar contabilitate. Control financiar real.",
+  complexityItems: [
+    "Gestionăm controale ANAF.",
+    "Te ajutăm cu SAF-T și RO e-Factura.",
+    "Pregătim documentații pentru finanțări.",
+    "Facem proiecții pentru decizii mai sigure.",
+  ],
+  processTitle: "Cum lucrăm",
+  processItems: [
+    "Ne trimiți câteva detalii despre firmă.",
+    "Îți dăm o ofertă clară.",
+    "Preluăm documentele, online sau fizic.",
+    "Primești lunar situația și termenele importante.",
+  ],
+  socialProofTitle: "Ce spun recenziile publice",
+  socialProofRating: "4,9/5 din 18 recenzii Google",
+  socialProofItems: [
+    "Profesionalism, seriozitate și implicare în colaborare.",
+    "Consultanță completă și actualizare constantă cu schimbările legislative.",
+    "Promptitudine și feedback util pentru administrarea firmei.",
+  ],
+  socialProofNote: "Sinteză din recenzii publice agregate.",
+  socialProofSourceLabel: "Vezi sursa recenziilor",
+  socialProofSourceUrl:
+    "https://yably.ro/recenzii/sibiu/firma-de-contabilitate-sibiu-alpha-cont-birou-contabil-strada-octavian-goga-55",
   aboutTitle: "Despre noi",
   aboutText:
     "ALPHACONT GROUP este un birou local din Sibiu care lucrează cu PFA-uri, SRL-uri și firme aflate la început de drum. Punem accent pe comunicare directă, pași clari și colaborare predictibilă de la o lună la alta.",
@@ -62,6 +89,9 @@ export const homeContent = {
   contactCity: "Str. Octavian Goga 55, 550370 Sibiu, Jud. Sibiu",
   whatsappNumber: "40721644296",
   contactPromise: "Răspundem, de obicei, în aceeași zi lucrătoare.",
+  contactFormButton: "Trimite și revenim azi",
+  pricingNote:
+    "Prețuri începând de la 300 lei / lună. Prețul final depinde de volumul firmei, iar noi îți trimitem ofertă clară după câteva detalii.",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu",
 };

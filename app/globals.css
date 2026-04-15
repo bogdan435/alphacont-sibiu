@@ -431,9 +431,112 @@ li {
   border: 1px solid rgba(24, 56, 139, 0.08);
 }
 
+.benefit-card-digital {
+  background: linear-gradient(135deg, #18388b 0%, #2d57b2 100%);
+  border-color: rgba(24, 56, 139, 0.18);
+  box-shadow: 0 14px 28px rgba(24, 56, 139, 0.16);
+}
+
+.benefit-chip {
+  display: inline-flex;
+  margin: 0 0 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .benefit-card p {
   margin: 0;
   font-weight: 600;
+}
+
+.benefit-card-digital p {
+  color: white;
+}
+
+.complexity-section {
+  background: linear-gradient(180deg, #f7f9fe 0%, #eef3fd 100%);
+}
+
+.complexity-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.complexity-list li {
+  margin-bottom: 12px;
+  color: #28344d;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.process-section {
+  background: #f7f9fe;
+}
+
+.process-list {
+  margin: 0;
+  padding-left: 28px;
+}
+
+.process-list li {
+  margin-bottom: 14px;
+  color: #28344d;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.social-proof-section {
+  background: linear-gradient(180deg, #fff 0%, #f7f9fe 100%);
+}
+
+.social-proof-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.social-proof-rating {
+  margin: 0;
+  color: #18388b;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.social-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.social-proof-card {
+  padding: 22px;
+  border-radius: 18px;
+  background: #f7f9fe;
+  border: 1px solid rgba(24, 56, 139, 0.08);
+}
+
+.social-proof-card p {
+  margin: 0;
+  color: #28344d;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.social-proof-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #18388b;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .blog-list {
@@ -718,6 +821,15 @@ li {
   font-weight: 600;
 }
 
+.pricing-note {
+  max-width: 36ch;
+  margin: 10px 0 0;
+  padding-left: 14px;
+  border-left: 3px solid rgba(24, 56, 139, 0.24);
+  color: #4d5b79;
+  font-size: 16px;
+}
+
 .contact-label {
   margin: 0 0 8px;
   color: #18388b;
@@ -974,6 +1086,7 @@ li {
   .services-list,
   .services-segments,
   .trust-strip-list,
+  .social-proof-grid,
   .about-layout,
   .site-footer-grid {
     grid-template-columns: 1fr;
@@ -1044,6 +1157,14 @@ li {
 
   .service-item {
     font-size: 19px;
+  }
+
+  .complexity-list li {
+    font-size: 18px;
+  }
+
+  .process-list li {
+    font-size: 20px;
   }
 
   .blog-card-link {

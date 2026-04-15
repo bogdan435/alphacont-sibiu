@@ -126,17 +126,17 @@ export default async function LocalePage({ params }: LocalePageProps) {
         <ul className="trust-strip-list">
           {safeLocale === "ro" ? (
             <>
-              <li>Firmă locală în Sibiu</li>
-              <li>Lucrăm cu SRL-uri, PFA-uri și firme nou înființate</li>
-              <li>Răspuns în aceeași zi lucrătoare</li>
-              <li>Documente transmise digital sau fizic</li>
+              <li>20+ ani de experiență în servicii financiar-contabile</li>
+              <li>4,9/5 din recenzii publice</li>
+              <li>SRL-uri, PFA-uri, ONG-uri și profesii liberale</li>
+              <li>SAF-T, RO e-Factura și sprijin în controale ANAF</li>
             </>
           ) : (
             <>
-              <li>Local firm in Sibiu</li>
-              <li>We work with LLCs, sole traders, and newly established businesses</li>
-              <li>Reply within the same working day</li>
-              <li>Documents can be sent digitally or physically</li>
+              <li>20+ years of accounting and tax experience</li>
+              <li>4.9/5 from public reviews</li>
+              <li>LLCs, sole traders, NGOs, and liberal professions</li>
+              <li>SAF-T, RO e-Factura, and ANAF inspection support</li>
             </>
           )}
         </ul>
@@ -152,8 +152,8 @@ export default async function LocalePage({ params }: LocalePageProps) {
           </div>
           <p className="split-copy">
             {safeLocale === "ro"
-              ? "Contabilitate, salarizare și consultanță fiscală pentru firme care au nevoie de mai multă ordine și de decizii mai sigure."
-              : "Accounting, payroll, and tax advisory for businesses that need better structure and clearer decisions."}
+              ? "Lucrăm cu tipuri diferite de clienți, de la PFA-uri și SRL-uri la ONG-uri și firme aflate la început sau în creștere, inclusiv pentru înființare de SRL sau PFA."
+              : "We work with different client types, from sole traders and LLCs to NGOs and businesses that are newly established or growing, including LLC or sole trader setup."}
           </p>
         </div>
         <div className="services-segments">
@@ -181,11 +181,95 @@ export default async function LocalePage({ params }: LocalePageProps) {
         </div>
         <div className="benefit-grid">
           {homeContent.whyItems.map((item) => (
-            <article key={item} className="benefit-card">
+            <article
+              key={item}
+              className={
+                item.toLowerCase().includes("digital")
+                  ? "benefit-card benefit-card-digital"
+                  : "benefit-card"
+              }
+            >
+              {item.toLowerCase().includes("digital") ? (
+                <span className="benefit-chip">
+                  {safeLocale === "ro" ? "Flux digital" : "Digital workflow"}
+                </span>
+              ) : null}
               <p>{item}</p>
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="content-section complexity-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Control financiar" : "Financial control"}
+            </p>
+            <SectionTitle title={homeContent.complexityTitle} />
+          </div>
+          <p className="split-copy">
+            {safeLocale === "ro"
+              ? "Pentru unele firme nu este suficientă doar depunerea lunară. Aici intră partea de clarificări, controale, documentații și sprijin pentru decizii."
+              : "For some businesses, monthly filings are not enough. This is where clarifications, inspections, documentation, and decision support matter."}
+          </p>
+        </div>
+        <ul className="complexity-list">
+          {homeContent.complexityItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="content-section process-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Proces" : "Process"}
+            </p>
+            <SectionTitle title={homeContent.processTitle} />
+          </div>
+          <p className="split-copy">
+            {safeLocale === "ro"
+              ? "Colaborarea trebuie să fie simplă de înțeles de la primul contact. De aceea, explicăm clar ce urmează și cum lucrăm, pas cu pas."
+              : "The collaboration should be easy to understand from the first contact. That is why we explain clearly what happens next and how we work, step by step."}
+          </p>
+        </div>
+        <ol className="process-list">
+          {homeContent.processItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="content-section social-proof-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Recenzii" : "Reviews"}
+            </p>
+            <SectionTitle title={homeContent.socialProofTitle} />
+          </div>
+          <div className="social-proof-summary">
+            <p className="social-proof-rating">{homeContent.socialProofRating}</p>
+            <p className="split-copy">{homeContent.socialProofNote}</p>
+          </div>
+        </div>
+        <div className="social-proof-grid">
+          {homeContent.socialProofItems.map((item) => (
+            <article key={item} className="social-proof-card">
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
+        <a
+          href={homeContent.socialProofSourceUrl}
+          className="social-proof-link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {homeContent.socialProofSourceLabel}
+        </a>
       </section>
 
       <section className="content-section about-section">
@@ -306,10 +390,11 @@ export default async function LocalePage({ params }: LocalePageProps) {
             />
             <p className="contact-lead">
               {safeLocale === "ro"
-                ? "Dacă ai nevoie de sprijin pentru contabilitate, salarizare sau fiscalitate, ne poți scrie direct și îți răspundem rapid."
-                : "If you need support with accounting, payroll, or tax matters, write to us directly and we will reply promptly."}
+                ? "Completezi formularul de mai jos cu câteva detalii despre firmă, iar noi revenim rapid cu pașii următori."
+                : "Complete the form below with a few details about your business and we will get back to you quickly with the next steps."}
             </p>
             <p className="contact-promise">{homeContent.contactPromise}</p>
+            <p className="pricing-note">{homeContent.pricingNote}</p>
             <form
               action={`https://formsubmit.co/${homeContent.contactEmail}`}
               method="POST"
@@ -401,7 +486,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
               </div>
 
               <button type="submit" className="button contact-button-primary form-submit">
-                {safeLocale === "ro" ? "Cere ofertă" : "Request a quote"}
+                {homeContent.contactFormButton}
               </button>
             </form>
             <div className="contact-secondary-actions">
