@@ -150,11 +150,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </p>
             <SectionTitle title={homeContent.servicesTitle} />
           </div>
-          <p className="split-copy">
-            {safeLocale === "ro"
-              ? "Lucrăm cu tipuri diferite de clienți, de la PFA-uri și SRL-uri la ONG-uri și firme aflate la început sau în creștere, inclusiv pentru înființare de SRL sau PFA."
-              : "We work with different client types, from sole traders and LLCs to NGOs and businesses that are newly established or growing, including LLC or sole trader setup."}
-          </p>
         </div>
         <div className="services-segments">
           {homeContent.services.map((service) => (
@@ -173,11 +168,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </p>
             <SectionTitle title={homeContent.whyTitle} />
           </div>
-          <p className="split-copy">
-            {safeLocale === "ro"
-              ? "Mai puține formulări generale și mai multe lucruri concrete care îți ușurează colaborarea, lună de lună."
-              : "Less promise language and more concrete things that make the collaboration easier month after month."}
-          </p>
         </div>
         <div className="benefit-grid">
           {homeContent.whyItems.map((item) => (
@@ -208,11 +198,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </p>
             <SectionTitle title={homeContent.complexityTitle} />
           </div>
-          <p className="split-copy">
-            {safeLocale === "ro"
-              ? "Pentru unele firme nu este suficientă doar depunerea lunară. Aici intră partea de clarificări, controale, documentații și sprijin pentru decizii."
-              : "For some businesses, monthly filings are not enough. This is where clarifications, inspections, documentation, and decision support matter."}
-          </p>
         </div>
         <ul className="complexity-list">
           {homeContent.complexityItems.map((item) => (
@@ -280,11 +265,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </p>
             <SectionTitle title={homeContent.aboutTitle} />
           </div>
-          <p className="split-copy">
-            {safeLocale === "ro"
-              ? "Pentru acest tip de serviciu contează să știi cu cine lucrezi, unde se află biroul și cum se desfășoară colaborarea."
-              : "For this kind of service, it matters to know who you work with, where the office is, and how the collaboration works."}
-          </p>
         </div>
         <div className="about-layout">
           <p className="about-copy">{homeContent.aboutText}</p>
@@ -311,11 +291,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
             <SectionTitle title={homeContent.latestArticlesTitle} />
           </div>
           <div className="blog-section-copy">
-            <p className="split-copy">
-              {safeLocale === "ro"
-                ? "Articole scurte și practice pentru PFA-uri, SRL-uri și firme care vor să înțeleagă mai bine obligațiile contabile și fiscale."
-                : "Short, practical articles for sole traders and companies that want to better understand accounting and tax obligations."}
-            </p>
             <Link href={`/${safeLocale}/blog`} className="blog-section-link">
               {safeLocale === "ro" ? "Vezi toate articolele" : "See all articles"}
             </Link>
@@ -358,11 +333,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
             <p className="section-kicker">FAQ</p>
             <SectionTitle title={homeContent.faqTitle} />
           </div>
-          <p className="split-copy">
-            {safeLocale === "ro"
-              ? "Câteva răspunsuri rapide pentru întrebările care apar cel mai des la începutul unei colaborări."
-              : "A few quick answers to the questions that appear most often at the start of a collaboration."}
-          </p>
         </div>
         <div className="faq-list">
           {homeContent.faqs.map((faq) => (
