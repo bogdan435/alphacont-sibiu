@@ -50,4 +50,7 @@ export const homeContent = {
   contactPhone: "0040721644296",
   contactPhoneSecondary: "00393347412487",
   contactCity: "Str. Octavian Goga 55, 550370 Sibiu, Jud. Sibiu",
+  whatsappNumber: "40721644296",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu",
 };

@@ -211,9 +211,27 @@ export default async function LocalePage({ params }: LocalePageProps) {
             <p>Telefon 1: {homeContent.contactPhone}</p>
             <p>Telefon 2: {homeContent.contactPhoneSecondary}</p>
             <p>{homeContent.contactCity}</p>
-            <a href={`mailto:${homeContent.contactEmail}`} className="contact-link">
-              {safeLocale === "ro" ? "Trimite email" : "Send email"}
-            </a>
+            <div className="contact-actions">
+              <a href={`mailto:${homeContent.contactEmail}`} className="contact-link">
+                {safeLocale === "ro" ? "Trimite email" : "Send email"}
+              </a>
+              <a
+                href={`https://wa.me/${homeContent.whatsappNumber}`}
+                className="contact-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {safeLocale === "ro" ? "Scrie pe WhatsApp" : "Message on WhatsApp"}
+              </a>
+              <a
+                href={homeContent.mapsUrl}
+                className="contact-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {safeLocale === "ro" ? "Vezi pe Google Maps" : "Open in Google Maps"}
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -363,6 +363,14 @@ li {
   text-decoration: none;
 }
 
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 8px;
+}
+
 .language-links {
   display: flex;
   gap: 16px;

@@ -50,4 +50,7 @@ export const homeContent = {
   contactPhone: "0040721644296",
   contactPhoneSecondary: "00393347412487",
   contactCity: "55 Octavian Goga Street, 550370 Sibiu, Sibiu County, Romania",
+  whatsappNumber: "40721644296",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=55+Octavian+Goga+Street,+550370+Sibiu,+Sibiu+County,+Romania",
 };
