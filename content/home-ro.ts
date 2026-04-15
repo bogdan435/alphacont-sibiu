@@ -21,6 +21,30 @@ export const homeContent = {
     "Lucram practic, cu focus pe nevoile reale ale firmelor din Sibiu.",
   ],
 
+  faqTitle: "Intrebari frecvente",
+  faqs: [
+    {
+      question: "Cu ce tipuri de clienti lucrati?",
+      answer:
+        "Lucram cu PFA-uri, firme mici si medii, precum si cu antreprenori aflati la inceput de drum care au nevoie de contabilitate, salarizare si consultanta fiscala.",
+    },
+    {
+      question: "Pot colabora cu voi daca am o firma nou infiintata?",
+      answer:
+        "Da. Putem ajuta cu organizarea initiala a documentelor, stabilirea fluxului contabil si clarificarea obligatiilor fiscale de baza.",
+    },
+    {
+      question: "Cum transmit documentele pentru contabilitate?",
+      answer:
+        "Documentele pot fi transmise organizat, periodic, in format fizic sau digital, astfel incat raportarea si evidenta sa ramana clare si la zi.",
+    },
+    {
+      question: "Oferiti si servicii de salarizare?",
+      answer:
+        "Da. Gestionam salarizarea, documentele de personal si obligatiile aferente, astfel incat procesul sa fie corect si predictibil.",
+    },
+  ],
+
   contactTitle: "Contact",
   contactEmail: "contact@alphacont.ro",
   contactPhone: "0040721644296",

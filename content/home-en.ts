@@ -21,6 +21,30 @@ export const homeContent = {
     "We work practically, with attention to the real needs of businesses in Sibiu.",
   ],
 
+  faqTitle: "Frequently asked questions",
+  faqs: [
+    {
+      question: "What type of clients do you work with?",
+      answer:
+        "We work with sole traders, small and medium-sized businesses, and entrepreneurs who need accounting, payroll, and tax advisory support.",
+    },
+    {
+      question: "Can I work with you if my company is newly established?",
+      answer:
+        "Yes. We can help with the initial document setup, accounting workflow, and clarification of the main tax obligations.",
+    },
+    {
+      question: "How do I send accounting documents to you?",
+      answer:
+        "Documents can be sent in an organized, periodic way, in physical or digital format, so reporting and records stay clear and up to date.",
+    },
+    {
+      question: "Do you also provide payroll services?",
+      answer:
+        "Yes. We handle payroll, employee administration documents, and related obligations so the process stays accurate and predictable.",
+    },
+  ],
+
   contactTitle: "Contact",
   contactEmail: "contact@alphacont.ro",
   contactPhone: "0040721644296",

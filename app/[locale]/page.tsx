@@ -5,7 +5,7 @@ import SectionTitle from "@/components/SectionTitle";
 import { getHomeContent } from "@/lib/home";
 import { getBaseUrl, getLocaleMetadata } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
-import { getLocalBusinessSchema } from "@/lib/schema";
+import { getFaqSchema, getLocalBusinessSchema } from "@/lib/schema";
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>;
@@ -38,6 +38,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
   const homeContent = getHomeContent(safeLocale);
   const latestPosts = (await getBlogPosts(safeLocale)).slice(0, 3);
   const localBusinessSchema = getLocalBusinessSchema(safeLocale);
+  const faqSchema = getFaqSchema(homeContent.faqs);
 
   return (
     <main>
@@ -45,6 +46,12 @@ export default async function LocalePage({ params }: LocalePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(localBusinessSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
         }}
       />
 
@@ -170,6 +177,21 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section>
+        <div className="section-header">
+          <p className="section-kicker">FAQ</p>
+          <SectionTitle title={homeContent.faqTitle} />
+        </div>
+        <div className="faq-list">
+          {homeContent.faqs.map((faq) => (
+            <details key={faq.question} className="faq-item">
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
       </section>
 
       <section id="contact" className="contact-section">

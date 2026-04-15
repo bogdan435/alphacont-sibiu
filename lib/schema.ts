@@ -26,3 +26,20 @@ export function getLocalBusinessSchema(locale: string) {
       : "Servicii de contabilitate, salarizare si consultanta fiscala pentru firme din Sibiu."
   };
 }
+
+export function getFaqSchema(
+  faqs: Array<{ question: string; answer: string }>
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}

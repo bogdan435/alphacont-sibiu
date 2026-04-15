@@ -308,6 +308,35 @@ li {
   font-weight: 600;
 }
 
+.faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.faq-item {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: #f8f4ec;
+  border: 1px solid rgba(31, 60, 58, 0.08);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f3c3a;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item p {
+  margin: 14px 0 0;
+  color: #394645;
+}
+
 .contact-section {
   background: linear-gradient(180deg, #f5efe5 0%, #eee3d2 100%);
 }
