@@ -3,6 +3,8 @@ title: "Documents needed for an LLC"
 description: "A basic list of the documents an LLC should organize monthly for accounting."
 date: "2026-04-14"
 locale: "en"
+category: "LLC"
+tags: ["LLC", "documents", "accounting"]
 ---
 
 # Documents needed for an LLC

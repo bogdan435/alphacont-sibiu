@@ -3,6 +3,8 @@ title: "Tax returns for a small business"
 description: "What tax returns a small business should keep track of and why proper organization matters."
 date: "2026-04-14"
 locale: "en"
+category: "Tax"
+tags: ["tax returns", "tax", "small business"]
 ---
 
 # Tax returns for a small business

@@ -3,6 +3,8 @@ title: "Accounting for PFA in Sibiu"
 description: "What a sole trader in Sibiu should know about accounting, taxes, and document tracking."
 date: "2026-04-14"
 locale: "en"
+category: "PFA"
+tags: ["accounting", "PFA", "Sibiu"]
 ---
 
 # Accounting for PFA in Sibiu

@@ -12,6 +12,8 @@ type BlogPostMeta = {
   title: string;
   description: string;
   date: string;
+  category: string;
+  tags: string[];
 };
 
 export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
@@ -31,6 +33,8 @@ export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
           title: data.title || file.replace(".md", "").replace(/-/g, " "),
           description: data.description || "",
           date: data.date || "",
+          category: data.category || "",
+          tags: Array.isArray(data.tags) ? data.tags : [],
         };
       })
   );
@@ -49,6 +53,8 @@ export async function getBlogPostBySlug(locale: string, slug: string) {
     title: data.title || slug.replace(/-/g, " "),
     description: data.description || "",
     date: data.date || "",
+    category: data.category || "",
+    tags: Array.isArray(data.tags) ? data.tags : [],
     content,
   };
 }

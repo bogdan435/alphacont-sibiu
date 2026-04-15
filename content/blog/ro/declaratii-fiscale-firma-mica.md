@@ -3,6 +3,8 @@ title: "Declaratii fiscale pentru o firma mica"
 description: "Ce declaratii fiscale trebuie urmarite de o firma mica si de ce conteaza organizarea lor corecta."
 date: "2026-04-14"
 locale: "ro"
+category: "Fiscalitate"
+tags: ["declaratii", "fiscalitate", "firma mica"]
 ---
 
 # Declaratii fiscale pentru o firma mica

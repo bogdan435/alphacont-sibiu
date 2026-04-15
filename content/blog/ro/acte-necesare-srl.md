@@ -3,6 +3,8 @@ title: "Acte necesare pentru un SRL"
 description: "Lista de baza a documentelor pe care un SRL trebuie sa le organizeze lunar pentru contabilitate."
 date: "2026-04-14"
 locale: "ro"
+category: "SRL"
+tags: ["SRL", "documente", "contabilitate"]
 ---
 
 # Acte necesare pentru un SRL

@@ -3,6 +3,8 @@ title: "Common accounting mistakes in small businesses"
 description: "Some of the most common accounting mistakes in small business activity and how they can be avoided."
 date: "2026-04-14"
 locale: "en"
+category: "Accounting"
+tags: ["mistakes", "accounting", "small business"]
 ---
 
 # Common accounting mistakes in small businesses

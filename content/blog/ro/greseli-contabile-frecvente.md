@@ -3,6 +3,8 @@ title: "Greseli contabile frecvente in firmele mici"
 description: "Cateva dintre cele mai comune greseli contabile care apar in activitatea firmelor mici si cum pot fi evitate."
 date: "2026-04-14"
 locale: "ro"
+category: "Contabilitate"
+tags: ["greseli", "contabilitate", "firma mica"]
 ---
 
 # Greseli contabile frecvente in firmele mici

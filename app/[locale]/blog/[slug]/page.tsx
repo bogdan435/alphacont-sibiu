@@ -65,6 +65,16 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
         <h1>{post.title}</h1>
         <p className="hero-lead">{post.description}</p>
         <p className="blog-date">{post.date}</p>
+        <div className="post-meta">
+          <span className="post-category">{post.category}</span>
+          <div className="post-tags">
+            {post.tags.map((tag) => (
+              <span key={tag} className="post-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="article-content">
