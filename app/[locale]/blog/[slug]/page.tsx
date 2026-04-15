@@ -50,9 +50,25 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
             height={77}
           />
         </div>
-        <div className="nav-links">
-          <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasa" : "Home"}</Link>
-          <Link href={`/${safeLocale}/blog`}>Blog</Link>
+        <div className="topbar-right">
+          <div className="nav-links">
+            <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasa" : "Home"}</Link>
+            <Link href={`/${safeLocale}/blog`}>Blog</Link>
+          </div>
+          <div className="language-switch" aria-label="Language switch">
+            <Link
+              href="/ro/blog"
+              className={safeLocale === "ro" ? "language-link is-active" : "language-link"}
+            >
+              RO
+            </Link>
+            <Link
+              href="/en/blog"
+              className={safeLocale === "en" ? "language-link is-active" : "language-link"}
+            >
+              EN
+            </Link>
+          </div>
         </div>
       </nav>
 

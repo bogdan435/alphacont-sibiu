@@ -65,11 +65,27 @@ export default async function LocalePage({ params }: LocalePageProps) {
             height={77}
           />
         </div>
-        <div className="nav-links">
-          <a href="#services">{safeLocale === "ro" ? "Servicii" : "Services"}</a>
-          <a href="#why">{safeLocale === "ro" ? "Avantaje" : "Benefits"}</a>
-          <Link href={`/${safeLocale}/blog`}>Blog</Link>
-          <a href="#contact">Contact</a>
+        <div className="topbar-right">
+          <div className="nav-links">
+            <a href="#services">{safeLocale === "ro" ? "Servicii" : "Services"}</a>
+            <a href="#why">{safeLocale === "ro" ? "Avantaje" : "Benefits"}</a>
+            <Link href={`/${safeLocale}/blog`}>Blog</Link>
+            <a href="#contact">Contact</a>
+          </div>
+          <div className="language-switch" aria-label="Language switch">
+            <Link
+              href="/ro"
+              className={safeLocale === "ro" ? "language-link is-active" : "language-link"}
+            >
+              RO
+            </Link>
+            <Link
+              href="/en"
+              className={safeLocale === "en" ? "language-link is-active" : "language-link"}
+            >
+              EN
+            </Link>
+          </div>
         </div>
       </nav>
 
