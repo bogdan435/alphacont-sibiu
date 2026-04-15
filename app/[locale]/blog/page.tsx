@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getBlogPosts } from "@/lib/blog";
 import { getBaseUrl } from "@/lib/seo";
 import SiteFooter from "@/components/SiteFooter";
+import { getHomeContent } from "@/lib/home";
 
 type LocaleBlogPageProps = {
   params: Promise<{ locale: string }>;
@@ -19,12 +20,12 @@ export async function generateMetadata({
   return {
     title:
       safeLocale === "ro"
-        ? "Blog ALPHACONT GROUP | Contabilitate Sibiu"
-        : "ALPHACONT GROUP Blog | Accounting Sibiu",
+        ? "ANAF ne informează | ALPHACONT GROUP"
+        : "ANAF updates | ALPHACONT GROUP",
     description:
       safeLocale === "ro"
-        ? "Articole utile despre contabilitate, fiscalitate și salarizare pentru firme din Sibiu."
-        : "Useful articles about accounting, tax, and payroll for businesses in Sibiu.",
+        ? "Informări și clarificări utile despre contabilitate, fiscalitate și salarizare pentru firme din Sibiu."
+        : "Useful updates and clarifications about accounting, tax, and payroll for businesses in Sibiu.",
     alternates: {
       canonical: `${baseUrl}/${safeLocale}/blog`,
       languages: {
@@ -39,6 +40,7 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
   const { locale } = await params;
   const safeLocale = locale === "en" ? "en" : "ro";
   const posts = await getBlogPosts(safeLocale);
+  const homeContent = getHomeContent(safeLocale);
 
   return (
     <main>
@@ -60,7 +62,9 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
         <div className="topbar-right">
           <div className="nav-links">
             <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasă" : "Home"}</Link>
-            <Link href={`/${safeLocale}/blog`}>Blog</Link>
+            <Link href={`/${safeLocale}/blog`}>
+              {safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
+            </Link>
           </div>
           <div className="language-switch" aria-label="Language switch">
             <Link
@@ -80,18 +84,52 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
       </nav>
 
       <section className="hero blog-hero">
-        <h1>{safeLocale === "ro" ? "Blog ALPHACONT GROUP" : "ALPHACONT GROUP Blog"}</h1>
+        <h1>{safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}</h1>
         <p className="hero-lead">
           {safeLocale === "ro"
-            ? "Articole utile pentru antreprenori, PFA-uri și firme din Sibiu."
-            : "Useful articles for entrepreneurs, sole traders, and companies in Sibiu."}
+            ? "Noutăți și clarificări utile pentru antreprenori, PFA-uri și firme din Sibiu."
+            : "Useful updates and clarifications for entrepreneurs, sole traders, and companies in Sibiu."}
         </p>
+        <a
+          href={homeContent.anafLinkUrl}
+          className="button"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {homeContent.anafLinkLabel}
+        </a>
+        <a
+          href={homeContent.anafLinkSecondaryUrl}
+          className="button button-secondary"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {homeContent.anafLinkSecondaryLabel}
+        </a>
+        <a
+          href={homeContent.anafLinkThirdUrl}
+          className="button button-secondary"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {homeContent.anafLinkThirdLabel}
+        </a>
+        <a
+          href={homeContent.anafLinkFourthUrl}
+          className="button button-secondary"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {homeContent.anafLinkFourthLabel}
+        </a>
       </section>
 
       <section className="content-section">
         <div className="section-header">
-          <p className="section-kicker">Blog</p>
-          <h2>{safeLocale === "ro" ? "Articole disponibile" : "Available articles"}</h2>
+          <p className="section-kicker">
+            {safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
+          </p>
+          <h2>{safeLocale === "ro" ? "Informări disponibile" : "Available updates"}</h2>
         </div>
         <div className="blog-index-grid">
           {posts.map((post) => (

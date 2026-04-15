@@ -59,7 +59,9 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
         <div className="topbar-right">
           <div className="nav-links">
             <Link href={`/${safeLocale}`}>{safeLocale === "ro" ? "Acasă" : "Home"}</Link>
-            <Link href={`/${safeLocale}/blog`}>Blog</Link>
+            <Link href={`/${safeLocale}/blog`}>
+              {safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
+            </Link>
           </div>
           <div className="language-switch" aria-label="Language switch">
             <Link
@@ -100,8 +102,10 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
 
       <section>
         <div className="section-header">
-          <p className="section-kicker">Blog</p>
-          <h2>{safeLocale === "ro" ? "Articole similare" : "Related articles"}</h2>
+          <p className="section-kicker">
+            {safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
+          </p>
+          <h2>{safeLocale === "ro" ? "Informări similare" : "Related updates"}</h2>
         </div>
         <ul className="blog-list">
           {relatedPosts.map((relatedPost) => (

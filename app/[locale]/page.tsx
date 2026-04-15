@@ -80,7 +80,9 @@ export default async function LocalePage({ params }: LocalePageProps) {
           <div className="nav-links">
             <a href="#services">{safeLocale === "ro" ? "Servicii" : "Services"}</a>
             <a href="#why">{safeLocale === "ro" ? "Avantaje" : "Benefits"}</a>
-            <Link href={`/${safeLocale}/blog`}>Blog</Link>
+            <Link href={`/${safeLocale}/blog`}>
+              {safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
+            </Link>
             <a href="#contact">Contact</a>
           </div>
           <div className="language-switch" aria-label="Language switch">
@@ -287,13 +289,47 @@ export default async function LocalePage({ params }: LocalePageProps) {
       <section className="content-section">
         <div className="split-header">
           <div>
-            <p className="section-kicker">Blog</p>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
+            </p>
             <SectionTitle title={homeContent.latestArticlesTitle} />
           </div>
           <div className="blog-section-copy">
             <Link href={`/${safeLocale}/blog`} className="blog-section-link">
-              {safeLocale === "ro" ? "Vezi toate articolele" : "See all articles"}
+              {safeLocale === "ro" ? "Vezi toate informările" : "See all updates"}
             </Link>
+            <a
+              href={homeContent.anafLinkUrl}
+              className="blog-section-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {homeContent.anafLinkLabel}
+            </a>
+            <a
+              href={homeContent.anafLinkSecondaryUrl}
+              className="blog-section-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {homeContent.anafLinkSecondaryLabel}
+            </a>
+            <a
+              href={homeContent.anafLinkThirdUrl}
+              className="blog-section-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {homeContent.anafLinkThirdLabel}
+            </a>
+            <a
+              href={homeContent.anafLinkFourthUrl}
+              className="blog-section-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {homeContent.anafLinkFourthLabel}
+            </a>
           </div>
         </div>
 
