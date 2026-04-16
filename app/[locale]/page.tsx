@@ -135,6 +135,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
               <li>4,9/5 din recenzii publice</li>
               <li>SRL-uri, PFA-uri, ONG-uri și profesii liberale</li>
               <li>SAF-T, RO e-Factura și sprijin în controale ANAF</li>
+              <li>{homeContent.supportLanguagesLine}</li>
             </>
           ) : (
             <>
@@ -142,6 +143,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
               <li>4.9/5 from public reviews</li>
               <li>LLCs, sole traders, NGOs, and liberal professions</li>
               <li>SAF-T, RO e-Factura, and ANAF inspection support</li>
+              <li>{homeContent.supportLanguagesLine}</li>
             </>
           )}
         </ul>
@@ -172,6 +174,24 @@ export default async function LocalePage({ params }: LocalePageProps) {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="content-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Servicii speciale" : "Specialized services"}
+            </p>
+            <SectionTitle title={homeContent.specialServicesTitle} />
+          </div>
+        </div>
+        <div className="special-services-grid">
+          {homeContent.specialServices.map((service) => (
+            <article key={service} className="special-service-card">
+              <p>{service}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -262,14 +282,16 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </article>
           ))}
         </div>
-        <a
-          href={homeContent.socialProofSourceUrl}
-          className="social-proof-link"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {homeContent.socialProofSourceLabel}
-        </a>
+        <div className="social-proof-actions">
+          <a
+            href={homeContent.socialProofGoogleUrl}
+            className="social-proof-link social-proof-link-secondary"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {homeContent.socialProofGoogleLabel}
+          </a>
+        </div>
       </section>
 
       <section className="content-section about-section">
@@ -297,6 +319,23 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="content-section security-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Siguranța datelor" : "Data security"}
+            </p>
+            <SectionTitle title={homeContent.securityTitle} />
+          </div>
+        </div>
+        <p className="security-copy">{homeContent.securityText}</p>
+        <ul className="security-list">
+          {homeContent.securityItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       </section>
 
       <section className="content-section">
@@ -390,6 +429,41 @@ export default async function LocalePage({ params }: LocalePageProps) {
               <p>{faq.answer}</p>
             </details>
           ))}
+        </div>
+      </section>
+
+      <section className="content-section location-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Biroul nostru" : "Our office"}
+            </p>
+            <SectionTitle title={homeContent.locationTitle} />
+          </div>
+        </div>
+        <div className="location-layout">
+          <div className="location-copy">
+            <p>{homeContent.locationText}</p>
+            <div className="location-actions">
+              <a
+                href={homeContent.mapsUrl}
+                className="button button-secondary location-map-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Google Maps
+              </a>
+            </div>
+          </div>
+          <div className="map-frame-wrap">
+            <iframe
+              src={homeContent.mapsEmbedUrl}
+              title={homeContent.locationTitle}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="map-frame"
+            />
+          </div>
         </div>
       </section>
 
@@ -559,6 +633,28 @@ export default async function LocalePage({ params }: LocalePageProps) {
               <p className="contact-value">{homeContent.contactCity}</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="content-section internship-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Oportunități" : "Opportunities"}
+            </p>
+            <SectionTitle title={homeContent.internshipTitle} />
+          </div>
+        </div>
+        <div className="internship-layout">
+          <p className="internship-copy">{homeContent.internshipText}</p>
+          <a
+            href={`mailto:${homeContent.contactEmail}?subject=${encodeURIComponent(
+              safeLocale === "ro" ? "CV internship" : "Internship CV",
+            )}`}
+            className="button"
+          >
+            {homeContent.internshipButton}
+          </a>
         </div>
       </section>
 

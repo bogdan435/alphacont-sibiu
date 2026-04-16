@@ -20,6 +20,14 @@ export const homeContent = {
     "LLC / sole trader setup",
     "Legal assistance",
   ],
+  specialServicesTitle: "Specialized support",
+  specialServices: [
+    "ITM and REVISAL / REGES support",
+    "RO e-Factura and RO e-Transport - UIT code support",
+    "Accounting reconstruction",
+    "Legal assistance",
+  ],
+  supportLanguagesLine: "We communicate in Romanian, English, French, and Italian.",
 
   whyTitle: "Why us",
   whyItems: [
@@ -44,19 +52,28 @@ export const homeContent = {
     "Each month you receive the situation and the key deadlines.",
   ],
   socialProofTitle: "What public reviews say",
-  socialProofRating: "4.9/5 from 18 Google reviews",
+  socialProofRating: "4.9/5 from 21 Google reviews",
   socialProofItems: [
     "Professional, serious, and involved collaboration.",
     "Complete advisory support and strong awareness of legislative changes.",
     "Prompt replies and useful feedback for running the business more smoothly.",
   ],
   socialProofNote: "Summary based on aggregated public reviews.",
-  socialProofSourceLabel: "See review source",
-  socialProofSourceUrl:
-    "https://yably.ro/recenzii/sibiu/firma-de-contabilitate-sibiu-alpha-cont-birou-contabil-strada-octavian-goga-55",
+  socialProofGoogleLabel: "See Google reviews",
+  socialProofGoogleUrl:
+    "https://www.google.com/maps/search/?api=1&query=ALPHACONT+GROUP+Sibiu",
   aboutTitle: "About us",
   aboutText:
     "ALPHACONT GROUP is a local accounting office in Sibiu working with sole traders, LLCs, and newly established businesses. We provide accounting, payroll, tax advisory, and expert accountant support for businesses that want more control month after month.",
+  securityTitle: "Your data security is one of our priorities",
+  securityText:
+    "Your data and documents are protected by automated backups twice a day, using the 3+2+1 method: 3 backup copies, 2 storage types, and 1 external offsite copy.",
+  securityItems: [
+    "Automated backup twice a day.",
+    "3 backup copies for redundancy.",
+    "2 storage types for extra safety.",
+    "1 external, offsite copy.",
+  ],
   latestArticlesTitle: "ANAF updates",
   anafLinkLabel: "ANAF fiscal obligations calendar",
   anafLinkUrl:
@@ -105,7 +122,16 @@ export const homeContent = {
   contactFormButton: "Send it and we’ll reply today",
   pricingNote:
     "Prices start from RON 300 / month. The final price depends on the volume of your business, and we send you a clear quote after a few details.",
+  locationTitle: "Where to find us",
+  locationText:
+    "Our office is in Sibiu, at 55 Octavian Goga Street. You can open the office map directly.",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=55+Octavian+Goga+Street,+550370+Sibiu,+Sibiu+County,+Romania",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=55+Octavian+Goga+Street,+550370+Sibiu,+Sibiu+County,+Romania&output=embed",
   seoServiceLinksTitle: "Popular service pages in Sibiu",
+  internshipTitle: "Internship",
+  internshipText:
+    "If you are a student, at the beginning of your career, or looking for practical experience in accounting and administration, you can send us your CV.",
+  internshipButton: "Send your CV",
 };

@@ -20,6 +20,14 @@ export const homeContent = {
     "Înființare SRL / PFA",
     "Asistență juridică",
   ],
+  specialServicesTitle: "Servicii specializate",
+  specialServices: [
+    "Suport ITM și REVISAL / REGES",
+    "Suport RO e-Factura și RO -eTransport - cod UIT",
+    "Refacere contabilitate",
+    "Asistență juridică",
+  ],
+  supportLanguagesLine: "Comunicăm în română, engleză, franceză și italiană.",
 
   whyTitle: "De ce noi",
   whyItems: [
@@ -44,19 +52,28 @@ export const homeContent = {
     "Primești lunar situația și termenele importante.",
   ],
   socialProofTitle: "Ce spun recenziile publice",
-  socialProofRating: "4,9/5 din 18 recenzii Google",
+  socialProofRating: "4,9/5 din 21 recenzii Google",
   socialProofItems: [
     "Profesionalism, seriozitate și implicare în colaborare.",
     "Consultanță completă și actualizare constantă cu schimbările legislative.",
     "Promptitudine și feedback util pentru administrarea firmei.",
   ],
   socialProofNote: "Sinteză din recenzii publice agregate.",
-  socialProofSourceLabel: "Vezi sursa recenziilor",
-  socialProofSourceUrl:
-    "https://yably.ro/recenzii/sibiu/firma-de-contabilitate-sibiu-alpha-cont-birou-contabil-strada-octavian-goga-55",
+  socialProofGoogleLabel: "Vezi recenziile pe Google",
+  socialProofGoogleUrl:
+    "https://www.google.com/maps/search/?api=1&query=ALPHACONT+GROUP+Sibiu",
   aboutTitle: "Despre noi",
   aboutText:
     "ALPHACONT GROUP este o firmă de contabilitate din Sibiu care lucrează cu PFA-uri, SRL-uri și firme aflate la început de drum. Oferim servicii de contabilitate, salarizare, consultanță fiscală și expert contabil pentru firme care vor mai mult control de la o lună la alta.",
+  securityTitle: "Siguranța datelor tale este prioritatea noastră",
+  securityText:
+    "Datele și documentele tale sunt protejate prin backup automatizat de 2 ori pe zi, folosind metoda 3+2+1: 3 copii de rezervă, 2 tipuri de stocare și 1 copie externă, offsite.",
+  securityItems: [
+    "Backup automatizat, de 2 ori pe zi.",
+    "3 copii de rezervă pentru redundanță.",
+    "2 tipuri de stocare pentru siguranță suplimentară.",
+    "1 copie externă, offsite.",
+  ],
   latestArticlesTitle: "ANAF ne informează",
   anafLinkLabel: "Calendar obligații fiscale ANAF",
   anafLinkUrl:
@@ -105,7 +122,16 @@ export const homeContent = {
   contactFormButton: "Trimite și revenim azi",
   pricingNote:
     "Prețuri începând de la 300 lei / lună. Prețul final depinde de volumul firmei, iar noi îți trimitem ofertă clară după câteva detalii.",
+  locationTitle: "Unde ne găsești",
+  locationText:
+    "Biroul nostru este în Sibiu, pe Str. Octavian Goga 55. Poți deschide direct harta biroului.",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu&output=embed",
   seoServiceLinksTitle: "Servicii căutate în Sibiu",
+  internshipTitle: "Internship / stagiu de practică",
+  internshipText:
+    "Dacă ești student(ă), la început de drum sau cauți experiență practică în contabilitate și administrare, ne poți trimite CV-ul tău.",
+  internshipButton: "Trimite CV-ul",
 };
