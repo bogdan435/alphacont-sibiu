@@ -18,6 +18,7 @@ export const homeContent = {
     "Newly established businesses",
     "Growing businesses",
     "LLC / sole trader setup",
+    "Legal assistance",
   ],
 
   whyTitle: "Why us",

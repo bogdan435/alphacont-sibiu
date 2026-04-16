@@ -1,6 +1,6 @@
 export const homeContent = {
   heroTitle:
-    "Contabilitate pentru firme din Sibiu care vor control, nu doar depuneri",
+    "Contabilitate pentru firme din Sibiu care vor control, nu doar declarații",
   heroText:
     "Știi în fiecare lună ce ai de plată, ce urmează și ce riscuri ai, fără stres.",
   heroSubtext:
@@ -18,6 +18,7 @@ export const homeContent = {
     "Firme nou înființate",
     "Firme în creștere",
     "Înființare SRL / PFA",
+    "Asistență juridică",
   ],
 
   whyTitle: "De ce noi",
