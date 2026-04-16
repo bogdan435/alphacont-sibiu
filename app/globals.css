@@ -418,6 +418,37 @@ li {
   line-height: 1.25;
 }
 
+.seo-service-links {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(24, 56, 139, 0.08);
+}
+
+.seo-service-links-title {
+  margin: 0 0 14px;
+  color: #4d5b79;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.seo-service-links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.seo-service-link {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #f3f6fc;
+  border: 1px solid rgba(24, 56, 139, 0.08);
+  color: #18388b;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .benefit-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -951,6 +982,35 @@ li {
   margin-top: 12px;
 }
 
+.service-page-hero {
+  padding-bottom: 48px;
+}
+
+.service-content-section,
+.service-cta-section {
+  background: #f7f9fe;
+}
+
+.service-cta-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+}
+
+.service-cta-copy {
+  max-width: 40ch;
+  margin: 0;
+  color: #43506a;
+}
+
+.service-cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
 .site-footer {
   margin-top: 24px;
   padding: 28px 0 12px;
@@ -959,7 +1019,7 @@ li {
 
 .site-footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(220px, 0.8fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
   align-items: start;
 }

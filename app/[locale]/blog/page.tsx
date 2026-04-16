@@ -20,12 +20,21 @@ export async function generateMetadata({
   return {
     title:
       safeLocale === "ro"
-        ? "ANAF ne informează | ALPHACONT GROUP"
-        : "ANAF updates | ALPHACONT GROUP",
+        ? "ANAF ne informează | Contabilitate Sibiu | ALPHACONT GROUP"
+        : "ANAF updates | Accounting Sibiu | ALPHACONT GROUP",
     description:
       safeLocale === "ro"
-        ? "Informări și clarificări utile despre contabilitate, fiscalitate și salarizare pentru firme din Sibiu."
+        ? "Informări și clarificări utile despre contabilitate, fiscalitate și salarizare pentru firme din Sibiu, plus articole SEO despre taxe și declarații."
         : "Useful updates and clarifications about accounting, tax, and payroll for businesses in Sibiu.",
+    keywords:
+      safeLocale === "ro"
+        ? [
+            "contabilitate sibiu",
+            "taxe srl romania",
+            "taxe pfa romania",
+            "declaratii firme romania",
+          ]
+        : ["accounting sibiu", "tax romania", "payroll sibiu"],
     alternates: {
       canonical: `${baseUrl}/${safeLocale}/blog`,
       languages: {
@@ -87,7 +96,7 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
         <h1>{safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}</h1>
         <p className="hero-lead">
           {safeLocale === "ro"
-            ? "Noutăți și clarificări utile pentru antreprenori, PFA-uri și firme din Sibiu."
+            ? "Noutăți ANAF, clarificări fiscale și articole utile despre contabilitate în Sibiu."
             : "Useful updates and clarifications for entrepreneurs, sole traders, and companies in Sibiu."}
         </p>
         <a

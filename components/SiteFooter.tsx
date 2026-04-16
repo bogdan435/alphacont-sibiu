@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getServicePageLinks } from "@/lib/service-pages";
 
 type SiteFooterProps = {
   locale: string;
@@ -6,6 +7,7 @@ type SiteFooterProps = {
 
 export default function SiteFooter({ locale }: SiteFooterProps) {
   const safeLocale = locale === "en" ? "en" : "ro";
+  const serviceLinks = getServicePageLinks(safeLocale);
 
   return (
     <footer className="site-footer">
@@ -43,6 +45,19 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
             <Link href={`/${safeLocale}/terms`}>
               {safeLocale === "ro" ? "Termeni" : "Terms"}
             </Link>
+          </div>
+        </div>
+
+        <div>
+          <p className="site-footer-kicker">
+            {safeLocale === "ro" ? "Servicii în Sibiu" : "Services in Sibiu"}
+          </p>
+          <div className="site-footer-links">
+            {serviceLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

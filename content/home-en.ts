@@ -56,7 +56,7 @@ export const homeContent = {
     "https://yably.ro/recenzii/sibiu/firma-de-contabilitate-sibiu-alpha-cont-birou-contabil-strada-octavian-goga-55",
   aboutTitle: "About us",
   aboutText:
-    "ALPHACONT GROUP is a local Sibiu office working with sole traders, LLCs, and newly established businesses. We focus on direct communication, clear next steps, and a predictable month-to-month collaboration.",
+    "ALPHACONT GROUP is a local accounting office in Sibiu working with sole traders, LLCs, and newly established businesses. We provide accounting, payroll, tax advisory, and expert accountant support for businesses that want more control month after month.",
   latestArticlesTitle: "ANAF updates",
   anafLinkLabel: "ANAF fiscal obligations calendar",
   anafLinkUrl:
@@ -107,4 +107,5 @@ export const homeContent = {
     "Prices start from RON 300 / month. The final price depends on the volume of your business, and we send you a clear quote after a few details.",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=55+Octavian+Goga+Street,+550370+Sibiu,+Sibiu+County,+Romania",
+  seoServiceLinksTitle: "Popular service pages in Sibiu",
 };

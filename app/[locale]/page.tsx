@@ -7,6 +7,7 @@ import { getHomeContent } from "@/lib/home";
 import { getBaseUrl, getLocaleMetadata } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
 import { getFaqSchema, getLocalBusinessSchema } from "@/lib/schema";
+import { getServicePageLinks } from "@/lib/service-pages";
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>;
@@ -23,6 +24,7 @@ export async function generateMetadata({
   return {
     title: metadata.title,
     description: metadata.description,
+    keywords: metadata.keywords,
     alternates: {
       canonical: `${baseUrl}/${safeLocale}`,
       languages: {
@@ -38,6 +40,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
   const safeLocale = locale === "en" ? "en" : "ro";
   const baseUrl = getBaseUrl();
   const homeContent = getHomeContent(safeLocale);
+  const serviceLinks = getServicePageLinks(safeLocale);
   const latestPosts = (await getBlogPosts(safeLocale)).slice(0, 3);
   const [featuredPost, ...secondaryPosts] = latestPosts;
   const localBusinessSchema = getLocalBusinessSchema(safeLocale);
@@ -159,6 +162,16 @@ export default async function LocalePage({ params }: LocalePageProps) {
               <h3>{service}</h3>
             </article>
           ))}
+        </div>
+        <div className="seo-service-links">
+          <p className="seo-service-links-title">{homeContent.seoServiceLinksTitle}</p>
+          <div className="seo-service-links-list">
+            {serviceLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="seo-service-link">
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

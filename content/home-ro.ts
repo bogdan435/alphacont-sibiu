@@ -56,7 +56,7 @@ export const homeContent = {
     "https://yably.ro/recenzii/sibiu/firma-de-contabilitate-sibiu-alpha-cont-birou-contabil-strada-octavian-goga-55",
   aboutTitle: "Despre noi",
   aboutText:
-    "ALPHACONT GROUP este un birou local din Sibiu care lucrează cu PFA-uri, SRL-uri și firme aflate la început de drum. Punem accent pe comunicare directă, pași clari și colaborare predictibilă de la o lună la alta.",
+    "ALPHACONT GROUP este o firmă de contabilitate din Sibiu care lucrează cu PFA-uri, SRL-uri și firme aflate la început de drum. Oferim servicii de contabilitate, salarizare, consultanță fiscală și expert contabil pentru firme care vor mai mult control de la o lună la alta.",
   latestArticlesTitle: "ANAF ne informează",
   anafLinkLabel: "Calendar obligații fiscale ANAF",
   anafLinkUrl:
@@ -107,4 +107,5 @@ export const homeContent = {
     "Prețuri începând de la 300 lei / lună. Prețul final depinde de volumul firmei, iar noi îți trimitem ofertă clară după câteva detalii.",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu",
+  seoServiceLinksTitle: "Servicii căutate în Sibiu",
 };
