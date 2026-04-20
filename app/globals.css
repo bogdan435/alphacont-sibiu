@@ -650,15 +650,17 @@ li {
 }
 
 .button-whatsapp {
-  background: linear-gradient(135deg, #1faa59, #128c4a);
+  background-color: #25d366;
   color: white;
-  border: 1px solid rgba(18, 140, 74, 0.88);
-  box-shadow: 0 12px 28px rgba(18, 140, 74, 0.28);
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.2s ease;
 }
 
 .button-whatsapp:hover {
-  background: linear-gradient(135deg, #25d366, #169c53);
-  box-shadow: 0 16px 32px rgba(18, 140, 74, 0.34);
+  background-color: #1ebe5d;
 }
 
 .section-header {
