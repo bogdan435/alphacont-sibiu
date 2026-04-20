@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AnalyticsWithConsent from "@/components/AnalyticsWithConsent";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollToTop from "@/components/ScrollToTop";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -49,6 +50,7 @@ export default async function RootLayout({
         </Script>
         {children}
         <AnalyticsWithConsent />
+        <ScrollToTop />
         <CookieBanner locale={locale} />
       </body>
     </html>
