@@ -1957,6 +1957,11 @@ li {
   background: #1b2745;
 }
 
+.scroll-top-icon {
+  display: block;
+  line-height: 1;
+}
+
 .legal-page {
   padding: 40px 36px;
 }

@@ -22,7 +22,7 @@ export default function ScrollToTop() {
 
   return (
     <button className="scroll-top-button" onClick={scrollToTop} aria-label="Scroll to top">
-      ↑
+      <span className="scroll-top-icon">↑</span>
     </button>
   );
 }
