@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import AnalyticsWithConsent from "@/components/AnalyticsWithConsent";
 import CookieBanner from "@/components/CookieBanner";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,9 +37,19 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Script id="consent-defaults" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('consent', 'default', {
+              analytics_storage: 'denied'
+            });
+          `}
+        </Script>
         {children}
-        <CookieBanner locale={locale} />
         <AnalyticsWithConsent />
+        <CookieBanner locale={locale} />
       </body>
     </html>
   );
