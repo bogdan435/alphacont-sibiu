@@ -31,7 +31,7 @@ export default function TrackedWhatsAppButton({
         })
       }
     >
-      <MessageCircle size={18} aria-hidden="true" style={{ marginRight: 8 }} />
+      <MessageCircle size={18} style={{ marginRight: "8px" }} />
       {label}
     </a>
   );
