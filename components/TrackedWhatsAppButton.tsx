@@ -1,5 +1,6 @@
 "use client";
 
+import { MessageCircle } from "lucide-react";
 import { trackEvent } from "@/lib/gtag";
 
 type TrackedWhatsAppButtonProps = {
@@ -30,6 +31,7 @@ export default function TrackedWhatsAppButton({
         })
       }
     >
+      <MessageCircle size={18} aria-hidden="true" style={{ marginRight: 8 }} />
       {label}
     </a>
   );
