@@ -157,7 +157,7 @@ export const homeContent: HomeContent = {
   socialProofNote: "Sinteză din recenzii publice agregate.",
   socialProofGoogleLabel: "Vezi recenziile pe Google",
   socialProofGoogleUrl:
-    "https://www.google.com/maps/search/?api=1&query=ALPHACONT+GROUP+Sibiu",
+    "https://maps.app.goo.gl/rombVxLCvRkwJYtq9",
 
   aboutTitle: "Despre noi",
   aboutParagraphs: [
@@ -243,9 +243,9 @@ export const homeContent: HomeContent = {
   locationText:
     "Biroul nostru este în Sibiu, pe Str. Octavian Goga 55. Ne poți contacta online, telefonic sau ne poți vizita la birou, cu programare.",
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu",
+    "https://maps.app.goo.gl/rombVxLCvRkwJYtq9",
   mapsEmbedUrl:
-    "https://www.google.com/maps?q=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu&output=embed",
+    "https://www.google.com/maps?q=ALPHACONT+GROUP+Sibiu&output=embed",
   seoServiceLinksTitle: "Servicii căutate în Sibiu",
 
   internshipTitle: "Internship / stagiu de practică",
