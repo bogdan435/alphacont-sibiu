@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
+import TrackedMapsLink from "@/components/TrackedMapsLink";
 import SiteFooter from "@/components/SiteFooter";
 import TrackedPhoneLink from "@/components/TrackedPhoneLink";
 import TrackedWhatsAppButton from "@/components/TrackedWhatsAppButton";
@@ -758,14 +759,13 @@ export default async function LocalePage({ params }: LocalePageProps) {
               >
                 {safeLocale === "ro" ? "Scrie pe WhatsApp" : "Message us on WhatsApp"}
               </a>
-              <a
+              <TrackedMapsLink
                 href={homeContent.mapsUrl}
                 className="contact-secondary-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Google Maps
-              </a>
+                label="Google Maps"
+                locale={safeLocale}
+                location="contact_section"
+              />
             </div>
           </div>
 
