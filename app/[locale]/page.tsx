@@ -793,7 +793,12 @@ export default async function LocalePage({ params }: LocalePageProps) {
                   location="contact_card_ro"
                   phoneNumber={homeContent.contactPhone}
                   label={`🇷🇴 RO · ${primaryPhoneDisplay}`}
-                />
+                >
+                  <span className="contact-phone-flag" aria-hidden="true">
+                    🇷🇴
+                  </span>
+                  <span className="contact-phone-text">RO · {primaryPhoneDisplay}</span>
+                </TrackedPhoneLink>
 
                 <TrackedPhoneLink
                   className="contact-phone-button"
@@ -801,7 +806,12 @@ export default async function LocalePage({ params }: LocalePageProps) {
                   location="contact_card_it"
                   phoneNumber={homeContent.contactPhoneSecondary}
                   label={`🇮🇹 IT · ${secondaryPhoneDisplay}`}
-                />
+                >
+                  <span className="contact-phone-flag" aria-hidden="true">
+                    🇮🇹
+                  </span>
+                  <span className="contact-phone-text">IT · {secondaryPhoneDisplay}</span>
+                </TrackedPhoneLink>
               </div>
             </div>
 

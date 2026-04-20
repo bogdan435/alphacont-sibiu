@@ -1,8 +1,10 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { trackEvent } from "@/lib/gtag";
 
 type TrackedPhoneLinkProps = {
+  children?: ReactNode;
   className: string;
   locale: "ro" | "en";
   location: string;
@@ -11,6 +13,7 @@ type TrackedPhoneLinkProps = {
 };
 
 export default function TrackedPhoneLink({
+  children,
   className,
   locale,
   location,
@@ -28,7 +31,7 @@ export default function TrackedPhoneLink({
         })
       }
     >
-      {label}
+      {children ?? label}
     </a>
   );
 }
