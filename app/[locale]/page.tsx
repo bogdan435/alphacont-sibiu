@@ -784,25 +784,25 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </div>
 
             <div className="contact-row">
-              <p className="contact-label">
-                {safeLocale === "ro" ? "Telefon România" : "Romania phone"}
-              </p>
-              <TrackedPhoneLink
-                className="contact-value"
-                locale={safeLocale}
-                location="contact_card_ro"
-                phoneNumber={homeContent.contactPhone}
-                label={primaryPhoneDisplay}
-              />
-            </div>
+              <p className="contact-label">{safeLocale === "ro" ? "Telefon" : "Phone"}</p>
 
-            <div className="contact-row">
-              <p className="contact-label">
-                {safeLocale === "ro" ? "Telefon Italia" : "Italy phone"}
-              </p>
-              <a href={`tel:${homeContent.contactPhoneSecondary}`} className="contact-value">
-                {secondaryPhoneDisplay}
-              </a>
+              <div className="contact-phone-buttons">
+                <TrackedPhoneLink
+                  className="contact-phone-button"
+                  locale={safeLocale}
+                  location="contact_card_ro"
+                  phoneNumber={homeContent.contactPhone}
+                  label={`🇷🇴 RO · ${primaryPhoneDisplay}`}
+                />
+
+                <TrackedPhoneLink
+                  className="contact-phone-button"
+                  locale={safeLocale}
+                  location="contact_card_it"
+                  phoneNumber={homeContent.contactPhoneSecondary}
+                  label={`🇮🇹 IT · ${secondaryPhoneDisplay}`}
+                />
+              </div>
             </div>
 
             <div className="contact-row">
