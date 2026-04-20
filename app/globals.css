@@ -649,6 +649,18 @@ li {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.button-whatsapp {
+  background: linear-gradient(135deg, #1faa59, #128c4a);
+  color: white;
+  border: 1px solid rgba(18, 140, 74, 0.88);
+  box-shadow: 0 12px 28px rgba(18, 140, 74, 0.28);
+}
+
+.button-whatsapp:hover {
+  background: linear-gradient(135deg, #25d366, #169c53);
+  box-shadow: 0 16px 32px rgba(18, 140, 74, 0.34);
+}
+
 .section-header {
   margin-bottom: 24px;
 }

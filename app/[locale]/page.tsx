@@ -231,16 +231,16 @@ export default async function LocalePage({ params }: LocalePageProps) {
           <p className="hero-lead">{homeContent.heroText}</p>
           <p className="hero-subtext">{homeContent.heroSubtext}</p>
           <div className="hero-actions">
-            <a href={`mailto:${homeContent.contactEmail}`} className="button">
-              {homeContent.heroButton}
-            </a>
             <TrackedWhatsAppButton
-              className="button button-secondary"
+              className="button button-whatsapp"
               locale={safeLocale}
               location="hero"
               phoneNumber={homeContent.whatsappNumber}
-              label={homeContent.heroSecondaryButton}
+              label={safeLocale === "ro" ? "Scrie-ne pe WhatsApp" : "Message us on WhatsApp"}
             />
+            <a href={`mailto:${homeContent.contactEmail}`} className="button button-secondary">
+              {homeContent.heroButton}
+            </a>
           </div>
         </div>
       </section>
