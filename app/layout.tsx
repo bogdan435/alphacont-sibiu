@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AnalyticsWithConsent from "@/components/AnalyticsWithConsent";
+import CookieBanner from "@/components/CookieBanner";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -34,8 +35,11 @@ export default async function RootLayout({
       lang={locale ?? "ro"}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
-      <AnalyticsWithConsent />
+      <body className="min-h-full flex flex-col">
+        {children}
+        <CookieBanner locale={locale} />
+        <AnalyticsWithConsent />
+      </body>
     </html>
   );
 }
