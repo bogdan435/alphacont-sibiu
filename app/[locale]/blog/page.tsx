@@ -148,6 +148,7 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
             className="logo-image"
             width={240}
             height={66}
+            priority
           />
           <div className="logo-support">
             <span>

@@ -188,6 +188,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
             className="logo-image"
             width={240}
             height={66}
+            priority
           />
           <div className="logo-support">
             <span>

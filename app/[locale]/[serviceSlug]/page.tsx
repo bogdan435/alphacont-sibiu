@@ -71,6 +71,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             className="logo-image"
             width={240}
             height={66}
+            priority
           />
           <div className="logo-support">
             <span>
