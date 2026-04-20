@@ -1936,30 +1936,33 @@ li {
 
 .scroll-top-button {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 44px;
-  height: 44px;
+  bottom: 28px;
+  right: 28px;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
-  background: #243456;
-  color: white;
-  border: none;
-  font-size: 20px;
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(44, 62, 111, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
   z-index: 1000;
 }
 
 .scroll-top-button:hover {
+  background: #ffffff;
+  border-color: rgba(44, 62, 111, 0.3);
   transform: translateY(-2px);
-  background: #1b2745;
 }
 
 .scroll-top-icon {
-  display: block;
-  line-height: 1;
+  font-size: 16px;
+  color: #243456;
+  font-weight: 700;
 }
 
 .legal-page {
