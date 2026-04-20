@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
 import SiteFooter from "@/components/SiteFooter";
+import TrackedWhatsAppButton from "@/components/TrackedWhatsAppButton";
 import { getHomeContent } from "@/lib/home";
 import { getBaseUrl } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
@@ -225,14 +226,13 @@ export default async function LocalePage({ params }: LocalePageProps) {
             <a href={`mailto:${homeContent.contactEmail}`} className="button">
               {homeContent.heroButton}
             </a>
-            <a
-              href={`https://wa.me/${homeContent.whatsappNumber}`}
+            <TrackedWhatsAppButton
               className="button button-secondary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {homeContent.heroSecondaryButton}
-            </a>
+              locale={safeLocale}
+              location="hero"
+              phoneNumber={homeContent.whatsappNumber}
+              label={homeContent.heroSecondaryButton}
+            />
           </div>
         </div>
       </section>
