@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
 import SiteFooter from "@/components/SiteFooter";
+import TrackedPhoneLink from "@/components/TrackedPhoneLink";
 import TrackedWhatsAppButton from "@/components/TrackedWhatsAppButton";
 import { getHomeContent } from "@/lib/home";
 import { getBaseUrl } from "@/lib/seo";
@@ -780,9 +781,13 @@ export default async function LocalePage({ params }: LocalePageProps) {
               <p className="contact-label">
                 {safeLocale === "ro" ? "Telefon România" : "Romania phone"}
               </p>
-              <a href={`tel:${homeContent.contactPhone}`} className="contact-value">
-                {primaryPhoneDisplay}
-              </a>
+              <TrackedPhoneLink
+                className="contact-value"
+                locale={safeLocale}
+                location="contact_card_ro"
+                phoneNumber={homeContent.contactPhone}
+                label={primaryPhoneDisplay}
+              />
             </div>
 
             <div className="contact-row">
