@@ -1,6 +1,15 @@
+export type ConsentParams = {
+  analytics_storage: "granted" | "denied";
+};
+
+type Gtag = {
+  (command: "event", name: string, params?: EventParams): void;
+  (command: "consent", action: "update", params: ConsentParams): void;
+};
+
 declare global {
   interface Window {
-    gtag?: (command: "event", name: string, params?: EventParams) => void;
+    gtag?: Gtag;
   }
 }
 
