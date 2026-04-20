@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { Suspense } from "react";
+import LeadTracking from "@/components/LeadTracking";
 import SectionTitle from "@/components/SectionTitle";
 import TrackedMapsLink from "@/components/TrackedMapsLink";
 import SiteFooter from "@/components/SiteFooter";
@@ -161,6 +163,10 @@ export default async function LocalePage({ params }: LocalePageProps) {
 
   return (
     <main className="site-shell">
+      <Suspense fallback={null}>
+        <LeadTracking locale={safeLocale} />
+      </Suspense>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
