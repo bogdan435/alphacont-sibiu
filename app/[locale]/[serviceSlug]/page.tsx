@@ -62,7 +62,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   }
 
   return (
-    <main>
+    <main className="site-shell">
       <nav className="topbar">
         <div className="logo">
           <Image
@@ -116,7 +116,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               href={`https://wa.me/${homeContent.whatsappNumber}`}
               className="button button-secondary"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               {safeLocale === "ro" ? "Discută pe WhatsApp" : "Chat on WhatsApp"}
             </a>
@@ -167,7 +167,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               href={`https://wa.me/${homeContent.whatsappNumber}`}
               className="contact-secondary-link whatsapp-link"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               {safeLocale === "ro" ? "Scrie pe WhatsApp" : "Message on WhatsApp"}
             </a>

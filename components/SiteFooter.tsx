@@ -61,6 +61,11 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
           </div>
         </div>
       </div>
+      <p className="site-footer-copyright">
+        {safeLocale === "ro"
+          ? "© 2026 ALPHACONT GROUP. Toate drepturile rezervate."
+          : "© 2026 ALPHACONT GROUP. All rights reserved."}
+      </p>
     </footer>
   );
 }

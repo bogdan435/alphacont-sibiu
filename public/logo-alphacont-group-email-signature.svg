@@ -1,0 +1,20 @@
+<svg width="980" height="180" viewBox="0 0 980 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(18 20)" stroke="#18388B" fill="none">
+    <circle cx="40" cy="40" r="32" stroke-width="4"/>
+    <line x1="40" y1="14" x2="40" y2="66" stroke-width="1.8"/>
+    <line x1="14" y1="40" x2="66" y2="40" stroke-width="1.8"/>
+    <g fill="#18388B" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+      <text x="29" y="31">D</text>
+      <text x="51" y="31">C</text>
+      <text x="29" y="54">A</text>
+      <text x="51" y="54">P</text>
+    </g>
+  </g>
+
+  <g transform="translate(96 26)">
+    <text x="0" y="40" fill="#18388B" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="0.8">ALPHACONT</text>
+    <text x="2" y="68" fill="#18388B" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" letter-spacing="1.4">GROUP</text>
+    <line x1="2" y1="82" x2="286" y2="82" stroke="#18388B" stroke-width="1.2" opacity="0.22"/>
+    <text x="2" y="112" fill="#18388B" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" letter-spacing="2.6">ACCOUNTING &amp; TAX</text>
+  </g>
+</svg>

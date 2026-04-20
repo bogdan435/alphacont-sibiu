@@ -1,79 +1,186 @@
-export const homeContent = {
+import type {
+  ComplexityItem,
+  HomeContent,
+  ProcessItem,
+  SpecialService,
+} from "./home.types";
+
+const specialServices: SpecialService[] = [
+  {
+    title: "Support during ANAF and Antifraud inspections",
+    description:
+      "We provide support during ongoing tax inspections, including situations where the accounting records were previously prepared by a third party.",
+  },
+  {
+    title: "Accounting reconstruction and reorganization",
+    description:
+      "We take over businesses with unclear, unfinished, or incorrectly prepared accounting records and reorganize the documents and accounting workflow.",
+  },
+  {
+    title: "Takeover of companies with incomplete records",
+    description:
+      "We review the existing situation and establish the steps required to bring the accounting records back into a correct and predictable state.",
+  },
+  {
+    title: "Clarifying assets, liabilities, and tax obligations",
+    description:
+      "We help clarify the company’s assets, liabilities, and tax obligations for safer decisions and a clearer financial picture.",
+  },
+  {
+    title: "Support for e-Factura, e-Transport, ITM, and REVISAL / REGES",
+    description:
+      "We help you handle ongoing administrative and tax obligations with clear organization and easy-to-follow steps.",
+  },
+  {
+    title: "Tailored solutions based on your activity",
+    description:
+      "We adapt our services to the specifics of your business, its current stage, and the complexity of the situation.",
+  },
+];
+
+const complexityItems: ComplexityItem[] = [
+  {
+    title: "Support during ANAF inspections",
+    description:
+      "We step in during tax inspections and sensitive situations with clear analysis, organized documentation, and practical support throughout the process.",
+  },
+  {
+    title: "Takeover of businesses with unclear records",
+    description:
+      "We take over companies with unfinished, incomplete, or incorrectly prepared accounting records and define the steps needed for reorganization.",
+  },
+  {
+    title: "Accounting accuracy review",
+    description:
+      "We assess whether the accounting records properly reflect the specifics of the business activity and identify the areas that need correction or clarification.",
+  },
+  {
+    title: "Clarifying assets, liabilities, and tax obligations",
+    description:
+      "We help you better understand the company’s financial position and related tax obligations so you can make safer decisions.",
+  },
+  {
+    title: "Tax predictability",
+    description:
+      "We explain taxes, contributions, and ongoing obligations in a concrete way, so you have more control and fewer surprises.",
+  },
+];
+
+const processItems: ProcessItem[] = [
+  {
+    step: "01",
+    title: "We understand the context",
+    description:
+      "You send us a few details about your business and current situation so we can clearly understand what you need.",
+  },
+  {
+    step: "02",
+    title: "We propose the solution",
+    description:
+      "We review the context and propose a clear solution adapted to your needs and the level of complexity of your business.",
+  },
+  {
+    step: "03",
+    title: "We take over in an organized way",
+    description:
+      "We agree on the working steps and take over the documents, online or physically, in a simple and predictable way.",
+  },
+  {
+    step: "04",
+    title: "We work with clarity",
+    description:
+      "You get consistent communication, better organization, and better visibility over obligations and key deadlines.",
+  },
+];
+
+export const homeContent: HomeContent = {
   heroTitle:
-    "Accounting for businesses in Sibiu that want control, not just filings",
+    "Accounting and tax support for businesses in Sibiu that want clarity, control, and real support",
   heroText:
-    "Know each month what is due, what comes next, and what risks to watch, without stress.",
+    "You know what is due, what comes next, and where your business stands. No guesswork, no surprises, no administrative chaos.",
   heroSubtext:
-    "We handle accounting, payroll, and tax clarifications for LLCs, sole traders, and growing businesses that want more control and fewer surprises.",
-  heroButton: "Request a quote today",
+    "We handle accounting, payroll, and tax clarifications for LLCs, sole traders, and growing businesses, so you can focus on your business instead of bureaucracy.",
+  heroButton: "Request a quote",
   heroSecondaryButton: "Chat on WhatsApp",
   heroResponseLine: "We usually reply within the same working day.",
   heroBadge: "ALPHACONT GROUP",
+  officeShowcaseTitle: "A local Sibiu office with clear organization and direct communication",
+  officeShowcaseText:
+    "We work with entrepreneurs and companies that want structure, predictability, and professional support in accounting and taxation.",
+  officeShowcaseSubtext:
+    "We communicate directly, explain things clearly, and step in even in difficult situations, from accounting reorganization to ongoing tax inspections.",
+  officeShowcaseMeta: "Sibiu · LLC, sole trader, NGO · Fast response",
 
   servicesTitle: "Who we work with",
   services: [
-    "LLCs",
-    "Sole traders",
-    "NGOs",
+    "LLCs across various industries",
+    "Sole traders and independent professionals",
+    "NGOs and associations",
     "Newly established businesses",
-    "Growing businesses",
-    "LLC / sole trader setup",
-    "Legal assistance",
+    "Growing companies",
+    "Companies that need accounting reorganization and clarification",
   ],
-  specialServicesTitle: "Specialized support",
-  specialServices: [
-    "ITM and REVISAL / REGES support",
-    "RO e-Factura and RO e-Transport - UIT code support",
-    "Accounting reconstruction",
-    "Legal assistance",
-  ],
-  supportLanguagesLine: "We communicate in Romanian, English, French, and Italian.",
 
-  whyTitle: "Why us",
+  specialServicesTitle: "Specialized services",
+  specialServices,
+  supportLanguagesLine: "We communicate in Romanian, English, French, and Italian.",
+  trustItems: [
+    "20+ years of premium accounting and tax experience",
+    "Support during ANAF inspections and complex tax situations",
+    "We take over and reorganize incomplete or incorrect accounting records",
+    "LLCs, sole traders, NGOs, and businesses at the start of their journey",
+    "Communication in Romanian, English, French, and Italian",
+  ],
+
+  whyTitle: "Why ALPHACONT GROUP",
   whyItems: [
-    "You speak directly with the accountant.",
-    "We tell you in advance which taxes are due next.",
-    "Monthly document checklist.",
-    "Fast replies on WhatsApp.",
-    "We work digitally.",
+    "We explain things clearly, without ambiguity or jargon.",
+    "Premium financial and accounting services, without compromise.",
+    "We handle complex and sensitive situations.",
+    "Confidentiality and organization are standard, not optional.",
+    "A digital approach supported by real human interaction.",
   ],
+
   complexityTitle: "Not just accounting. Real financial control.",
-  complexityItems: [
-    "We handle ANAF inspections.",
-    "We help with SAF-T and RO e-Factura.",
-    "We prepare documentation for financing.",
-    "We build projections for safer decisions.",
-  ],
+  complexityItems,
+
   processTitle: "How we work",
-  processItems: [
-    "You send us a few details about your business.",
-    "We send you a clear quote.",
-    "We take over the documents, online or physically.",
-    "Each month you receive the situation and the key deadlines.",
-  ],
+  processItems,
+
   socialProofTitle: "What public reviews say",
   socialProofRating: "4.9/5 from 21 Google reviews",
   socialProofItems: [
-    "Professional, serious, and involved collaboration.",
-    "Complete advisory support and strong awareness of legislative changes.",
-    "Prompt replies and useful feedback for running the business more smoothly.",
+    "Professionalism, reliability, and genuine involvement in the collaboration.",
+    "Complete advisory support and constant awareness of legislative changes.",
+    "Prompt replies, clear communication, and useful support for running the business.",
   ],
   socialProofNote: "Summary based on aggregated public reviews.",
   socialProofGoogleLabel: "See Google reviews",
   socialProofGoogleUrl:
     "https://www.google.com/maps/search/?api=1&query=ALPHACONT+GROUP+Sibiu",
+
   aboutTitle: "About us",
-  aboutText:
-    "ALPHACONT GROUP is a local accounting office in Sibiu working with sole traders, LLCs, and newly established businesses. We provide accounting, payroll, tax advisory, and expert accountant support for businesses that want more control month after month.",
+  aboutParagraphs: [
+    "ALPHACONT GROUP stands for experience, clarity, and premium financial and accounting services for entrepreneurs and companies that want more than correct bookkeeping.",
+    "We believe that even in a digital world, the human relationship remains essential in this field. That is why we explain things clearly and directly, so you can make informed decisions and focus on your business instead of bureaucracy.",
+    "We work with LLCs, sole traders, NGOs, newly established businesses, and companies that need reorganization, control, and predictability.",
+  ],
+  aboutHighlights: [
+    "Local office in Sibiu",
+    "Direct communication by email, phone, and WhatsApp",
+    "We work with LLCs, sole traders, NGOs, and newly established businesses",
+    "We communicate in Romanian, English, French, and Italian",
+  ],
   securityTitle: "Your data security is one of our priorities",
   securityText:
-    "Your data and documents are protected by automated backups twice a day, using the 3+2+1 method: 3 backup copies, 2 storage types, and 1 external offsite copy.",
+    "Your data and documents are protected through automated backups twice a day, using the 3+2+1 method: 3 backup copies, 2 storage types, and 1 external offsite copy.",
   securityItems: [
     "Automated backup twice a day.",
     "3 backup copies for redundancy.",
-    "2 storage types for extra safety.",
-    "1 external, offsite copy.",
+    "2 storage types for additional safety.",
+    "1 external offsite copy.",
   ],
+
   latestArticlesTitle: "ANAF updates",
   anafLinkLabel: "ANAF fiscal obligations calendar",
   anafLinkUrl:
@@ -93,22 +200,32 @@ export const homeContent = {
     {
       question: "What type of clients do you work with?",
       answer:
-        "We work with sole traders, small and medium-sized businesses, and entrepreneurs who need accounting, payroll, and tax advisory support.",
+        "We work with sole traders, LLCs, NGOs, newly established businesses, and companies that need structure, clarity, and ongoing tax support.",
     },
     {
-      question: "Can I work with you if my company is newly established?",
+      question: "Do you also work with newly established businesses?",
       answer:
-        "Yes. We can help with the initial document setup, accounting workflow, and clarification of the main tax obligations.",
+        "Yes. We help you start in an organized way, understand the main tax obligations, and set up a correct accounting workflow from the beginning.",
+    },
+    {
+      question: "Do you take over companies with incomplete or incorrectly prepared accounting records?",
+      answer:
+        "Yes. We can review the current situation, reorganize the documents, and rebuild the accounting records so the business can move forward correctly and predictably.",
+    },
+    {
+      question: "Do you provide support during an ANAF inspection that has already started?",
+      answer:
+        "Yes. We provide support during ongoing tax inspections and help clarify the documents and accounting situation.",
     },
     {
       question: "How do I send accounting documents to you?",
       answer:
-        "Documents can be sent in an organized, periodic way, in physical or digital format, so reporting and records stay clear and up to date.",
+        "Documents can be sent in an organized, periodic way, in physical or digital format, so reporting and records remain clear and up to date.",
     },
     {
       question: "Do you also provide payroll services?",
       answer:
-        "Yes. We handle payroll, employee administration documents, and related obligations so the process stays accurate and predictable.",
+        "Yes. We handle payroll, employee documentation, and related obligations so the process remains accurate and predictable.",
     },
   ],
 
@@ -119,19 +236,25 @@ export const homeContent = {
   contactCity: "55 Octavian Goga Street, 550370 Sibiu, Sibiu County, Romania",
   whatsappNumber: "40721644296",
   contactPromise: "We usually reply within the same working day.",
-  contactFormButton: "Send it and we’ll reply today",
+  contactFormButton: "Send your request",
   pricingNote:
-    "Prices start from RON 300 / month. The final price depends on the volume of your business, and we send you a clear quote after a few details.",
+    "Prices start from RON 300 / month. The final cost depends on the volume of the business and the complexity of the requested services.",
   locationTitle: "Where to find us",
   locationText:
-    "Our office is in Sibiu, at 55 Octavian Goga Street. You can open the office map directly.",
+    "Our office is in Sibiu, at 55 Octavian Goga Street. You can contact us online, by phone, or visit us at the office by appointment.",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=55+Octavian+Goga+Street,+550370+Sibiu,+Sibiu+County,+Romania",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=55+Octavian+Goga+Street,+550370+Sibiu,+Sibiu+County,+Romania&output=embed",
   seoServiceLinksTitle: "Popular service pages in Sibiu",
+
   internshipTitle: "Internship",
-  internshipText:
-    "If you are a student, at the beginning of your career, or looking for practical experience in accounting and administration, you can send us your CV.",
+  internshipIntro:
+    "We are happy to hear from young people who want to learn, pay attention to detail, and gain practical experience in a field where rigor, organization, and clarity matter.",
+  internshipHighlights: [
+    "Suitable for students, graduates, and young people at the beginning of their journey",
+    "Exposure to real accounting, organization, and administrative situations",
+    "A serious environment where you learn clarity, discipline, and practical thinking",
+  ],
   internshipButton: "Send your CV",
 };

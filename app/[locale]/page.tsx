@@ -4,7 +4,7 @@ import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
 import SiteFooter from "@/components/SiteFooter";
 import { getHomeContent } from "@/lib/home";
-import { getBaseUrl, getLocaleMetadata } from "@/lib/seo";
+import { getBaseUrl } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
 import { getFaqSchema, getLocalBusinessSchema } from "@/lib/schema";
 import { getServicePageLinks } from "@/lib/service-pages";
@@ -18,19 +18,80 @@ export async function generateMetadata({
 }: LocalePageProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = locale === "en" ? "en" : "ro";
-  const metadata = getLocaleMetadata(safeLocale);
   const baseUrl = getBaseUrl();
 
   return {
-    title: metadata.title,
-    description: metadata.description,
-    keywords: metadata.keywords,
+    metadataBase: new URL(baseUrl),
+    title:
+      safeLocale === "ro"
+        ? "Contabilitate Sibiu | Contabil în Sibiu | ALPHACONT GROUP"
+        : "Accounting Sibiu | Accountant in Sibiu | ALPHACONT GROUP",
+    description:
+      safeLocale === "ro"
+        ? "Servicii de contabilitate în Sibiu pentru SRL și PFA. Contabil în Sibiu cu experiență, fiscalitate, salarizare și suport complet pentru firme."
+        : "Accounting services in Sibiu for LLCs and sole traders. Experienced accountant, tax, payroll, and full business support.",
+    keywords:
+      safeLocale === "ro"
+        ? [
+            "contabilitate sibiu",
+            "contabil în sibiu",
+            "servicii contabilitate sibiu",
+            "fiscalitate sibiu",
+            "salarizare sibiu",
+            "contabil srl sibiu",
+            "contabil pfa sibiu",
+          ]
+        : [
+            "accounting sibiu",
+            "accountant in sibiu",
+            "tax services sibiu",
+            "payroll sibiu",
+            "accounting services sibiu",
+          ],
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: `${baseUrl}/${safeLocale}`,
       languages: {
         ro: `${baseUrl}/ro`,
         en: `${baseUrl}/en`,
       },
+    },
+    openGraph: {
+      title:
+        safeLocale === "ro"
+          ? "Contabilitate Sibiu | ALPHACONT GROUP"
+          : "Accounting Sibiu | ALPHACONT GROUP",
+      description:
+        safeLocale === "ro"
+          ? "Servicii de contabilitate și fiscalitate pentru firme din Sibiu."
+          : "Accounting and tax services for businesses in Sibiu.",
+      url: `${baseUrl}/${safeLocale}`,
+      siteName: "ALPHACONT GROUP",
+      locale: safeLocale === "ro" ? "ro_RO" : "en_US",
+      type: "website",
+      images: [
+        {
+          url: "/images/hero-office.jpg",
+          width: 1200,
+          height: 630,
+          alt: "ALPHACONT GROUP - Contabilitate Sibiu",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        safeLocale === "ro"
+          ? "Contabilitate Sibiu | ALPHACONT GROUP"
+          : "Accounting Sibiu | ALPHACONT GROUP",
+      description:
+        safeLocale === "ro"
+          ? "Servicii de contabilitate și fiscalitate pentru firme din Sibiu."
+          : "Accounting and tax services for businesses in Sibiu.",
+      images: ["/images/hero-office.jpg"],
     },
   };
 }
@@ -41,8 +102,54 @@ export default async function LocalePage({ params }: LocalePageProps) {
   const baseUrl = getBaseUrl();
   const homeContent = getHomeContent(safeLocale);
   const serviceLinks = getServicePageLinks(safeLocale);
-  const latestPosts = (await getBlogPosts(safeLocale)).slice(0, 3);
-  const [featuredPost, ...secondaryPosts] = latestPosts;
+  const allPosts = await getBlogPosts(safeLocale);
+
+  const resourcePosts = allPosts
+    .filter((post) => {
+      const title = post.title?.toLowerCase?.() ?? "";
+      const description = post.description?.toLowerCase?.() ?? "";
+      const category = post.category?.toLowerCase?.() ?? "";
+      const tags = (post.tags ?? []).map((tag) => tag.toLowerCase());
+
+      const isAnafOnly =
+        title.includes("anaf") ||
+        description.includes("anaf") ||
+        category.includes("anaf") ||
+        tags.some((tag) => tag.includes("anaf"));
+
+      const isMonografie = category === "monografii contabile";
+
+      const isFiscalAccountingResource = [
+        "contabilitate",
+        "fiscalitate",
+        "taxe",
+        "srl",
+        "pfa",
+        "documente",
+        "salarizare",
+        "declara",
+        "impozit",
+        "tva",
+      ].some(
+        (term) =>
+          title.includes(term) ||
+          description.includes(term) ||
+          category.includes(term) ||
+          tags.some((tag) => tag.includes(term)),
+      );
+
+      return isFiscalAccountingResource && !isAnafOnly && !isMonografie;
+    })
+    .slice(0, 3);
+
+  const monografiiPosts = allPosts
+    .filter((post) => {
+      const category = post.category?.toLowerCase?.() ?? "";
+      return category === "monografii contabile";
+    })
+    .slice(0, 3);
+
+  const [featuredPost, ...secondaryPosts] = resourcePosts;
   const localBusinessSchema = getLocalBusinessSchema(safeLocale);
   const faqSchema = getFaqSchema(homeContent.faqs);
 
@@ -50,7 +157,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
   const secondaryPhoneDisplay = "+39 334 741 2487";
 
   return (
-    <main>
+    <main className="site-shell">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -84,8 +191,11 @@ export default async function LocalePage({ params }: LocalePageProps) {
             <a href="#services">{safeLocale === "ro" ? "Servicii" : "Services"}</a>
             <a href="#why">{safeLocale === "ro" ? "Avantaje" : "Benefits"}</a>
             <Link href={`/${safeLocale}/blog`}>
-              {safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
+              {safeLocale === "ro"
+                ? "Resurse fiscal-contabile"
+                : "Accounting & tax resources"}
             </Link>
+            <a href="#anaf">{safeLocale === "ro" ? "ANAF" : "ANAF"}</a>
             <a href="#contact">Contact</a>
           </div>
           <div className="language-switch" aria-label="Language switch">
@@ -105,11 +215,12 @@ export default async function LocalePage({ params }: LocalePageProps) {
         </div>
       </nav>
 
-      <section className="hero hero-redesign">
+      <section className="hero hero-redesign hero-photo">
         <div className="hero-copy">
+          <p className="hero-badge">{homeContent.heroBadge}</p>
           <h1>{homeContent.heroTitle}</h1>
           <p className="hero-lead">{homeContent.heroText}</p>
-          <p className="hero-summary">{homeContent.heroSubtext}</p>
+          <p className="hero-subtext">{homeContent.heroSubtext}</p>
           <div className="hero-actions">
             <a href={`mailto:${homeContent.contactEmail}`} className="button">
               {homeContent.heroButton}
@@ -118,35 +229,52 @@ export default async function LocalePage({ params }: LocalePageProps) {
               href={`https://wa.me/${homeContent.whatsappNumber}`}
               className="button button-secondary"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               {homeContent.heroSecondaryButton}
             </a>
           </div>
-          <p className="hero-response-line">{homeContent.heroResponseLine}</p>
         </div>
       </section>
 
       <section className="trust-strip">
         <ul className="trust-strip-list">
-          {safeLocale === "ro" ? (
-            <>
-              <li>20+ ani de experiență în servicii financiar-contabile</li>
-              <li>4,9/5 din recenzii publice</li>
-              <li>SRL-uri, PFA-uri, ONG-uri și profesii liberale</li>
-              <li>SAF-T, RO e-Factura și sprijin în controale ANAF</li>
-              <li>{homeContent.supportLanguagesLine}</li>
-            </>
-          ) : (
-            <>
-              <li>20+ years of accounting and tax experience</li>
-              <li>4.9/5 from public reviews</li>
-              <li>LLCs, sole traders, NGOs, and liberal professions</li>
-              <li>SAF-T, RO e-Factura, and ANAF inspection support</li>
-              <li>{homeContent.supportLanguagesLine}</li>
-            </>
-          )}
+          {homeContent.trustItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
+      </section>
+
+      <section className="office-section">
+        <div className="office-card">
+          <div className="office-copy">
+            <div className="office-eyebrow">
+              {safeLocale === "ro" ? "BIROUL NOSTRU" : "OUR OFFICE"}
+            </div>
+
+            <h2 className="office-title">{homeContent.officeShowcaseTitle}</h2>
+
+            <p className="office-lead">{homeContent.officeShowcaseText}</p>
+
+            <p className="office-text">{homeContent.officeShowcaseSubtext}</p>
+
+            <div className="office-meta">{homeContent.officeShowcaseMeta}</div>
+          </div>
+
+          <div className="office-media">
+            <Image
+              src="/images/sibiu_desk_web.jpg"
+              alt={
+                safeLocale === "ro"
+                  ? "Biroul AlphaCont Group din Sibiu"
+                  : "AlphaCont Group office in Sibiu"
+              }
+              width={1600}
+              height={1275}
+              sizes="(max-width: 780px) 100vw, 46vw"
+            />
+          </div>
+        </div>
       </section>
 
       <section id="services" className="content-section">
@@ -162,6 +290,11 @@ export default async function LocalePage({ params }: LocalePageProps) {
           {homeContent.services.map((service) => (
             <article key={service} className="service-segment">
               <h3>{service}</h3>
+              <p className="service-subtext">
+                {safeLocale === "ro"
+                  ? "Servicii adaptate nevoilor specifice"
+                  : "Services adapted to specific needs"}
+              </p>
             </article>
           ))}
         </div>
@@ -188,8 +321,9 @@ export default async function LocalePage({ params }: LocalePageProps) {
         </div>
         <div className="special-services-grid">
           {homeContent.specialServices.map((service) => (
-            <article key={service} className="special-service-card">
-              <p>{service}</p>
+            <article key={service.title} className="special-service-card">
+              <h3 className="special-service-title">{service.title}</h3>
+              <p className="special-service-description">{service.description}</p>
             </article>
           ))}
         </div>
@@ -206,19 +340,8 @@ export default async function LocalePage({ params }: LocalePageProps) {
         </div>
         <div className="benefit-grid">
           {homeContent.whyItems.map((item) => (
-            <article
-              key={item}
-              className={
-                item.toLowerCase().includes("digital")
-                  ? "benefit-card benefit-card-digital"
-                  : "benefit-card"
-              }
-            >
-              {item.toLowerCase().includes("digital") ? (
-                <span className="benefit-chip">
-                  {safeLocale === "ro" ? "Flux digital" : "Digital workflow"}
-                </span>
-              ) : null}
+            <article key={item} className="benefit-card">
+              <span className="benefit-accent-line" />
               <p>{item}</p>
             </article>
           ))}
@@ -234,11 +357,15 @@ export default async function LocalePage({ params }: LocalePageProps) {
             <SectionTitle title={homeContent.complexityTitle} />
           </div>
         </div>
-        <ul className="complexity-list">
+
+        <div className="complexity-grid">
           {homeContent.complexityItems.map((item) => (
-            <li key={item}>{item}</li>
+            <article key={item.title} className="complexity-card">
+              <h3 className="complexity-card-title">{item.title}</h3>
+              <p className="complexity-card-description">{item.description}</p>
+            </article>
           ))}
-        </ul>
+        </div>
       </section>
 
       <section className="content-section process-section">
@@ -255,11 +382,15 @@ export default async function LocalePage({ params }: LocalePageProps) {
               : "The collaboration should be easy to understand from the first contact. That is why we explain clearly what happens next and how we work, step by step."}
           </p>
         </div>
-        <ol className="process-list">
+        <div className="process-grid">
           {homeContent.processItems.map((item) => (
-            <li key={item}>{item}</li>
+            <article key={item.step} className="process-card">
+              <div className="process-step">{item.step}</div>
+              <h3 className="process-card-title">{item.title}</h3>
+              <p className="process-card-description">{item.description}</p>
+            </article>
           ))}
-        </ol>
+        </div>
       </section>
 
       <section className="content-section social-proof-section">
@@ -287,7 +418,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
             href={homeContent.socialProofGoogleUrl}
             className="social-proof-link social-proof-link-secondary"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             {homeContent.socialProofGoogleLabel}
           </a>
@@ -304,19 +435,15 @@ export default async function LocalePage({ params }: LocalePageProps) {
           </div>
         </div>
         <div className="about-layout">
-          <p className="about-copy">{homeContent.aboutText}</p>
+          <div className="about-copy">
+            {homeContent.aboutParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
           <div className="about-card">
-            <p>{safeLocale === "ro" ? "Birou local în Sibiu" : "Local office in Sibiu"}</p>
-            <p>
-              {safeLocale === "ro"
-                ? "Comunicare directă prin email, telefon și WhatsApp"
-                : "Direct communication by email, phone, and WhatsApp"}
-            </p>
-            <p>
-              {safeLocale === "ro"
-                ? "Lucrăm cu SRL-uri, PFA-uri și firme nou înființate"
-                : "We work with LLCs, sole traders, and newly established businesses"}
-            </p>
+            {homeContent.aboutHighlights.map((item) => (
+              <p key={item}>{item}</p>
+            ))}
           </div>
         </div>
       </section>
@@ -339,51 +466,22 @@ export default async function LocalePage({ params }: LocalePageProps) {
       </section>
 
       <section className="content-section">
-        <div className="split-header">
-          <div>
-            <p className="section-kicker">
-              {safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
-            </p>
-            <SectionTitle title={homeContent.latestArticlesTitle} />
-          </div>
-          <div className="blog-section-copy">
-            <Link href={`/${safeLocale}/blog`} className="blog-section-link">
-              {safeLocale === "ro" ? "Vezi toate informările" : "See all updates"}
-            </Link>
-            <a
-              href={homeContent.anafLinkUrl}
-              className="blog-section-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {homeContent.anafLinkLabel}
-            </a>
-            <a
-              href={homeContent.anafLinkSecondaryUrl}
-              className="blog-section-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {homeContent.anafLinkSecondaryLabel}
-            </a>
-            <a
-              href={homeContent.anafLinkThirdUrl}
-              className="blog-section-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {homeContent.anafLinkThirdLabel}
-            </a>
-            <a
-              href={homeContent.anafLinkFourthUrl}
-              className="blog-section-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {homeContent.anafLinkFourthLabel}
-            </a>
-          </div>
+        <div className="section-header">
+          <p className="section-kicker">
+            {safeLocale === "ro"
+              ? "Resurse fiscal-contabile"
+              : "Accounting & tax resources"}
+          </p>
+          <h2>
+            {safeLocale === "ro"
+              ? "Resurse fiscal-contabile"
+              : "Accounting & tax resources"}
+          </h2>
         </div>
+
+        <h3 className="subsection-title">
+          {safeLocale === "ro" ? "Articole disponibile" : "Available articles"}
+        </h3>
 
         {featuredPost ? (
           <div className="blog-preview-layout">
@@ -413,6 +511,69 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </div>
           </div>
         ) : null}
+
+        <h3 className="subsection-title">
+          {safeLocale === "ro"
+            ? "Monografii contabile"
+            : "Accounting case studies"}
+        </h3>
+
+        <div className="blog-index-grid">
+          {monografiiPosts.map((post) => (
+            <article key={post.slug} className="blog-index-card">
+              <small className="blog-date">{post.formattedDate}</small>
+              <Link href={`/${safeLocale}/blog/${post.slug}`} className="blog-card-link">
+                {post.title}
+              </Link>
+              <p className="blog-description">{post.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="anaf" className="content-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">ANAF</p>
+            <SectionTitle
+              title={safeLocale === "ro" ? "ANAF ne informează" : "ANAF updates"}
+            />
+          </div>
+          <div className="blog-section-copy">
+            <a
+              href={homeContent.anafLinkUrl}
+              className="blog-section-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {homeContent.anafLinkLabel}
+            </a>
+            <a
+              href={homeContent.anafLinkSecondaryUrl}
+              className="blog-section-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {homeContent.anafLinkSecondaryLabel}
+            </a>
+            <a
+              href={homeContent.anafLinkThirdUrl}
+              className="blog-section-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {homeContent.anafLinkThirdLabel}
+            </a>
+            <a
+              href={homeContent.anafLinkFourthUrl}
+              className="blog-section-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {homeContent.anafLinkFourthLabel}
+            </a>
+          </div>
+        </div>
       </section>
 
       <section className="content-section">
@@ -449,7 +610,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
                 href={homeContent.mapsUrl}
                 className="button button-secondary location-map-link"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Google Maps
               </a>
@@ -485,6 +646,11 @@ export default async function LocalePage({ params }: LocalePageProps) {
               {safeLocale === "ro"
                 ? "Completezi formularul de mai jos cu câteva detalii despre firmă, iar noi revenim rapid cu pașii următori."
                 : "Complete the form below with a few details about your business and we will get back to you quickly with the next steps."}
+            </p>
+            <p className="contact-extra">
+              {safeLocale === "ro"
+                ? "Ne poți contacta și dacă ai o situație contabilă neclară, un control în desfășurare sau o firmă preluată cu evidență incompletă."
+                : "You can also contact us if you have an unclear accounting situation, an ongoing inspection, or a business taken over with incomplete records."}
             </p>
             <p className="contact-promise">{homeContent.contactPromise}</p>
             <p className="pricing-note">{homeContent.pricingNote}</p>
@@ -587,7 +753,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
                 href={`https://wa.me/${homeContent.whatsappNumber}`}
                 className="contact-secondary-link whatsapp-link"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {safeLocale === "ro" ? "Scrie pe WhatsApp" : "Message us on WhatsApp"}
               </a>
@@ -595,7 +761,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
                 href={homeContent.mapsUrl}
                 className="contact-secondary-link"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Google Maps
               </a>
@@ -645,8 +811,17 @@ export default async function LocalePage({ params }: LocalePageProps) {
             <SectionTitle title={homeContent.internshipTitle} />
           </div>
         </div>
-        <div className="internship-layout">
-          <p className="internship-copy">{homeContent.internshipText}</p>
+        <div className="internship-block">
+          <p className="internship-copy">{homeContent.internshipIntro}</p>
+
+          <div className="internship-highlights">
+            {homeContent.internshipHighlights.map((item) => (
+              <article key={item} className="internship-highlight-card">
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
+
           <a
             href={`mailto:${homeContent.contactEmail}?subject=${encodeURIComponent(
               safeLocale === "ro" ? "CV internship" : "Internship CV",

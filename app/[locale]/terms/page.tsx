@@ -38,7 +38,7 @@ export default async function TermsPage({ params }: LegalPageProps) {
   const safeLocale = locale === "en" ? "en" : "ro";
 
   return (
-    <main>
+    <main className="site-shell">
       <section className="legal-page">
         <p className="section-kicker">Legal</p>
         <h1>{safeLocale === "ro" ? "Termeni și condiții" : "Terms and conditions"}</h1>

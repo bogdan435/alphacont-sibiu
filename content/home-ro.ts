@@ -1,70 +1,176 @@
-export const homeContent = {
+import type {
+  ComplexityItem,
+  HomeContent,
+  ProcessItem,
+  SpecialService,
+} from "./home.types";
+
+const specialServices: SpecialService[] = [
+  {
+    title: "Asistență în controale ANAF și Antifraudă",
+    description:
+      "Oferim sprijin în controale fiscale în curs de derulare, inclusiv în situații în care evidența contabilă a fost întocmită anterior de o terță parte.",
+  },
+  {
+    title: "Refacere și reorganizare contabilitate",
+    description:
+      "Preluăm firme cu evidență contabilă neclară, nefinalizată sau greșit întocmită și reorganizăm documentele și fluxul contabil.",
+  },
+  {
+    title: "Preluare firme cu evidență incompletă",
+    description:
+      "Analizăm situația existentă și stabilim pașii necesari pentru a readuce contabilitatea într-o formă corectă și predictibilă.",
+  },
+  {
+    title: "Stabilire activ, pasiv și obligații fiscale",
+    description:
+      "Clarificăm activul, pasivul și obligațiile fiscale ale societății, pentru decizii mai sigure și o imagine financiară mai clară.",
+  },
+  {
+    title: "Suport pentru e-Factura, e-Transport, ITM și REVISAL / REGES",
+    description:
+      "Te ajutăm să gestionezi obligațiile administrative și fiscale curente, cu organizare clară și pași ușor de urmărit.",
+  },
+  {
+    title: "Soluții personalizate în funcție de activitate",
+    description:
+      "Adaptăm serviciile în funcție de specificul firmei tale, de etapa în care se află și de nivelul de complexitate al situației.",
+  },
+];
+
+const complexityItems: ComplexityItem[] = [
+  {
+    title: "Sprijin în controale ANAF",
+    description:
+      "Intervenim în controale fiscale și în situații sensibile, cu analiză clară, documente organizate și sprijin aplicat pe parcurs.",
+  },
+  {
+    title: "Preluare firme cu evidență neclară",
+    description:
+      "Preluăm societăți cu evidență contabilă nefinalizată, incompletă sau greșit întocmită și stabilim pașii pentru reorganizare.",
+  },
+  {
+    title: "Verificare corectitudine contabilă",
+    description:
+      "Analizăm dacă evidența contabilă reflectă corect specificul activității și identificăm zonele care necesită corecții sau clarificări.",
+  },
+  {
+    title: "Clarificare activ, pasiv și obligații fiscale",
+    description:
+      "Te ajutăm să înțelegi mai clar poziția financiară a firmei și obligațiile fiscale aferente, pentru decizii mai sigure.",
+  },
+  {
+    title: "Predictibilitate fiscală",
+    description:
+      "Explicăm concret taxele, contribuțiile și obligațiile curente, astfel încât să ai mai mult control și mai puține surprize.",
+  },
+];
+
+const processItems: ProcessItem[] = [
+  {
+    step: "01",
+    title: "Înțelegem contextul",
+    description:
+      "Ne trimiți câteva detalii despre firmă și situația actuală, astfel încât să înțelegem clar de ce ai nevoie.",
+  },
+  {
+    step: "02",
+    title: "Propunem soluția",
+    description:
+      "Analizăm contextul și îți propunem o soluție clară, adaptată nevoilor și nivelului de complexitate al firmei tale.",
+  },
+  {
+    step: "03",
+    title: "Preluăm organizat",
+    description:
+      "Stabilim pașii de lucru și preluăm documentele, online sau fizic, într-un mod simplu și predictibil.",
+  },
+  {
+    step: "04",
+    title: "Lucrăm cu claritate",
+    description:
+      "Primești comunicare constantă, organizare și vizibilitate mai bună asupra obligațiilor și termenelor importante.",
+  },
+];
+
+export const homeContent: HomeContent = {
   heroTitle:
-    "Contabilitate pentru firme din Sibiu care vor control, nu doar declarații",
+    "Contabilitate și fiscalitate pentru firme din Sibiu care vor claritate, control și sprijin real",
   heroText:
-    "Știi în fiecare lună ce ai de plată, ce urmează și ce riscuri ai, fără stres.",
+    "Știi ce ai de plată, ce urmează și unde te afli. Fără improvizații, fără surprize, fără blocaje administrative.",
   heroSubtext:
-    "Preluăm contabilitatea, salarizarea și clarificările fiscale pentru SRL-uri, PFA-uri și firme în creștere, ca tu să ai mai mult control și mai puține surprize.",
-  heroButton: "Cere ofertă azi",
+    "Preluăm contabilitatea, salarizarea și clarificările fiscale pentru SRL-uri, PFA-uri și firme în creștere, astfel încât tu să te poți ocupa de business, nu de birocrație.",
+  heroButton: "Cere ofertă",
   heroSecondaryButton: "Discută pe WhatsApp",
   heroResponseLine: "Răspundem, de obicei, în aceeași zi lucrătoare.",
   heroBadge: "ALPHACONT GROUP",
+  officeShowcaseTitle: "Birou local în Sibiu, organizare clară și comunicare directă",
+  officeShowcaseText:
+    "Lucrăm cu antreprenori și companii care își doresc ordine, predictibilitate și sprijin profesionist în contabilitate și fiscalitate.",
+  officeShowcaseSubtext:
+    "Comunicăm direct, explicăm clar și intervenim inclusiv în situații dificile, de la reorganizare contabilă până la controale fiscale în curs.",
+  officeShowcaseMeta: "Sibiu · SRL, PFA, ONG · Răspuns rapid",
 
   servicesTitle: "Pentru cine lucrăm",
   services: [
-    "SRL-uri",
-    "PFA-uri",
-    "ONG-uri",
+    "SRL-uri din diverse domenii de activitate",
+    "PFA-uri și profesii independente",
+    "ONG-uri și asociații",
     "Firme nou înființate",
     "Firme în creștere",
-    "Înființare SRL / PFA",
-    "Asistență juridică",
+    "Companii care au nevoie de reorganizare și clarificare contabilă",
   ],
-  specialServicesTitle: "Servicii specializate",
-  specialServices: [
-    "Suport ITM și REVISAL / REGES",
-    "Suport RO e-Factura și RO -eTransport - cod UIT",
-    "Refacere contabilitate",
-    "Asistență juridică",
-  ],
-  supportLanguagesLine: "Comunicăm în română, engleză, franceză și italiană.",
 
-  whyTitle: "De ce noi",
+  specialServicesTitle: "Servicii specializate",
+  specialServices,
+  supportLanguagesLine: "Comunicăm în română, engleză, franceză și italiană.",
+  trustItems: [
+    "20+ ani de experiență în servicii financiar-contabile premium",
+    "Sprijin în controale ANAF și situații fiscale complexe",
+    "Preluăm și reorganizăm evidențe contabile incomplete sau greșite",
+    "SRL-uri, PFA-uri, ONG-uri și firme aflate la început de drum",
+    "Comunicare în română, engleză, franceză și italiană",
+  ],
+
+  whyTitle: "De ce ALPHACONT GROUP",
   whyItems: [
-    "Comunici direct cu contabilul.",
-    "Îți spunem din timp ce taxe urmează.",
-    "Checklist lunar de documente.",
-    "Răspuns rapid pe WhatsApp.",
-    "Lucrăm digital.",
+    "Explicăm clar și direct, fără ambiguități.",
+    "Servicii financiar-contabile premium, fără compromis.",
+    "Gestionăm inclusiv situații complexe sau sensibile.",
+    "Confidențialitatea și organizarea sunt standard, nu opțiuni.",
+    "Abordare digitală, susținută de relație umană reală.",
   ],
+
   complexityTitle: "Nu doar contabilitate. Control financiar real.",
-  complexityItems: [
-    "Gestionăm controale ANAF.",
-    "Te ajutăm cu SAF-T și RO e-Factura.",
-    "Pregătim documentații pentru finanțări.",
-    "Facem proiecții pentru decizii mai sigure.",
-  ],
+  complexityItems,
+
   processTitle: "Cum lucrăm",
-  processItems: [
-    "Ne trimiți câteva detalii despre firmă.",
-    "Îți dăm o ofertă clară.",
-    "Preluăm documentele, online sau fizic.",
-    "Primești lunar situația și termenele importante.",
-  ],
+  processItems,
+
   socialProofTitle: "Ce spun recenziile publice",
   socialProofRating: "4,9/5 din 21 recenzii Google",
   socialProofItems: [
     "Profesionalism, seriozitate și implicare în colaborare.",
-    "Consultanță completă și actualizare constantă cu schimbările legislative.",
-    "Promptitudine și feedback util pentru administrarea firmei.",
+    "Consultanță completă și actualizare constantă în raport cu schimbările legislative.",
+    "Promptitudine, comunicare clară și sprijin util pentru administrarea firmei.",
   ],
   socialProofNote: "Sinteză din recenzii publice agregate.",
   socialProofGoogleLabel: "Vezi recenziile pe Google",
   socialProofGoogleUrl:
     "https://www.google.com/maps/search/?api=1&query=ALPHACONT+GROUP+Sibiu",
+
   aboutTitle: "Despre noi",
-  aboutText:
-    "ALPHACONT GROUP este o firmă de contabilitate din Sibiu care lucrează cu PFA-uri, SRL-uri și firme aflate la început de drum. Oferim servicii de contabilitate, salarizare, consultanță fiscală și expert contabil pentru firme care vor mai mult control de la o lună la alta.",
+  aboutParagraphs: [
+    "ALPHACONT GROUP înseamnă experiență, claritate și servicii financiar-contabile premium pentru antreprenori și companii care își doresc mai mult decât o evidență corectă.",
+    "Credem că, deși lucrăm într-o eră digitală, relația umană rămâne esențială în acest domeniu. De aceea, explicăm clar și direct, astfel încât tu să poți lua decizii informate și să te ocupi de afacerea ta, nu de birocrație.",
+    "Lucrăm cu SRL-uri, PFA-uri, ONG-uri, firme nou înființate și companii care au nevoie de reorganizare, control și predictibilitate.",
+  ],
+  aboutHighlights: [
+    "Birou local în Sibiu",
+    "Comunicare directă prin email, telefon și WhatsApp",
+    "Lucrăm cu SRL-uri, PFA-uri, ONG-uri și firme nou înființate",
+    "Comunicăm în română, engleză, franceză și italiană",
+  ],
   securityTitle: "Siguranța datelor tale este prioritatea noastră",
   securityText:
     "Datele și documentele tale sunt protejate prin backup automatizat de 2 ori pe zi, folosind metoda 3+2+1: 3 copii de rezervă, 2 tipuri de stocare și 1 copie externă, offsite.",
@@ -74,6 +180,7 @@ export const homeContent = {
     "2 tipuri de stocare pentru siguranță suplimentară.",
     "1 copie externă, offsite.",
   ],
+
   latestArticlesTitle: "ANAF ne informează",
   anafLinkLabel: "Calendar obligații fiscale ANAF",
   anafLinkUrl:
@@ -93,12 +200,22 @@ export const homeContent = {
     {
       question: "Cu ce tipuri de clienți lucrați?",
       answer:
-        "Lucrăm cu PFA-uri, SRL-uri și firme mici și medii din Sibiu și din împrejurimi, precum și cu antreprenori aflați la început de drum.",
+        "Lucrăm cu PFA-uri, SRL-uri, ONG-uri, firme nou înființate și companii care au nevoie de organizare, claritate și sprijin fiscal constant.",
     },
     {
       question: "Lucrați și cu firme nou înființate?",
       answer:
-        "Da. Te putem ajuta cu organizarea inițială a documentelor, stabilirea fluxului contabil și clarificarea obligațiilor fiscale de bază.",
+        "Da. Te ajutăm să pornești organizat, să înțelegi obligațiile fiscale de bază și să stabilești de la început un flux contabil corect.",
+    },
+    {
+      question: "Preluați firme cu evidență contabilă incompletă sau greșit întocmită?",
+      answer:
+        "Da. Putem analiza situația existentă, reorganiza documentele și reface evidența contabilă astfel încât firma să poată merge mai departe corect și predictibil.",
+    },
+    {
+      question: "Oferiți sprijin în timpul unui control ANAF deja început?",
+      answer:
+        "Da. Oferim asistență în controale fiscale în curs de derulare și sprijinim clarificarea documentelor și a situației contabile.",
     },
     {
       question: "Cum transmit documentele pentru contabilitate?",
@@ -119,19 +236,25 @@ export const homeContent = {
   contactCity: "Str. Octavian Goga 55, 550370 Sibiu, Jud. Sibiu",
   whatsappNumber: "40721644296",
   contactPromise: "Răspundem, de obicei, în aceeași zi lucrătoare.",
-  contactFormButton: "Trimite și revenim azi",
+  contactFormButton: "Trimite solicitarea",
   pricingNote:
-    "Prețuri începând de la 300 lei / lună. Prețul final depinde de volumul firmei, iar noi îți trimitem ofertă clară după câteva detalii.",
+    "Prețurile pornesc de la 300 lei / lună. Costul final depinde de volumul firmei și de complexitatea serviciilor solicitate.",
   locationTitle: "Unde ne găsești",
   locationText:
-    "Biroul nostru este în Sibiu, pe Str. Octavian Goga 55. Poți deschide direct harta biroului.",
+    "Biroul nostru este în Sibiu, pe Str. Octavian Goga 55. Ne poți contacta online, telefonic sau ne poți vizita la birou, cu programare.",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=Str.+Octavian+Goga+55,+550370+Sibiu,+Jud.+Sibiu&output=embed",
   seoServiceLinksTitle: "Servicii căutate în Sibiu",
+
   internshipTitle: "Internship / stagiu de practică",
-  internshipText:
-    "Dacă ești student(ă), la început de drum sau cauți experiență practică în contabilitate și administrare, ne poți trimite CV-ul tău.",
+  internshipIntro:
+    "Primim cu drag tineri care vor să învețe, sunt atenți la detalii și își doresc experiență practică într-un domeniu în care rigoarea, organizarea și claritatea contează.",
+  internshipHighlights: [
+    "Potrivit pentru studenți, absolvenți și tineri la început de drum",
+    "Expunere la situații reale de contabilitate, organizare și administrare",
+    "Mediu serios în care înveți claritate, disciplină și gândire practică",
+  ],
   internshipButton: "Trimite CV-ul",
 };

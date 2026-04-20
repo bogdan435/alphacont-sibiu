@@ -21,14 +21,46 @@ export async function generateMetadata({
   const alternateSlug = safeLocale === "ro" ? "first-article" : "primul-articol";
 
   return {
-    title: post.title,
+    metadataBase: new URL(baseUrl),
+    title: `${post.title} | ALPHACONT GROUP`,
     description: post.description,
+    keywords: [
+      post.category,
+      ...(post.tags ?? []),
+      safeLocale === "ro" ? "contabilitate sibiu" : "accounting sibiu",
+    ],
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: `${baseUrl}/${safeLocale}/blog/${slug}`,
       languages: {
         ro: `${baseUrl}/ro/blog/${safeLocale === "ro" ? slug : alternateSlug}`,
         en: `${baseUrl}/en/blog/${safeLocale === "en" ? slug : alternateSlug}`,
       },
+    },
+    openGraph: {
+      title: `${post.title} | ALPHACONT GROUP`,
+      description: post.description,
+      url: `${baseUrl}/${safeLocale}/blog/${slug}`,
+      siteName: "ALPHACONT GROUP",
+      locale: safeLocale === "ro" ? "ro_RO" : "en_US",
+      type: "article",
+      images: [
+        {
+          url: "/images/hero-office.jpg",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | ALPHACONT GROUP`,
+      description: post.description,
+      images: ["/images/hero-office.jpg"],
     },
   };
 }
@@ -40,7 +72,7 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
   const relatedPosts = await getRelatedBlogPosts(safeLocale, slug);
 
   return (
-    <main>
+    <main className="site-shell">
       <nav className="topbar">
         <div className="logo">
           <Image
@@ -80,10 +112,13 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
         </div>
       </nav>
 
-      <section className="hero">
-        <h1>{post.title}</h1>
-        <p className="hero-lead">{post.description}</p>
-        <p className="blog-date">{post.formattedDate}</p>
+      <section className="article-hero">
+        <div className="article-hero-head">
+          <p className="blog-date">{post.formattedDate}</p>
+          <h1>{post.title}</h1>
+        </div>
+
+        <p className="article-hero-lead">{post.description}</p>
         <div className="post-meta">
           <span className="post-category">{post.category}</span>
           <div className="post-tags">
@@ -97,7 +132,13 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
       </section>
 
       <section className="article-content">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+        <ReactMarkdown
+          components={{
+            h1: () => null,
+          }}
+        >
+          {post.content}
+        </ReactMarkdown>
       </section>
 
       <section>

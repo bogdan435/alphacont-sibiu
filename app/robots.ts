@@ -1,11 +1,13 @@
-import type { MetadataRoute } from "next";
+import { getBaseUrl } from "@/lib/seo";
 
-export default function robots(): MetadataRoute.Robots {
+export default function robots() {
+  const baseUrl = getBaseUrl();
+
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://alphacont-sibiu.vercel.app/sitemap.xml",
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }
