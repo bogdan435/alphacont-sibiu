@@ -1487,32 +1487,42 @@ li {
 .contact-phone-buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   margin-top: 8px;
 }
 
 .contact-phone-button,
 .contact-phone-button:visited {
-  display: inline-block;
-  padding: 12px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 16px;
   border-radius: 999px;
-  background: #f3f4f6;
-  color: #1f2937;
-  font-weight: 600;
+  background: #f3f5fb;
+  border: 1px solid rgba(44, 62, 111, 0.12);
+  color: #243456;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .contact-phone-flag {
-  margin-right: 8px;
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 .contact-phone-text {
-  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .contact-phone-button:hover {
-  background: #e5e7eb;
+  background: #eaf0fb;
+  border-color: rgba(44, 62, 111, 0.22);
+  transform: translateY(-1px);
 }
 
 .contact-secondary-actions {
