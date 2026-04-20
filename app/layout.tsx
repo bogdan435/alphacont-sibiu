@@ -49,8 +49,8 @@ export default async function RootLayout({
           `}
         </Script>
         {children}
-        <AnalyticsWithConsent />
         <ScrollToTop />
+        <AnalyticsWithConsent />
         <CookieBanner locale={locale} />
       </body>
     </html>
