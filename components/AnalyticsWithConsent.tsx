@@ -7,21 +7,20 @@ const CONSENT_KEY = "cookie_consent";
 const GA_ID = "G-JYCVFNBZ6S";
 
 export default function AnalyticsWithConsent() {
-  const [granted] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      window.localStorage.getItem(CONSENT_KEY) === "accepted"
-  );
+  const [mounted, setMounted] = useState(false);
+  const [granted, setGranted] = useState(false);
 
   useEffect(() => {
-    if (!granted || typeof window.gtag !== "function") return;
-
-    window.gtag("consent", "update", {
-      analytics_storage: "granted",
+    const frame = window.requestAnimationFrame(() => {
+      setMounted(true);
+      const saved = window.localStorage.getItem(CONSENT_KEY);
+      setGranted(saved === "accepted");
     });
-  }, [granted]);
 
-  if (!granted) return null;
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  if (!mounted || !granted) return null;
 
   return <GoogleAnalytics gaId={GA_ID} />;
 }
