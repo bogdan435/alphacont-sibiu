@@ -3,7 +3,6 @@ import AnalyticsWithConsent from "@/components/AnalyticsWithConsent";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -43,16 +42,6 @@ export default async function RootLayout({
         <AnalyticsWithConsent />
         <ScrollToTop />
       </body>
-      <Script id="consent-defaults" strategy="beforeInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('consent', 'default', {
-            analytics_storage: 'denied'
-          });
-        `}
-      </Script>
     </html>
   );
 }
