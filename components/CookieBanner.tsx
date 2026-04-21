@@ -13,7 +13,7 @@ export default function CookieBanner({ locale = "ro" }: { locale?: string }) {
     const frame = window.requestAnimationFrame(() => {
       setMounted(true);
       const saved = window.localStorage.getItem(CONSENT_KEY);
-      setVisible(!saved);
+      setVisible(saved !== "accepted" && saved !== "rejected");
     });
 
     return () => window.cancelAnimationFrame(frame);
