@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function ScrollToTop() {
+  const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -10,18 +11,27 @@ export default function ScrollToTop() {
       setVisible(window.scrollY > 400);
     };
 
+    const frame = window.requestAnimationFrame(() => {
+      setMounted(true);
+      handleScroll();
+    });
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  if (!visible) return null;
+  if (!mounted || !visible) return null;
 
   return (
-    <button className="scroll-top-button" onClick={scrollToTop} aria-label="Scroll to top">
+    <button
+      className="scroll-top-button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Scroll to top"
+    >
       <span className="scroll-top-icon">↑</span>
     </button>
   );
