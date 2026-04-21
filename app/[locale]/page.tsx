@@ -633,12 +633,16 @@ export default async function LocalePage({ params }: LocalePageProps) {
               locale={safeLocale}
               location="location_section"
             >
-              <span className="map-placeholder-title">Google Maps</span>
-              <span className="map-placeholder-text">
-                {safeLocale === "ro"
-                  ? "Deschide locația în Google Maps"
-                  : "Open location in Google Maps"}
-              </span>
+              <div className="map-placeholder-inner">
+                <span className="map-placeholder-title">
+                  {safeLocale === "ro" ? "Vezi locația" : "View location"}
+                </span>
+                <span className="map-placeholder-text">
+                  {safeLocale === "ro"
+                    ? "Deschide în Google Maps"
+                    : "Open in Google Maps"}
+                </span>
+              </div>
             </TrackedMapsLink>
           </div>
         </div>

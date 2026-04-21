@@ -1766,6 +1766,12 @@ li {
   transform: translateY(-1px);
 }
 
+.map-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .map-placeholder-title {
   font-size: 1.1rem;
   font-weight: 700;
