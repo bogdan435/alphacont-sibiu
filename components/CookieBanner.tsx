@@ -35,9 +35,14 @@ export default function CookieBanner({ locale = "ro" }: { locale?: string }) {
   const safeLocale = locale === "en" ? "en" : "ro";
 
   return (
-    <div className="cookie-banner" role="dialog" aria-live="polite">
+    <div
+      className="cookie-banner"
+      role="dialog"
+      aria-labelledby="cookie-title"
+      aria-live="polite"
+    >
       <div className="cookie-banner__content">
-        <p className="cookie-banner__title">
+        <p id="cookie-title" className="cookie-banner__title">
           {safeLocale === "ro" ? "Cookie-uri și analiză" : "Cookies and analytics"}
         </p>
 
