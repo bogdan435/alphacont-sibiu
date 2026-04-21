@@ -280,7 +280,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
               }
               width={1600}
               height={1275}
-              sizes="(max-width: 780px) 100vw, 46vw"
+              sizes="(max-width: 780px) 100vw, (max-width: 1200px) 50vw, 720px"
             />
           </div>
         </div>
