@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "ALPHACONT GROUP",
-  description: "Contabilitate și fiscalitate pentru firme din Sibiu",
+  description: "Accounting and tax services in Sibiu",
 };
 
 type RootLayoutProps = Readonly<{
@@ -38,21 +38,21 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Script id="consent-defaults" strategy="beforeInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('consent', 'default', {
-              analytics_storage: 'denied'
-            });
-          `}
-        </Script>
         {children}
-        <ScrollToTop />
-        <AnalyticsWithConsent />
         <CookieBanner locale={locale} />
+        <AnalyticsWithConsent />
+        <ScrollToTop />
       </body>
+      <Script id="consent-defaults" strategy="beforeInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('consent', 'default', {
+            analytics_storage: 'denied'
+          });
+        `}
+      </Script>
     </html>
   );
 }
