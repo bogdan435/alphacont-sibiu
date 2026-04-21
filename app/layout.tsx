@@ -40,19 +40,19 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <CookieBanner locale={locale} />
+        <Script id="consent-defaults" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('consent', 'default', {
+              analytics_storage: 'denied'
+            });
+          `}
+        </Script>
         <AnalyticsWithConsent />
         <ScrollToTop />
       </body>
-      <Script id="consent-defaults" strategy="beforeInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('consent', 'default', {
-            analytics_storage: 'denied'
-          });
-        `}
-      </Script>
     </html>
   );
 }
