@@ -1742,16 +1742,15 @@ li {
 }
 
 .map-placeholder {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 260px;
+  min-height: 260px;
   border-radius: 16px;
   background: linear-gradient(135deg, #eef2f8, #e3e8f5);
   border: 1px solid rgba(44, 62, 111, 0.12);
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: all 0.25s ease;
 }
 
@@ -1762,6 +1761,7 @@ li {
 
 .map-placeholder-inner {
   text-align: center;
+  padding: 24px;
 }
 
 .map-placeholder-title {
