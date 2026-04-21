@@ -272,7 +272,7 @@ li {
       rgba(24, 36, 62, 0.12) 45%,
       rgba(24, 36, 62, 0.05) 100%
     ),
-    url("/images/hero-office.jpg");
+    url("/images/hero-office-optimized.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

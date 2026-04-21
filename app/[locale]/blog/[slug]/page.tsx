@@ -49,7 +49,7 @@ export async function generateMetadata({
       type: "article",
       images: [
         {
-          url: "/images/hero-office.jpg",
+          url: "/images/hero-office-optimized.webp",
           width: 1200,
           height: 630,
           alt: post.title,
@@ -60,7 +60,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${post.title} | ALPHACONT GROUP`,
       description: post.description,
-      images: ["/images/hero-office.jpg"],
+      images: ["/images/hero-office-optimized.webp"],
     },
   };
 }

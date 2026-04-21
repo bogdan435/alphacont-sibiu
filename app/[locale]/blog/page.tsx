@@ -70,7 +70,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: "/images/hero-office.jpg",
+          url: "/images/hero-office-optimized.webp",
           width: 1200,
           height: 630,
           alt: "ALPHACONT GROUP - Resurse fiscal-contabile",
@@ -87,7 +87,7 @@ export async function generateMetadata({
         safeLocale === "ro"
           ? "Articole și monografii contabile pentru firme din Sibiu."
           : "Articles and accounting case studies for businesses in Sibiu.",
-      images: ["/images/hero-office.jpg"],
+      images: ["/images/hero-office-optimized.webp"],
     },
   };
 }

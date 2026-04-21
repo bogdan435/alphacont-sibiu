@@ -79,7 +79,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: "/images/hero-office.jpg",
+          url: "/images/hero-office-optimized.webp",
           width: 1200,
           height: 630,
           alt: "ALPHACONT GROUP - Contabilitate Sibiu",
@@ -96,7 +96,7 @@ export async function generateMetadata({
         safeLocale === "ro"
           ? "Servicii de contabilitate și fiscalitate pentru firme din Sibiu."
           : "Accounting and tax services for businesses in Sibiu.",
-      images: ["/images/hero-office.jpg"],
+      images: ["/images/hero-office-optimized.webp"],
     },
   };
 }
