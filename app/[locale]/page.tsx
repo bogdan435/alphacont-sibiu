@@ -226,6 +226,16 @@ export default async function LocalePage({ params }: LocalePageProps) {
       </nav>
 
       <section className="hero hero-redesign hero-photo">
+        <div className="hero-image-wrap">
+          <Image
+            src="/images/hero-office.webp"
+            alt=""
+            fill
+            priority
+            fetchPriority="high"
+            className="hero-image"
+          />
+        </div>
         <div className="hero-copy">
           <p className="hero-badge">{homeContent.heroBadge}</p>
           <h1>{homeContent.heroTitle}</h1>
