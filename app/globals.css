@@ -273,27 +273,8 @@ li {
   z-index: 0;
 }
 
-.hero-image-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(24, 36, 62, 0.25) 0%,
-    rgba(24, 36, 62, 0.12) 45%,
-    rgba(24, 36, 62, 0.05) 100%
-  );
-}
-
 .hero-image {
   object-fit: cover;
-  object-position: center;
-}
-
-.hero-photo .hero-copy {
-  position: relative;
-  z-index: 1;
-  max-width: 34rem;
 }
 
 .hero-photo h1 {
@@ -320,6 +301,8 @@ li {
 }
 
 .hero-copy {
+  position: relative;
+  z-index: 1;
   max-width: 32rem;
 }
 
@@ -2144,10 +2127,6 @@ li {
   .hero-photo {
     min-height: clamp(400px, 56vh, 540px);
     border-radius: 22px;
-  }
-
-  .hero-image {
-    object-position: 60% center;
   }
 
   .hero h1 {
