@@ -626,12 +626,11 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </div>
           </div>
           <div className="map-frame-wrap">
-            <TrackedMapsLink
+            <a
               href={homeContent.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="map-placeholder"
-              label="Google Maps"
-              locale={safeLocale}
-              location="location_section"
             >
               <div className="map-placeholder-inner">
                 <span className="map-placeholder-title">
@@ -643,7 +642,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
                     : "Open in Google Maps"}
                 </span>
               </div>
-            </TrackedMapsLink>
+            </a>
           </div>
         </div>
       </section>
