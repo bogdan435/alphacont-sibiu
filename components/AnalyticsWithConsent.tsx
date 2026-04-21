@@ -1,7 +1,7 @@
 "use client";
 
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 const CONSENT_KEY = "cookie_consent";
 const GA_ID = "G-JYCVFNBZ6S";
@@ -22,5 +22,20 @@ export default function AnalyticsWithConsent() {
 
   if (!mounted || !granted) return null;
 
-  return <GoogleAnalytics gaId={GA_ID} />;
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga-test" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}
+      </Script>
+    </>
+  );
 }
