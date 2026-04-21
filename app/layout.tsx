@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ALPHACONT GROUP",
   description: "Accounting and tax services in Sibiu",
+  verification: {
+    google: "sQ-ZCNlw2qrcBmaiMRvAy_KJRsrYjzHT0egl",
+  },
 };
 
 type RootLayoutProps = Readonly<{
