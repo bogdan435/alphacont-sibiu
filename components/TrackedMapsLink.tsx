@@ -1,8 +1,10 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { trackEvent } from "@/lib/gtag";
 
 type TrackedMapsLinkProps = {
+  children?: ReactNode;
   className: string;
   href: string;
   label: string;
@@ -11,6 +13,7 @@ type TrackedMapsLinkProps = {
 };
 
 export default function TrackedMapsLink({
+  children,
   className,
   href,
   label,
@@ -30,7 +33,7 @@ export default function TrackedMapsLink({
         })
       }
     >
-      {label}
+      {children ?? label}
     </a>
   );
 }

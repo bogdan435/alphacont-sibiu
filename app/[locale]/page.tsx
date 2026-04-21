@@ -626,13 +626,20 @@ export default async function LocalePage({ params }: LocalePageProps) {
             </div>
           </div>
           <div className="map-frame-wrap">
-            <iframe
-              src={homeContent.mapsEmbedUrl}
-              title={homeContent.locationTitle}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="map-frame"
-            />
+            <TrackedMapsLink
+              href={homeContent.mapsUrl}
+              className="map-placeholder"
+              label="Google Maps"
+              locale={safeLocale}
+              location="location_section"
+            >
+              <span className="map-placeholder-title">Google Maps</span>
+              <span className="map-placeholder-text">
+                {safeLocale === "ro"
+                  ? "Deschide locația în Google Maps"
+                  : "Open location in Google Maps"}
+              </span>
+            </TrackedMapsLink>
           </div>
         </div>
       </section>
