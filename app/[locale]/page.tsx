@@ -272,7 +272,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
 
           <div className="office-media">
             <Image
-              src="/images/hero-office.webp"
+              src="/images/sibiu_desk_web.webp"
               alt={
                 safeLocale === "ro"
                   ? "Biroul AlphaCont Group din Sibiu"
