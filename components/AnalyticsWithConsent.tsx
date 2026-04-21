@@ -8,7 +8,7 @@ const GA_ID = "G-JYCVFNBZ6S";
 
 export default function AnalyticsWithConsent() {
   const [mounted, setMounted] = useState(false);
-  const [granted, setGranted] = useState(false);
+  const [granted, setGranted] = useState(true);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
