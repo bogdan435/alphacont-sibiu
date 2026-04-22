@@ -1,7 +1,5 @@
-import { getBaseUrl } from "@/lib/seo";
-
 export default function sitemap() {
-  const baseUrl = getBaseUrl();
+  const baseUrl = "https://alphacont.ro";
 
   return [
     {
