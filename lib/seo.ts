@@ -1,5 +1,5 @@
 export function getBaseUrl() {
-  return "https://alphacont-sibiu.vercel.app";
+  return "https://alphacont.ro";
 }
 
 export function getLocaleMetadata(locale: string) {

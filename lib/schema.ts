@@ -5,8 +5,8 @@ export function getLocalBusinessSchema(locale: string) {
     "@context": "https://schema.org",
     "@type": "AccountingService",
     name: "ALPHACONT GROUP",
-    image: "https://alphacont-sibiu.vercel.app/logo-blue.svg",
-    url: `https://alphacont-sibiu.vercel.app/${locale}`,
+    image: "https://alphacont.ro/logo-blue.svg",
+    url: `https://alphacont.ro/${locale}`,
     telephone: ["0040721644296", "00393347412487"],
     email: "contact@alphacont.ro",
     address: {
