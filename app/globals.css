@@ -644,18 +644,34 @@ li {
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* WhatsApp button - corect contrast + UI */
+
 .button-whatsapp {
-  background-color: #1f9d55;
-  color: #ffffff;
-  font-weight: 600;
-  padding: 14px 22px;
-  border-radius: 8px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 48px;
+  padding: 0 20px;
+
+  border-radius: 14px;
+  background: rgba(22, 156, 79, 0.08);
+  color: #15803d;
+
+  border: 1px solid #15803d;
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .button-whatsapp:hover {
-  background-color: #1ebe5d;
+  background: #15803d;
+  color: #ffffff;
+  border-color: #15803d;
+  transform: translateY(-1px);
 }
 
 .section-header {
@@ -878,6 +894,25 @@ li {
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
+}
+
+.service-related-section {
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.service-related-section .seo-service-links-list {
+  gap: 12px;
+}
+
+.service-related-section .seo-service-link {
+  background: #f3f6fc;
+  border: 1px solid rgba(24, 56, 139, 0.12);
+  color: #18388b;
+}
+
+.service-related-section .seo-service-link:hover {
+  background: #eaf0fb;
+  opacity: 1;
 }
 
 .benefit-grid {
@@ -1819,6 +1854,48 @@ li {
 
 .service-page-hero {
   padding-bottom: 48px;
+}
+
+.service-hero-light {
+  padding: 56px 48px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(24, 36, 62, 0.05);
+  box-shadow: 0 14px 36px rgba(23, 31, 48, 0.045);
+}
+
+.service-hero-light .hero-copy {
+  max-width: 760px;
+}
+
+.service-hero-light h1 {
+  color: var(--text-strong);
+  text-shadow: none;
+}
+
+.service-hero-light .hero-lead,
+.service-hero-light .hero-summary {
+  color: var(--text-soft);
+  text-shadow: none;
+}
+
+.service-hero-light .button-secondary {
+  color: var(--brand);
+  background: white;
+  border: 1px solid rgba(24, 56, 139, 0.14);
+}
+
+.service-hero-light .hero-badge {
+  color: var(--brand);
+  background: var(--brand-soft);
+  border: 1px solid rgba(24, 56, 139, 0.12);
+  box-shadow: none;
+}
+
+@media (max-width: 780px) {
+  .service-hero-light {
+    padding: 28px 20px;
+  }
 }
 
 .service-cta-layout {

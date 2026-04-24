@@ -7,20 +7,26 @@ export function getLocaleMetadata(locale: string) {
 
   if (safeLocale === "en") {
     return {
-      title: "Accountant in Sibiu | Accounting Services in Sibiu | ALPHACONT GROUP",
+      title:
+        "English‑speaking Accountant in Sibiu | Accounting & Tax Services | ALPHACONT GROUP",
       description:
-        "Accounting services in Sibiu for LLCs, sole traders, and growing businesses: accounting, payroll, tax advisory, and practical updates.",
+        "English-speaking accounting services in Sibiu for LLCs, sole traders, and foreign businesses: accounting, payroll, tax advisory, and business setup.",
       keywords: [
-        "accountant sibiu",
-        "accounting services sibiu",
-        "payroll sibiu",
-        "tax advisory sibiu",
+        "accountant Sibiu",
+        "English speaking accountant Sibiu",
+        "accounting services Sibiu",
+        "bookkeeping services Sibiu",
+        "tax advisory Sibiu",
+        "payroll services Sibiu",
+        "business setup Sibiu",
       ],
     };
   }
 
+  // Romanian metadata unchanged
   return {
-    title: "Contabil Sibiu | Firmă de contabilitate Sibiu | ALPHACONT GROUP",
+    title:
+      "Contabil Sibiu | Firmă de contabilitate Sibiu | ALPHACONT GROUP",
     description:
       "Contabil Sibiu pentru SRL-uri, PFA-uri și firme în creștere. Firmă de contabilitate din Sibiu cu servicii de contabilitate, salarizare, consultanță fiscală și expert contabil.",
     keywords: [

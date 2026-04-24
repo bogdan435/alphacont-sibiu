@@ -5,14 +5,25 @@ import { notFound } from "next/navigation";
 import SiteFooter from "@/components/SiteFooter";
 import { getBaseUrl } from "@/lib/seo";
 import { getHomeContent } from "@/lib/home";
-import { getServicePageContent, servicePageSlugs } from "@/lib/service-pages";
+import {
+  getAlternateServicePageSlug,
+  getServicePageContent,
+  getServicePageLinks,
+  servicePageSlugs,
+} from "@/lib/service-pages";
 
 type ServicePageProps = {
   params: Promise<{ locale: string; serviceSlug: string }>;
 };
 
-export function generateStaticParams() {
-  return servicePageSlugs.map((serviceSlug) => ({ serviceSlug }));
+export function generateStaticParams({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const safeLocale = params.locale === "en" ? "en" : "ro";
+
+  return servicePageSlugs[safeLocale].map((serviceSlug) => ({ serviceSlug }));
 }
 
 export async function generateMetadata({
@@ -27,6 +38,8 @@ export async function generateMetadata({
   }
 
   const baseUrl = getBaseUrl();
+  const roSlug = getAlternateServicePageSlug(safeLocale, serviceSlug, "ro");
+  const enSlug = getAlternateServicePageSlug(safeLocale, serviceSlug, "en");
 
   return {
     title: page.metaTitle,
@@ -40,13 +53,35 @@ export async function generateMetadata({
             "servicii contabilitate sibiu",
             "expert contabil sibiu",
           ]
-        : ["accounting services Sibiu", "Sibiu accountant", "payroll Sibiu"],
+        : [
+            page.title,
+            "English speaking accountant Sibiu",
+            "accountant in Sibiu",
+            "accounting services Sibiu",
+            "accounting services Romania",
+            "tax advisor Romania",
+            "payroll services Romania",
+            "company formation Romania",
+          ],
     alternates: {
       canonical: `${baseUrl}/${safeLocale}/${serviceSlug}`,
       languages: {
-        ro: `${baseUrl}/ro/${serviceSlug}`,
-        en: `${baseUrl}/en/${serviceSlug}`,
+        ro: `${baseUrl}/ro/${roSlug}`,
+        en: `${baseUrl}/en/${enSlug}`,
       },
+    },
+    openGraph: {
+      title: page.metaTitle,
+      description: page.metaDescription,
+      url: `${baseUrl}/${safeLocale}/${serviceSlug}`,
+      siteName: "ALPHACONT GROUP",
+      locale: safeLocale === "ro" ? "ro_RO" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title: page.metaTitle,
+      description: page.metaDescription,
     },
   };
 }
@@ -56,6 +91,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const safeLocale = locale === "en" ? "en" : "ro";
   const page = getServicePageContent(safeLocale, serviceSlug);
   const homeContent = getHomeContent(safeLocale);
+  const serviceLinks = getServicePageLinks(safeLocale).filter(
+    (link) => link.href !== `/${safeLocale}/${serviceSlug}`,
+  );
+  const roSlug = getAlternateServicePageSlug(safeLocale, serviceSlug, "ro");
+  const enSlug = getAlternateServicePageSlug(safeLocale, serviceSlug, "en");
 
   if (!page) {
     notFound();
@@ -89,13 +129,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
           <div className="language-switch" aria-label="Language switch">
             <Link
-              href={`/ro/${serviceSlug}`}
+              href={`/ro/${roSlug}`}
               className={safeLocale === "ro" ? "language-link is-active" : "language-link"}
             >
               RO
             </Link>
             <Link
-              href={`/en/${serviceSlug}`}
+              href={`/en/${enSlug}`}
               className={safeLocale === "en" ? "language-link is-active" : "language-link"}
             >
               EN
@@ -104,8 +144,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </div>
       </nav>
 
-      <section className="hero service-page-hero">
+      <section className="service-page-hero service-hero-light">
         <div className="hero-copy">
+          <p className="hero-badge">
+            {safeLocale === "ro"
+              ? "Servicii contabile în Sibiu"
+              : "English-speaking accounting services in Sibiu"}
+          </p>
           <h1>{page.title}</h1>
           <p className="hero-lead">{page.intro}</p>
           <p className="hero-summary">{page.summary}</p>
@@ -115,10 +160,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
             </a>
             <a
               href={`https://wa.me/${homeContent.whatsappNumber}`}
-              className="button button-secondary"
+              className="button-whatsapp"
               target="_blank"
               rel="noopener noreferrer"
             >
+              <span>💬</span>
               {safeLocale === "ro" ? "Discută pe WhatsApp" : "Chat on WhatsApp"}
             </a>
           </div>
@@ -145,6 +191,29 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </ul>
       </section>
 
+      <section className="content-section service-related-section">
+        <div className="split-header">
+          <div>
+            <p className="section-kicker">
+              {safeLocale === "ro" ? "Alte servicii" : "Related services"}
+            </p>
+            <h2>
+              {safeLocale === "ro"
+                ? "Servicii contabile conexe"
+                : "Related accounting services"}
+            </h2>
+          </div>
+        </div>
+
+        <div className="seo-service-links-list">
+          {serviceLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="seo-service-link">
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section id="contact" className="content-section service-cta-section">
         <div className="service-cta-layout">
           <div>
@@ -152,12 +221,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <h2>
               {safeLocale === "ro"
                 ? "Spune-ne pe scurt cum arată firma ta"
-                : "Tell us briefly what your business looks like"}
+                : "Tell us what accounting support you need"}
             </h2>
             <p className="service-cta-copy">
               {safeLocale === "ro"
                 ? "Îți trimitem o ofertă clară după câteva detalii despre activitate, volum și ce tip de sprijin ai nevoie."
-                : "We send you a clear quote after a few details about your activity, volume, and the support you need."}
+                : "Send us a few details about your business, document volume, payroll needs, or tax situation. We will reply with the next steps and a clear quote."}
             </p>
           </div>
           <div className="service-cta-actions">
@@ -166,10 +235,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
             </a>
             <a
               href={`https://wa.me/${homeContent.whatsappNumber}`}
-              className="contact-secondary-link whatsapp-link"
+              className="button-whatsapp"
               target="_blank"
               rel="noopener noreferrer"
             >
+              <span>💬</span>
               {safeLocale === "ro" ? "Scrie pe WhatsApp" : "Message on WhatsApp"}
             </a>
           </div>

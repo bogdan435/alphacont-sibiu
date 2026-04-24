@@ -4,11 +4,58 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/blog";
 import { getBaseUrl } from "@/lib/seo";
+import { getServicePageLinks } from "@/lib/service-pages";
 import SiteFooter from "@/components/SiteFooter";
 
 type LocaleBlogPostPageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
+
+type ResourceLink = {
+  href: string;
+  label: string;
+};
+
+function getUsefulServiceSlugs(slug: string, category: string) {
+  const normalized = `${slug} ${category}`.toLowerCase();
+
+  if (
+    normalized.includes("company") ||
+    normalized.includes("firma") ||
+    normalized.includes("srl") ||
+    normalized.includes("llc")
+  ) {
+    return ["infiintare-firma-sibiu", "contabil-srl-sibiu"];
+  }
+
+  if (normalized.includes("freelancer") || normalized.includes("pfa")) {
+    return ["contabil-pfa-sibiu", "consultanta-fiscala-sibiu"];
+  }
+
+  if (
+    normalized.includes("vat") ||
+    normalized.includes("tax") ||
+    normalized.includes("fiscal")
+  ) {
+    return ["consultanta-fiscala-sibiu", "contabil-srl-sibiu"];
+  }
+
+  if (normalized.includes("payroll") || normalized.includes("salarizare")) {
+    return ["salarizare-sibiu", "contabil-srl-sibiu"];
+  }
+
+  return ["contabil-srl-sibiu", "contabil-pfa-sibiu"];
+}
+
+function getUsefulServiceLinks(locale: string, slug: string, category: string): ResourceLink[] {
+  const safeLocale = locale === "en" ? "en" : "ro";
+  const serviceLinks = getServicePageLinks(safeLocale);
+  const serviceSlugs = getUsefulServiceSlugs(slug, category);
+
+  return serviceSlugs
+    .map((serviceSlug) => serviceLinks.find((link) => link.href === `/${safeLocale}/${serviceSlug}`))
+    .filter((link): link is ResourceLink => Boolean(link));
+}
 
 export async function generateMetadata({
   params,
@@ -70,6 +117,12 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
   const safeLocale = locale === "en" ? "en" : "ro";
   const post = await getBlogPostBySlug(safeLocale, slug);
   const relatedPosts = await getRelatedBlogPosts(safeLocale, slug);
+  const usefulServiceLinks = getUsefulServiceLinks(safeLocale, post.slug, post.category);
+  const usefulArticleLinks: ResourceLink[] = relatedPosts.slice(0, 2).map((relatedPost) => ({
+    href: `/${safeLocale}/blog/${relatedPost.slug}`,
+    label: relatedPost.title,
+  }));
+  const usefulLinks = [...usefulServiceLinks, ...usefulArticleLinks];
 
   return (
     <main className="site-shell">
@@ -140,6 +193,17 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
         >
           {post.content}
         </ReactMarkdown>
+      </section>
+
+      <section className="article-content">
+        <h2>{safeLocale === "ro" ? "Resurse utile" : "Useful resources"}</h2>
+        <ul>
+          {usefulLinks.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section>

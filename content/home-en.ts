@@ -95,56 +95,59 @@ const processItems: ProcessItem[] = [
 
 export const homeContent: HomeContent = {
   heroTitle:
-    "Accounting and tax support for businesses in Sibiu that want clarity, control, and real support",
+    "English-speaking accountant in Sibiu for companies, freelancers, and foreign-owned businesses",
   heroText:
-    "You know what is due, what comes next, and where your business stands. No guesswork, no surprises, no administrative chaos.",
+    "Accounting, payroll, tax advisory, and company setup in Romania — explained clearly and handled properly.",
   heroSubtext:
-    "We handle accounting, payroll, and tax clarifications for LLCs, sole traders, and growing businesses, so you can focus on your business instead of bureaucracy.",
-  heroButton: "Request a quote",
+    "ALPHACONT GROUP helps LLCs, sole traders, NGOs, expats, and foreign entrepreneurs stay compliant, organized, and in control of their business finances.",
+  heroButton: "Talk to an Accountant",
   heroSecondaryButton: "Chat on WhatsApp",
   heroResponseLine: "We usually reply within the same working day.",
-  heroBadge: "ALPHACONT GROUP",
-  officeShowcaseTitle: "A local Sibiu office with clear organization and direct communication",
+  heroBadge: "English-speaking accounting office in Sibiu",
+  officeShowcaseTitle:
+    "Accounting services in Sibiu with clear communication in English",
   officeShowcaseText:
-    "We work with entrepreneurs and companies that want structure, predictability, and professional support in accounting and taxation.",
+    "We work with local and foreign entrepreneurs who need reliable accounting, tax clarity, payroll support, and help dealing with Romanian authorities.",
   officeShowcaseSubtext:
-    "We communicate directly, explain things clearly, and step in even in difficult situations, from accounting reorganization to ongoing tax inspections.",
-  officeShowcaseMeta: "Sibiu · LLC, sole trader, NGO · Fast response",
+    "From monthly bookkeeping to ANAF inspections, company setup, payroll, and accounting reconstruction, we keep the process organized and easy to understand.",
+  officeShowcaseMeta:
+    "Sibiu · Romania · LLC, PFA, NGO · English support",
 
-  servicesTitle: "Who we work with",
+  servicesTitle: "Accounting services for",
   services: [
-    "LLCs across various industries",
-    "Sole traders and independent professionals",
+    "Foreign-owned companies in Romania",
+    "LLCs and small businesses in Sibiu",
+    "Sole traders, freelancers, and independent professionals",
+    "Expats starting a business in Romania",
     "NGOs and associations",
-    "Newly established businesses",
-    "Growing companies",
-    "Companies that need accounting reorganization and clarification",
+    "Companies that need accounting cleanup or reorganization",
   ],
 
-  specialServicesTitle: "Specialized services",
+  specialServicesTitle: "Accounting and tax services in English",
   specialServices,
   supportLanguagesLine: "We communicate in Romanian, English, French, and Italian.",
   trustItems: [
-    "20+ years of premium accounting and tax experience",
+    "20+ years of accounting and tax experience",
+    "English-speaking accounting support in Sibiu",
+    "Accounting, payroll, tax advisory, and company setup",
     "Support during ANAF inspections and complex tax situations",
-    "We take over and reorganize incomplete or incorrect accounting records",
-    "LLCs, sole traders, NGOs, and businesses at the start of their journey",
-    "Communication in Romanian, English, French, and Italian",
+    "We take over and reorganize incomplete accounting records",
   ],
 
-  whyTitle: "Why ALPHACONT GROUP",
+  whyTitle: "Why choose ALPHACONT GROUP",
   whyItems: [
-    "We explain things clearly, without ambiguity or jargon.",
-    "Premium financial and accounting services, without compromise.",
-    "We handle complex and sensitive situations.",
-    "Confidentiality and organization are standard, not optional.",
-    "A digital approach supported by real human interaction.",
+    "You speak directly with an accountant, not a call center.",
+    "We explain Romanian tax rules clearly, in English.",
+    "We handle both routine accounting and complex situations.",
+    "We keep documents, deadlines, and tax obligations organized.",
+    "We combine digital workflows with real human support.",
   ],
 
-  complexityTitle: "Not just accounting. Real financial control.",
+  complexityTitle:
+    "More than bookkeeping. Accounting control for your business in Romania.",
   complexityItems,
 
-  processTitle: "How we work",
+  processTitle: "How we start working together",
   processItems,
 
   socialProofTitle: "What public reviews say",
@@ -159,17 +162,17 @@ export const homeContent: HomeContent = {
   socialProofGoogleUrl:
     "https://maps.app.goo.gl/rombVxLCvRkwJYtq9",
 
-  aboutTitle: "About us",
+  aboutTitle: "About ALPHACONT GROUP",
   aboutParagraphs: [
-    "ALPHACONT GROUP stands for experience, clarity, and premium financial and accounting services for entrepreneurs and companies that want more than correct bookkeeping.",
-    "We believe that even in a digital world, the human relationship remains essential in this field. That is why we explain things clearly and directly, so you can make informed decisions and focus on your business instead of bureaucracy.",
-    "We work with LLCs, sole traders, NGOs, newly established businesses, and companies that need reorganization, control, and predictability.",
+    "ALPHACONT GROUP is an accounting office in Sibiu, Romania, providing accounting, payroll, tax advisory, and business setup support for local and foreign entrepreneurs.",
+    "We work with clients who need more than basic bookkeeping: clear explanations, organized documents, predictable deadlines, and support when decisions or inspections become complex.",
+    "We support LLCs, sole traders, NGOs, newly established businesses, expats, and foreign-owned companies that want to understand and manage their Romanian tax obligations correctly.",
   ],
   aboutHighlights: [
-    "Local office in Sibiu",
+    "Accounting office in Sibiu, Romania",
+    "English-speaking accounting and tax support",
     "Direct communication by email, phone, and WhatsApp",
-    "We work with LLCs, sole traders, NGOs, and newly established businesses",
-    "We communicate in Romanian, English, French, and Italian",
+    "Support for LLCs, sole traders, NGOs, and new businesses",
   ],
   securityTitle: "Your data security is one of our priorities",
   securityText:
@@ -195,41 +198,41 @@ export const homeContent: HomeContent = {
   anafLinkFourthUrl:
     "https://www.anaf.ro/anaf/internet/ANAF/servicii_online/inregistrare_utilizatori/!ut/p/a1/pZNfb4IwFMU_iw-80gMFBntDnCBbIuKM2BeDCSKJggE2vv6K2RKRWWK8T_3zOz3tvbeEkYiwPP7O0rjOijw-tnNmbD3FMzzVVH3XtgADCCeTKR9B4cCGA7gTNrp6eAtgoY9noe4GgKv96gVARz8P3rm_5vhL_cNRAH1A_0mf08O4uX9IzXZ7-ja2lsDq5VbfNxC9P6AD_gEV-jv9_HWBufaovutv0Qff3zd4Ss-Bgf5bEyZMcVvBCyBqUeEJbQ-Jq6gOAFb_hF6ZfMLSY7G7fLmNne-omRJWJvukTEr5q-TLh7o-V68SJDRNI8d5vJfLQsJ__KGoahJdYeR8Wv1FhGyWBae1Wdmj0Q8_cdcm/dl5/d5/L2dBISEvZ0FBIS9nQSEh/",
 
-  faqTitle: "Frequently asked questions",
+  faqTitle: "English accounting services in Sibiu — FAQ",
   faqs: [
     {
-      question: "What type of clients do you work with?",
+      question: "Do you provide accounting services in English?",
       answer:
-        "We work with sole traders, LLCs, NGOs, newly established businesses, and companies that need structure, clarity, and ongoing tax support.",
+        "Yes. We provide accounting, payroll, tax advisory, and company setup support in English for foreign entrepreneurs, expats, and foreign-owned companies in Romania.",
     },
     {
-      question: "Do you also work with newly established businesses?",
+      question: "Can you help me open a company in Romania?",
       answer:
-        "Yes. We help you start in an organized way, understand the main tax obligations, and set up a correct accounting workflow from the beginning.",
+        "Yes. We can guide you through SRL or PFA setup, explain the required documents, and help you organize the accounting workflow from the beginning.",
     },
     {
-      question: "Do you take over companies with incomplete or incorrectly prepared accounting records?",
+      question: "Do you work with foreign-owned companies?",
       answer:
-        "Yes. We can review the current situation, reorganize the documents, and rebuild the accounting records so the business can move forward correctly and predictably.",
+        "Yes. We work with foreign-owned companies that need accounting, payroll, tax compliance, and clear communication in English.",
     },
     {
-      question: "Do you provide support during an ANAF inspection that has already started?",
+      question: "Can you take over messy or incomplete accounting records?",
       answer:
-        "Yes. We provide support during ongoing tax inspections and help clarify the documents and accounting situation.",
+        "Yes. We review the existing situation, identify missing or incorrect records, and define the steps needed to reorganize the accounting properly.",
     },
     {
-      question: "How do I send accounting documents to you?",
+      question: "Do you provide support during ANAF inspections?",
       answer:
-        "Documents can be sent in an organized, periodic way, in physical or digital format, so reporting and records remain clear and up to date.",
+        "Yes. We provide support during ongoing ANAF inspections and help organize the documents, clarify the accounting situation, and communicate the next steps.",
     },
     {
-      question: "Do you also provide payroll services?",
+      question: "How can I send accounting documents?",
       answer:
-        "Yes. We handle payroll, employee documentation, and related obligations so the process remains accurate and predictable.",
+        "Documents can be sent digitally or physically, based on an agreed workflow, so accounting records and tax reports remain clear and up to date.",
     },
   ],
 
-  contactTitle: "Contact",
+  contactTitle: "Contact an English-speaking accountant in Sibiu",
   contactEmail: "contact@alphacont.ro",
   contactPhone: "0040721644296",
   contactPhoneSecondary: "00393347412487",
@@ -238,15 +241,15 @@ export const homeContent: HomeContent = {
   contactPromise: "We usually reply within the same working day.",
   contactFormButton: "Send your request",
   pricingNote:
-    "Prices start from RON 300 / month. The final cost depends on the volume of the business and the complexity of the requested services.",
-  locationTitle: "Where to find us",
+    "Accounting services start from RON 300 / month. The final price depends on document volume, business activity, payroll, and service complexity.",
+  locationTitle: "Accounting office in Sibiu, Romania",
   locationText:
-    "Our office is in Sibiu, at 55 Octavian Goga Street. You can contact us online, by phone, or visit us at the office by appointment.",
+    "Our office is located in Sibiu, at 55 Octavian Goga Street. You can contact us online, by phone, on WhatsApp, or visit us by appointment.",
   mapsUrl:
     "https://maps.app.goo.gl/rombVxLCvRkwJYtq9",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=ALPHACONT+GROUP+Sibiu&output=embed",
-  seoServiceLinksTitle: "Popular service pages in Sibiu",
+  seoServiceLinksTitle: "Popular accounting services in Sibiu",
 
   internshipTitle: "Internship",
   internshipIntro:

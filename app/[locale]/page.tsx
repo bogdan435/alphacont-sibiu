@@ -30,11 +30,11 @@ export async function generateMetadata({
     title:
       safeLocale === "ro"
         ? "Contabilitate Sibiu | Contabil în Sibiu | ALPHACONT GROUP"
-        : "Accounting Sibiu | Accountant in Sibiu | ALPHACONT GROUP",
+        : "English-Speaking Accountant in Sibiu | Accounting Services Romania",
     description:
       safeLocale === "ro"
         ? "Servicii de contabilitate în Sibiu pentru SRL și PFA. Contabil în Sibiu cu experiență, fiscalitate, salarizare și suport complet pentru firme."
-        : "Accounting services in Sibiu for LLCs and sole traders. Experienced accountant, tax, payroll, and full business support.",
+        : "English-speaking accountant in Sibiu for LLCs, freelancers, expats, and foreign-owned companies. Accounting, payroll, tax advisory, and company setup in Romania.",
     keywords:
       safeLocale === "ro"
         ? [
@@ -47,11 +47,15 @@ export async function generateMetadata({
             "contabil pfa sibiu",
           ]
         : [
-            "accounting sibiu",
-            "accountant in sibiu",
-            "tax services sibiu",
-            "payroll sibiu",
-            "accounting services sibiu",
+            "English speaking accountant Sibiu",
+            "accountant in Sibiu",
+            "accounting services Sibiu",
+            "accounting services Romania",
+            "tax advisor Romania",
+            "payroll services Romania",
+            "company formation Romania",
+            "accountant for expats Romania",
+            "foreign owned company accounting Romania",
           ],
     robots: {
       index: true,
@@ -68,11 +72,11 @@ export async function generateMetadata({
       title:
         safeLocale === "ro"
           ? "Contabilitate Sibiu | ALPHACONT GROUP"
-          : "Accounting Sibiu | ALPHACONT GROUP",
+          : "English-Speaking Accountant in Sibiu | ALPHACONT GROUP",
       description:
         safeLocale === "ro"
           ? "Servicii de contabilitate și fiscalitate pentru firme din Sibiu."
-          : "Accounting and tax services for businesses in Sibiu.",
+          : "Accounting, payroll, tax advisory, and company setup in Romania for expats, freelancers, and foreign-owned businesses.",
       url: `${baseUrl}/${safeLocale}`,
       siteName: "ALPHACONT GROUP",
       locale: safeLocale === "ro" ? "ro_RO" : "en_US",
@@ -285,8 +289,8 @@ export default async function LocalePage({ params }: LocalePageProps) {
               src="/images/sibiu_desk_web.webp"
               alt={
                 safeLocale === "ro"
-                  ? "Biroul AlphaCont Group din Sibiu"
-                  : "AlphaCont Group office in Sibiu"
+                  ? "Birou contabilitate ALPHACONT GROUP Sibiu"
+                  : "English-speaking accounting office in Sibiu, Romania"
               }
               width={1600}
               height={1275}
@@ -668,7 +672,7 @@ export default async function LocalePage({ params }: LocalePageProps) {
               title={
                 safeLocale === "ro"
                   ? "Hai să discutăm despre firma ta"
-                  : "Let’s talk about your business"
+                  : homeContent.contactTitle
               }
             />
             <p className="contact-lead">
