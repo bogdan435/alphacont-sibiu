@@ -35,7 +35,14 @@ export function formatBlogDate(date: string, locale: string) {
 
 export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
   const blogDirectory = getBlogDirectory(locale);
-  const files = await fs.readdir(blogDirectory);
+
+  let files: string[] = [];
+
+  try {
+    files = await fs.readdir(blogDirectory);
+  } catch {
+    return [];
+  }
 
   const posts = await Promise.all(
     files
@@ -54,7 +61,7 @@ export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
           category: data.category || "",
           tags: Array.isArray(data.tags) ? data.tags : [],
         };
-      })
+      }),
   );
 
   return posts.sort((a, b) => b.date.localeCompare(a.date));
