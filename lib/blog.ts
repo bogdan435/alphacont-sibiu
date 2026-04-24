@@ -68,21 +68,27 @@ export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
 }
 
 export async function getBlogPostBySlug(locale: string, slug: string) {
-  const blogDirectory = getBlogDirectory(locale);
-  const fullPath = path.join(blogDirectory, `${slug}.md`);
-  const fileContents = await fs.readFile(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
+  try {
+    const blogDirectory = getBlogDirectory(locale);
+    const fullPath = path.join(blogDirectory, `${slug}.md`);
 
-  return {
-    slug,
-    title: data.title || slug.replace(/-/g, " "),
-    description: data.description || "",
-    date: data.date || "",
-    formattedDate: formatBlogDate(data.date || "", locale),
-    category: data.category || "",
-    tags: Array.isArray(data.tags) ? data.tags : [],
-    content,
-  };
+    const fileContents = await fs.readFile(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
+
+    return {
+      slug,
+      title: data.title || slug.replace(/-/g, " "),
+      description: data.description || "",
+      date: data.date || "",
+      formattedDate: formatBlogDate(data.date || "", locale),
+      category: data.category || "",
+      tags: Array.isArray(data.tags) ? data.tags : [],
+      content,
+    };
+  } catch (error) {
+    console.error("Blog load error:", slug, error);
+    return null;
+  }
 }
 
 export async function getRelatedBlogPosts(locale: string, currentSlug: string) {

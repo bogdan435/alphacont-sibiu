@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/blog";
 import { getBaseUrl } from "@/lib/seo";
@@ -65,6 +66,10 @@ export async function generateMetadata({
   const post = await getBlogPostBySlug(safeLocale, slug);
   const baseUrl = getBaseUrl();
 
+  if (!post) {
+    return {};
+  }
+
   const alternateSlug = safeLocale === "ro" ? "first-article" : "primul-articol";
 
   return {
@@ -116,6 +121,11 @@ export default async function LocaleBlogPostPage({ params }: LocaleBlogPostPageP
   const { locale, slug } = await params;
   const safeLocale = locale === "en" ? "en" : "ro";
   const post = await getBlogPostBySlug(safeLocale, slug);
+
+  if (!post) {
+    notFound();
+  }
+
   const relatedPosts = await getRelatedBlogPosts(safeLocale, slug);
   const usefulServiceLinks = getUsefulServiceLinks(safeLocale, post.slug, post.category);
   const usefulArticleLinks: ResourceLink[] = relatedPosts.slice(0, 2).map((relatedPost) => ({
