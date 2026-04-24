@@ -1,6 +1,7 @@
 import { servicePageSlugs } from "../lib/service-pages";
+import { getBlogPosts } from "../lib/blog";
 
-export default function sitemap() {
+export default async function sitemap() {
   const baseUrl = "https://alphacont.ro";
 
   const pages: string[] = [
@@ -10,12 +11,25 @@ export default function sitemap() {
     `${baseUrl}/en/blog`,
   ];
 
+  // servicii
   servicePageSlugs.ro.forEach((slug) => {
     pages.push(`${baseUrl}/ro/${slug}`);
   });
 
   servicePageSlugs.en.forEach((slug) => {
     pages.push(`${baseUrl}/en/${slug}`);
+  });
+
+  // BLOG (asta lipsea)
+  const blogEn = await getBlogPosts("en");
+  const blogRo = await getBlogPosts("ro");
+
+  blogEn.forEach((post) => {
+    pages.push(`${baseUrl}/en/blog/${post.slug}`);
+  });
+
+  blogRo.forEach((post) => {
+    pages.push(`${baseUrl}/ro/blog/${post.slug}`);
   });
 
   return pages.map((url) => ({
