@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { getServicePageLinks } from "@/lib/service-pages";
 
 type SiteFooterProps = {
   locale: string;
@@ -7,7 +6,6 @@ type SiteFooterProps = {
 
 export default function SiteFooter({ locale }: SiteFooterProps) {
   const safeLocale = locale === "en" ? "en" : "ro";
-  const serviceLinks = getServicePageLinks(safeLocale);
 
   return (
     <footer className="site-footer">
@@ -53,11 +51,15 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
             {safeLocale === "ro" ? "Servicii în Sibiu" : "Services in Sibiu"}
           </p>
           <div className="site-footer-links">
-            {serviceLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
+            <a href={`/${safeLocale}#${safeLocale === "ro" ? "servicii" : "services"}`}>
+              {safeLocale === "ro" ? "Contabilitate SRL Sibiu" : "LLC accounting Sibiu"}
+            </a>
+            <a href={`/${safeLocale}#${safeLocale === "ro" ? "servicii" : "services"}`}>
+              {safeLocale === "ro" ? "Contabilitate PFA Sibiu" : "Sole trader accounting Sibiu"}
+            </a>
+            <a href={`/${safeLocale}#${safeLocale === "ro" ? "servicii" : "services"}`}>
+              {safeLocale === "ro" ? "Consultanță fiscală Sibiu" : "Tax advisory Sibiu"}
+            </a>
           </div>
         </div>
       </div>

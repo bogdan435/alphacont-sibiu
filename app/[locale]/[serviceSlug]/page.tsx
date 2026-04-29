@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import SiteFooter from "@/components/SiteFooter";
 import { getBaseUrl } from "@/lib/seo";
 import { getHomeContent } from "@/lib/home";
@@ -16,14 +16,17 @@ type ServicePageProps = {
   params: Promise<{ locale: string; serviceSlug: string }>;
 };
 
-export function generateStaticParams({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  const safeLocale = params.locale === "en" ? "en" : "ro";
-
-  return servicePageSlugs[safeLocale].map((serviceSlug) => ({ serviceSlug }));
+export function generateStaticParams() {
+  return [
+    ...servicePageSlugs.ro.map((serviceSlug) => ({
+      locale: "ro",
+      serviceSlug,
+    })),
+    ...servicePageSlugs.en.map((serviceSlug) => ({
+      locale: "en",
+      serviceSlug,
+    })),
+  ];
 }
 
 export async function generateMetadata({
@@ -38,6 +41,7 @@ export async function generateMetadata({
   }
 
   const baseUrl = getBaseUrl();
+  const canonicalSlug = page.slug;
   const roSlug = getAlternateServicePageSlug(safeLocale, serviceSlug, "ro");
   const enSlug = getAlternateServicePageSlug(safeLocale, serviceSlug, "en");
 
@@ -64,7 +68,7 @@ export async function generateMetadata({
             "company formation Romania",
           ],
     alternates: {
-      canonical: `${baseUrl}/${safeLocale}/${serviceSlug}`,
+      canonical: `${baseUrl}/${safeLocale}/${canonicalSlug}`,
       languages: {
         ro: `${baseUrl}/ro/${roSlug}`,
         en: `${baseUrl}/en/${enSlug}`,
@@ -73,7 +77,7 @@ export async function generateMetadata({
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      url: `${baseUrl}/${safeLocale}/${serviceSlug}`,
+      url: `${baseUrl}/${safeLocale}/${canonicalSlug}`,
       siteName: "ALPHACONT GROUP",
       locale: safeLocale === "ro" ? "ro_RO" : "en_US",
       type: "website",
@@ -90,16 +94,21 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const { locale, serviceSlug } = await params;
   const safeLocale = locale === "en" ? "en" : "ro";
   const page = getServicePageContent(safeLocale, serviceSlug);
-  const homeContent = getHomeContent(safeLocale);
-  const serviceLinks = getServicePageLinks(safeLocale).filter(
-    (link) => link.href !== `/${safeLocale}/${serviceSlug}`,
-  );
-  const roSlug = getAlternateServicePageSlug(safeLocale, serviceSlug, "ro");
-  const enSlug = getAlternateServicePageSlug(safeLocale, serviceSlug, "en");
 
   if (!page) {
     notFound();
   }
+
+  if (serviceSlug !== page.slug) {
+    permanentRedirect(`/${safeLocale}/${page.slug}`);
+  }
+
+  const homeContent = getHomeContent(safeLocale);
+  const serviceLinks = getServicePageLinks(safeLocale).filter(
+    (link) => link.href !== `/${safeLocale}/${page.slug}`,
+  );
+  const roSlug = getAlternateServicePageSlug(safeLocale, page.slug, "ro");
+  const enSlug = getAlternateServicePageSlug(safeLocale, page.slug, "en");
 
   return (
     <main className="site-shell">

@@ -12,7 +12,6 @@ import { getHomeContent } from "@/lib/home";
 import { getBaseUrl } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
 import { getFaqSchema, getLocalBusinessSchema } from "@/lib/schema";
-import { getServicePageLinks } from "@/lib/service-pages";
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>;
@@ -110,7 +109,6 @@ export default async function LocalePage({ params }: LocalePageProps) {
   const safeLocale = locale === "en" ? "en" : "ro";
   const baseUrl = getBaseUrl();
   const homeContent = getHomeContent(safeLocale);
-  const serviceLinks = getServicePageLinks(safeLocale);
   const allPosts = await getBlogPosts(safeLocale);
 
   const resourcePosts = allPosts
@@ -202,7 +200,9 @@ export default async function LocalePage({ params }: LocalePageProps) {
         </div>
         <div className="topbar-right">
           <div className="nav-links">
-            <a href="#services">{safeLocale === "ro" ? "Servicii" : "Services"}</a>
+            <a href={`#${safeLocale === "ro" ? "servicii" : "services"}`}>
+              {safeLocale === "ro" ? "Servicii" : "Services"}
+            </a>
             <a href="#why">{safeLocale === "ro" ? "Avantaje" : "Benefits"}</a>
             <Link href={`/${safeLocale}/blog`}>
               {safeLocale === "ro"
@@ -300,7 +300,10 @@ export default async function LocalePage({ params }: LocalePageProps) {
         </div>
       </section>
 
-      <section id="services" className="content-section">
+      <section
+        id={safeLocale === "ro" ? "servicii" : "services"}
+        className="content-section"
+      >
         <div className="split-header">
           <div>
             <p className="section-kicker">
@@ -322,13 +325,30 @@ export default async function LocalePage({ params }: LocalePageProps) {
           ))}
         </div>
         <div className="seo-service-links">
-          <p className="seo-service-links-title">{homeContent.seoServiceLinksTitle}</p>
+          <p className="seo-service-links-title">
+            {safeLocale === "ro" ? "Serviciile noastre" : "Our services"}
+          </p>
           <div className="seo-service-links-list">
-            {serviceLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="seo-service-link">
-                {link.label}
-              </Link>
-            ))}
+            <a
+              href={`/${safeLocale}#${safeLocale === "ro" ? "servicii" : "services"}`}
+              className="seo-service-link"
+            >
+              {safeLocale === "ro" ? "Contabilitate SRL Sibiu" : "LLC accounting Sibiu"}
+            </a>
+            <a
+              href={`/${safeLocale}#${safeLocale === "ro" ? "servicii" : "services"}`}
+              className="seo-service-link"
+            >
+              {safeLocale === "ro"
+                ? "Contabilitate PFA Sibiu"
+                : "Sole trader accounting Sibiu"}
+            </a>
+            <a
+              href={`/${safeLocale}#${safeLocale === "ro" ? "servicii" : "services"}`}
+              className="seo-service-link"
+            >
+              {safeLocale === "ro" ? "Consultanță fiscală Sibiu" : "Tax advisory Sibiu"}
+            </a>
           </div>
         </div>
       </section>

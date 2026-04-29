@@ -1,5 +1,5 @@
-import { servicePageSlugs } from "../lib/service-pages";
 import { getBlogPosts } from "../lib/blog";
+import { servicePageSlugs } from "../lib/service-pages";
 
 export default async function sitemap() {
   const baseUrl = "https://alphacont.ro";
@@ -11,7 +11,6 @@ export default async function sitemap() {
     `${baseUrl}/en/blog`,
   ];
 
-  // servicii
   servicePageSlugs.ro.forEach((slug) => {
     pages.push(`${baseUrl}/ro/${slug}`);
   });

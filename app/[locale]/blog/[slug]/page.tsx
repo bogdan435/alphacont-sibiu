@@ -3,9 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-import { getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/blog";
+import {
+  getAlternateBlogSlug,
+  getBlogPostBySlug,
+  getBlogPosts,
+  getRelatedBlogPosts,
+} from "@/lib/blog";
 import { getBaseUrl } from "@/lib/seo";
-import { getServicePageLinks } from "@/lib/service-pages";
+import { getAlternateServicePageSlug, getServicePageLinks } from "@/lib/service-pages";
 import SiteFooter from "@/components/SiteFooter";
 
 type LocaleBlogPostPageProps = {
@@ -16,6 +21,22 @@ type ResourceLink = {
   href: string;
   label: string;
 };
+
+export async function generateStaticParams() {
+  const blogEn = await getBlogPosts("en");
+  const blogRo = await getBlogPosts("ro");
+
+  return [
+    ...blogEn.map((post) => ({
+      locale: "en",
+      slug: post.slug,
+    })),
+    ...blogRo.map((post) => ({
+      locale: "ro",
+      slug: post.slug,
+    })),
+  ];
+}
 
 function getUsefulServiceSlugs(slug: string, category: string) {
   const normalized = `${slug} ${category}`.toLowerCase();
@@ -51,7 +72,11 @@ function getUsefulServiceSlugs(slug: string, category: string) {
 function getUsefulServiceLinks(locale: string, slug: string, category: string): ResourceLink[] {
   const safeLocale = locale === "en" ? "en" : "ro";
   const serviceLinks = getServicePageLinks(safeLocale);
-  const serviceSlugs = getUsefulServiceSlugs(slug, category);
+  const serviceSlugs = getUsefulServiceSlugs(slug, category).map((serviceSlug) =>
+    safeLocale === "en"
+      ? getAlternateServicePageSlug("ro", serviceSlug, "en")
+      : serviceSlug,
+  );
 
   return serviceSlugs
     .map((serviceSlug) => serviceLinks.find((link) => link.href === `/${safeLocale}/${serviceSlug}`))
@@ -70,7 +95,8 @@ export async function generateMetadata({
     return {};
   }
 
-  const alternateSlug = safeLocale === "ro" ? "first-article" : "primul-articol";
+  const roAlternateSlug = getAlternateBlogSlug(safeLocale, slug, "ro");
+  const enAlternateSlug = getAlternateBlogSlug(safeLocale, slug, "en");
 
   return {
     metadataBase: new URL(baseUrl),
@@ -88,8 +114,8 @@ export async function generateMetadata({
     alternates: {
       canonical: `${baseUrl}/${safeLocale}/blog/${slug}`,
       languages: {
-        ro: `${baseUrl}/ro/blog/${safeLocale === "ro" ? slug : alternateSlug}`,
-        en: `${baseUrl}/en/blog/${safeLocale === "en" ? slug : alternateSlug}`,
+        ...(roAlternateSlug ? { ro: `${baseUrl}/ro/blog/${roAlternateSlug}` } : {}),
+        ...(enAlternateSlug ? { en: `${baseUrl}/en/blog/${enAlternateSlug}` } : {}),
       },
     },
     openGraph: {
