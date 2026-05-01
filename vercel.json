@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "alphacont-sibiu.vercel.app"
+        }
+      ],
+      "destination": "https://alphacont.ro/ro",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
