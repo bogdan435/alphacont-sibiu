@@ -1,8 +1,9 @@
 import type {
-  ComplexityItem,
   HomeContent,
   ProcessItem,
+  ReviewItem,
   SpecialService,
+  WhyDetailItem,
 } from "./home.types";
 
 const specialServices: SpecialService[] = [
@@ -38,34 +39,6 @@ const specialServices: SpecialService[] = [
   },
 ];
 
-const complexityItems: ComplexityItem[] = [
-  {
-    title: "Sprijin în controale ANAF",
-    description:
-      "Intervenim în controale fiscale și în situații sensibile, cu analiză clară, documente organizate și sprijin aplicat pe parcurs.",
-  },
-  {
-    title: "Preluare firme cu evidență neclară",
-    description:
-      "Preluăm societăți cu evidență contabilă nefinalizată, incompletă sau greșit întocmită și stabilim pașii pentru reorganizare.",
-  },
-  {
-    title: "Verificare corectitudine contabilă",
-    description:
-      "Analizăm dacă evidența contabilă reflectă corect specificul activității și identificăm zonele care necesită corecții sau clarificări.",
-  },
-  {
-    title: "Clarificare activ, pasiv și obligații fiscale",
-    description:
-      "Te ajutăm să înțelegi mai clar poziția financiară a firmei și obligațiile fiscale aferente, pentru decizii mai sigure.",
-  },
-  {
-    title: "Predictibilitate fiscală",
-    description:
-      "Explicăm concret taxele, contribuțiile și obligațiile curente, astfel încât să ai mai mult control și mai puține surprize.",
-  },
-];
-
 const processItems: ProcessItem[] = [
   {
     step: "01",
@@ -93,6 +66,87 @@ const processItems: ProcessItem[] = [
   },
 ];
 
+const whyDetails: WhyDetailItem[] = [
+  {
+    title: "Un singur partener pentru tot",
+    description:
+      "De la înființarea firmei până la contabilitate curentă, salarizare, HR, consultanță fiscală și reprezentare ANAF — totul printr-un singur punct de contact, cu echipă dedicată. Iar când activitatea clientului necesită servicii complementare — juridic, IT, traduceri etc — le coordonăm noi, prin parteneri de încredere. Un singur interlocutor pentru tot ce are nevoie firma ta.",
+  },
+  {
+    title: "Experiență și asumare",
+    description:
+      "Peste 20 de ani în contabilitate și fiscalitate. Ne asumăm greșelile prin contract și le acoperim financiar — o garanție clară a serviciilor oferite.",
+  },
+  {
+    title: "Optimizare fiscală proactivă",
+    description:
+      "Nu așteptăm să ne întrebi. Te sfătuim activ astfel încât să plătești doar ce datorezi statului — nici un leu în plus.",
+  },
+  {
+    title: "Termene respectate, zero amenzi, zero controale.",
+    description:
+      "Niciun client nu a primit amendă din cauza unei declarații depuse târziu. Respectăm termenele ANAF și îți comunicăm din timp ce urmează.",
+  },
+  {
+    title: "Reprezentare directă",
+    description:
+      "Interacționăm cu administrația fiscală în numele tău, te reprezentăm la controale ANAF și Antifraudă și gestionăm comunicarea oficială cu autoritățile locale.",
+  },
+  {
+    title: "Comunicare în 3 limbi",
+    description:
+      "Lucrăm în română, engleză, franceză și italiană — util pentru antreprenorii internaționali stabiliți în Sibiu sau pentru firmele cu parteneri străini.",
+  },
+  {
+    title: "Digitalizare completă",
+    description:
+      "Cunoaștem majoritatea softurilor de contabilitate și avem aptitudini digitale solide — documentele circulă rapid, organizat și în siguranță.",
+  },
+  {
+    title: "Explicăm pe înțelesul tău",
+    description:
+      "Contabilitatea nu trebuie să fie complicată. Explicăm clar, fără termeni tehnici, astfel încât tu să înțelegi situația firmei tale și să poți lua decizii informate.",
+  },
+  {
+    title: "Siguranța datelor garantată",
+    description:
+      "Documentele și datele tale sunt protejate prin backup automatizat de 2 ori pe zi, folosind metoda 3+2+1: 3 copii de rezervă, 2 tipuri de stocare și 1 copie externă offsite. Confidențialitatea și organizarea sunt standard, nu opțiuni.",
+  },
+];
+
+const socialProofItems: ReviewItem[] = [
+  {
+    quote:
+      "L-am întâlnit pe dl. contabil Bogdan într-o perioadă dificilă pentru firmă. A gestionat situația cu profesionalism și a soluționat eficient problema. Îl recomand cu încredere tuturor celor care caută un specialist serios și dedicat.",
+    author: "A.M.",
+    source: "Google Review",
+  },
+  {
+    quote:
+      "We are very satisfied with the professional knowledge of the team and their overall approach. Especially for foreigners having a business in Romania, this is the kind of firm you want to have on your side.",
+    author: "Client internațional",
+    source: "Google Review",
+  },
+  {
+    quote:
+      "Am început în 2019 ca administrator de SRL și am ales ALPHA CONT la recomandarea unui partener. Nu cred că puteam lua o decizie mai bună. Știe meserie! Recomand cu toată încrederea noilor antreprenori, dar și celor cu experiență.",
+    author: "Administrator SRL, IT",
+    source: "Google Review",
+  },
+  {
+    quote:
+      "În sfârșit am găsit un contabil care are viziune și este implicat în ceea ce face. Mă bucur că există în Sibiu oameni care chiar știu să-și facă treaba cu profesionalism și să te reprezinte în controale.",
+    author: "Antreprenor Sibiu",
+    source: "Google Review",
+  },
+  {
+    quote:
+      "È stato davvero molto professionale, mi ha spiegato il regime fiscale rumeno e consigliato nel modo migliore. Ogni anno prepara la mia dichiarazione con precisione e puntualità. Consiglio a chiunque.",
+    author: "Client italian",
+    source: "Google Review",
+  },
+];
+
 export const homeContent: HomeContent = {
   heroTitle:
     "Contabilitate și fiscalitate pentru firme din Sibiu care vor claritate, control și sprijin real",
@@ -103,7 +157,7 @@ export const homeContent: HomeContent = {
   heroButton: "Cere ofertă",
   heroSecondaryButton: "Discută pe WhatsApp",
   heroResponseLine: "Răspundem, de obicei, în aceeași zi lucrătoare.",
-  heroBadge: "ALPHACONT GROUP",
+  heroBadge: "ALPHACONT",
   officeShowcaseTitle: "Birou local în Sibiu, organizare clară și comunicare directă",
   officeShowcaseText:
     "Lucrăm cu antreprenori și companii care își doresc ordine, predictibilitate și sprijin profesionist în contabilitate și fiscalitate.",
@@ -124,44 +178,21 @@ export const homeContent: HomeContent = {
   specialServicesTitle: "Servicii specializate",
   specialServices,
   supportLanguagesLine: "Comunicăm în română, engleză, franceză și italiană.",
-  trustItems: [
-    "20+ ani de experiență în servicii financiar-contabile premium",
-    "Sprijin în controale ANAF și situații fiscale complexe",
-    "Preluăm și reorganizăm evidențe contabile incomplete sau greșite",
-    "SRL-uri, PFA-uri, ONG-uri și firme aflate la început de drum",
-    "Comunicare în română, engleză, franceză și italiană",
-  ],
 
-  whyTitle: "De ce ALPHACONT GROUP",
-  whyItems: [
-    "Explicăm clar și direct, fără ambiguități.",
-    "Servicii financiar-contabile premium, fără compromis.",
-    "Gestionăm inclusiv situații complexe sau sensibile.",
-    "Confidențialitatea și organizarea sunt standard, nu opțiuni.",
-    "Abordare digitală, susținută de relație umană reală.",
-  ],
-
-  complexityTitle: "Nu doar contabilitate. Control financiar real.",
-  complexityItems,
+  whyTitle: "De ce ne aleg clienții",
+  whyIntro:
+    "Lucrăm cu firme din Sibiu de peste 20 de ani. În tot acest timp, am gestionat situații simple și complexe, am reprezentat clienți în fața ANAF și Antifraudă și am menținut un standard clar: niciun client nu pleacă cu amendă din cauza noastră.",
+  whyDetails,
 
   processTitle: "Cum lucrăm",
   processItems,
 
   socialProofTitle: "Ce spun recenziile publice",
-  socialProofRating: "4,9/5 din 21 recenzii Google",
-  socialProofItems: [
-    "Profesionalism, seriozitate și implicare în colaborare.",
-    "Consultanță completă și actualizare constantă în raport cu schimbările legislative.",
-    "Promptitudine, comunicare clară și sprijin util pentru administrarea firmei.",
-  ],
-  socialProofNote: "Sinteză din recenzii publice agregate.",
-  socialProofGoogleLabel: "Vezi recenziile pe Google",
-  socialProofGoogleUrl:
-    "https://maps.app.goo.gl/rombVxLCvRkwJYtq9",
+  socialProofItems,
 
   aboutTitle: "Despre noi",
   aboutParagraphs: [
-    "ALPHACONT GROUP înseamnă experiență, claritate și servicii financiar-contabile premium pentru antreprenori și companii care își doresc mai mult decât o evidență corectă.",
+    "ALPHACONT înseamnă experiență, claritate și servicii financiar-contabile premium pentru antreprenori și companii care își doresc mai mult decât o evidență corectă.",
     "Credem că, deși lucrăm într-o eră digitală, relația umană rămâne esențială în acest domeniu. De aceea, explicăm clar și direct, astfel încât tu să poți lua decizii informate și să te ocupi de afacerea ta, nu de birocrație.",
     "Lucrăm cu SRL-uri, PFA-uri, ONG-uri, firme nou înființate și companii care au nevoie de reorganizare, control și predictibilitate.",
   ],
@@ -171,16 +202,6 @@ export const homeContent: HomeContent = {
     "Lucrăm cu SRL-uri, PFA-uri, ONG-uri și firme nou înființate",
     "Comunicăm în română, engleză, franceză și italiană",
   ],
-  securityTitle: "Siguranța datelor tale este prioritatea noastră",
-  securityText:
-    "Datele și documentele tale sunt protejate prin backup automatizat de 2 ori pe zi, folosind metoda 3+2+1: 3 copii de rezervă, 2 tipuri de stocare și 1 copie externă, offsite.",
-  securityItems: [
-    "Backup automatizat, de 2 ori pe zi.",
-    "3 copii de rezervă pentru redundanță.",
-    "2 tipuri de stocare pentru siguranță suplimentară.",
-    "1 copie externă, offsite.",
-  ],
-
   latestArticlesTitle: "ANAF ne informează",
   anafLinkLabel: "Calendar obligații fiscale ANAF",
   anafLinkUrl:
@@ -245,7 +266,7 @@ export const homeContent: HomeContent = {
   mapsUrl:
     "https://maps.app.goo.gl/rombVxLCvRkwJYtq9",
   mapsEmbedUrl:
-    "https://www.google.com/maps?q=ALPHACONT+GROUP+Sibiu&output=embed",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.5!2d24.1404678!3d45.7782333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474c5d7b3eafca37%3A0xcfedcadf0ae233cc!2sStr.%20Octavian%20Goga%2055%2C%20Sibiu!5e0!3m2!1sro!2sro!4v1234567890",
   seoServiceLinksTitle: "Servicii căutate în Sibiu",
 
   internshipTitle: "Internship / stagiu de practică",

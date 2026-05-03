@@ -20,8 +20,8 @@ export async function generateMetadata({
     metadataBase: new URL(baseUrl),
     title:
       safeLocale === "ro"
-        ? "Resurse fiscal-contabile | Contabilitate Sibiu | ALPHACONT GROUP"
-        : "Accounting & tax resources | Accounting Sibiu | ALPHACONT GROUP",
+        ? "Resurse fiscal-contabile | Contabilitate Sibiu | ALPHACONT"
+        : "Accounting & tax resources | Accounting Sibiu | ALPHACONT",
     description:
       safeLocale === "ro"
         ? "Articole utile despre contabilitate, fiscalitate, SRL, PFA, taxe, documente și monografii contabile pentru firme din Sibiu."
@@ -58,14 +58,14 @@ export async function generateMetadata({
     openGraph: {
       title:
         safeLocale === "ro"
-          ? "Resurse fiscal-contabile | ALPHACONT GROUP"
-          : "Accounting & tax resources | ALPHACONT GROUP",
+          ? "Resurse fiscal-contabile | ALPHACONT"
+          : "Accounting & tax resources | ALPHACONT",
       description:
         safeLocale === "ro"
           ? "Articole și monografii contabile pentru firme din Sibiu."
           : "Articles and accounting case studies for businesses in Sibiu.",
       url: `${baseUrl}/${safeLocale}/blog`,
-      siteName: "ALPHACONT GROUP",
+      siteName: "ALPHACONT",
       locale: safeLocale === "ro" ? "ro_RO" : "en_US",
       type: "website",
       images: [
@@ -73,7 +73,7 @@ export async function generateMetadata({
           url: "/images/hero-office-optimized.webp",
           width: 1200,
           height: 630,
-          alt: "ALPHACONT GROUP - Resurse fiscal-contabile",
+          alt: "ALPHACONT - Resurse fiscal-contabile",
         },
       ],
     },
@@ -81,8 +81,8 @@ export async function generateMetadata({
       card: "summary_large_image",
       title:
         safeLocale === "ro"
-          ? "Resurse fiscal-contabile | ALPHACONT GROUP"
-          : "Accounting & tax resources | ALPHACONT GROUP",
+          ? "Resurse fiscal-contabile | ALPHACONT"
+          : "Accounting & tax resources | ALPHACONT",
       description:
         safeLocale === "ro"
           ? "Articole și monografii contabile pentru firme din Sibiu."

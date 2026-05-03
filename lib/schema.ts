@@ -4,7 +4,7 @@ export function getLocalBusinessSchema(locale: string) {
   return {
     "@context": "https://schema.org",
     "@type": "AccountingService",
-    name: "ALPHACONT GROUP",
+    name: "ALPHACONT",
     image: "https://alphacont.ro/logo-blue.svg",
     url: `https://alphacont.ro/${locale}`,
     telephone: ["0040721644296", "00393347412487"],

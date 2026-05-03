@@ -8,7 +8,7 @@ export function getLocaleMetadata(locale: string) {
   if (safeLocale === "en") {
     return {
       title:
-        "English‑speaking Accountant in Sibiu | Accounting & Tax Services | ALPHACONT GROUP",
+        "English‑speaking Accountant in Sibiu | Accounting & Tax Services | ALPHACONT",
       description:
         "English-speaking accounting services in Sibiu for LLCs, sole traders, and foreign businesses: accounting, payroll, tax advisory, and business setup.",
       keywords: [
@@ -26,7 +26,7 @@ export function getLocaleMetadata(locale: string) {
   // Romanian metadata unchanged
   return {
     title:
-      "Contabil Sibiu | Firmă de contabilitate Sibiu | ALPHACONT GROUP",
+      "Contabil Sibiu | Firmă de contabilitate Sibiu | ALPHACONT",
     description:
       "Contabil Sibiu pentru SRL-uri, PFA-uri și firme în creștere. Firmă de contabilitate din Sibiu cu servicii de contabilitate, salarizare, consultanță fiscală și expert contabil.",
     keywords: [

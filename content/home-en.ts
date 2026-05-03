@@ -1,8 +1,9 @@
 import type {
-  ComplexityItem,
   HomeContent,
   ProcessItem,
+  ReviewItem,
   SpecialService,
+  WhyDetailItem,
 } from "./home.types";
 
 const specialServices: SpecialService[] = [
@@ -38,34 +39,6 @@ const specialServices: SpecialService[] = [
   },
 ];
 
-const complexityItems: ComplexityItem[] = [
-  {
-    title: "Support during ANAF inspections",
-    description:
-      "We step in during tax inspections and sensitive situations with clear analysis, organized documentation, and practical support throughout the process.",
-  },
-  {
-    title: "Takeover of businesses with unclear records",
-    description:
-      "We take over companies with unfinished, incomplete, or incorrectly prepared accounting records and define the steps needed for reorganization.",
-  },
-  {
-    title: "Accounting accuracy review",
-    description:
-      "We assess whether the accounting records properly reflect the specifics of the business activity and identify the areas that need correction or clarification.",
-  },
-  {
-    title: "Clarifying assets, liabilities, and tax obligations",
-    description:
-      "We help you better understand the company’s financial position and related tax obligations so you can make safer decisions.",
-  },
-  {
-    title: "Tax predictability",
-    description:
-      "We explain taxes, contributions, and ongoing obligations in a concrete way, so you have more control and fewer surprises.",
-  },
-];
-
 const processItems: ProcessItem[] = [
   {
     step: "01",
@@ -93,13 +66,94 @@ const processItems: ProcessItem[] = [
   },
 ];
 
+const whyDetails: WhyDetailItem[] = [
+  {
+    title: "One partner for everything",
+    description:
+      "From setting up the company to day-to-day accounting, payroll, HR, tax advisory, and ANAF representation, everything goes through a single point of contact with a dedicated team. And when the client’s activity requires complementary services such as legal, IT, or translations, we coordinate them through trusted partners. One single interlocutor for everything your company needs.",
+  },
+  {
+    title: "Experience and accountability",
+    description:
+      "More than 20 years in accounting and taxation. We assume our mistakes contractually and cover them financially, which is a clear guarantee of the services we provide.",
+  },
+  {
+    title: "Proactive tax optimization",
+    description:
+      "We do not wait for you to ask. We advise you actively so that you pay only what you owe to the state, not one euro more.",
+  },
+  {
+    title: "Deadlines respected, zero fines, zero issues.",
+    description:
+      "No client has received a fine because of a declaration filed late due to our work. We meet ANAF deadlines and tell you in advance what comes next.",
+  },
+  {
+    title: "Direct representation",
+    description:
+      "We interact with the tax administration on your behalf, represent you during ANAF and Antifraud inspections, and manage official communication with local authorities.",
+  },
+  {
+    title: "Communication in multiple languages",
+    description:
+      "We work in Romanian, English, French, and Italian, which is useful for international entrepreneurs based in Sibiu or for companies with foreign partners.",
+  },
+  {
+    title: "Fully digital workflow",
+    description:
+      "We know most accounting software tools and have strong digital skills, so documents move quickly, in an organized way, and securely.",
+  },
+  {
+    title: "We explain things clearly",
+    description:
+      "Accounting should not feel unnecessarily complicated. We explain your situation in plain language so you can understand your company better and make informed decisions.",
+  },
+  {
+    title: "Guaranteed data security",
+    description:
+      "Your documents and data are protected through automated backups twice a day, using the 3+2+1 method: 3 backup copies, 2 storage types, and 1 external offsite copy. Confidentiality and organization are standards, not options.",
+  },
+];
+
+const socialProofItems: ReviewItem[] = [
+  {
+    quote:
+      "L-am întâlnit pe dl. contabil Bogdan într-o perioadă dificilă pentru firmă. A gestionat situația cu profesionalism și a soluționat eficient problema. Îl recomand cu încredere tuturor celor care caută un specialist serios și dedicat.",
+    author: "A.M.",
+    source: "Google Review",
+  },
+  {
+    quote:
+      "We are very satisfied with the professional knowledge of the team and their overall approach. Especially for foreigners having a business in Romania, this is the kind of firm you want to have on your side.",
+    author: "International client",
+    source: "Google Review",
+  },
+  {
+    quote:
+      "Am început în 2019 ca administrator de SRL și am ales ALPHA CONT la recomandarea unui partener. Nu cred că puteam lua o decizie mai bună. Știe meserie! Recomand cu toată încrederea noilor antreprenori, dar și celor cu experiență.",
+    author: "LLC owner, IT",
+    source: "Google Review",
+  },
+  {
+    quote:
+      "În sfârșit am găsit un contabil care are viziune și este implicat în ceea ce face. Mă bucur că există în Sibiu oameni care chiar știu să-și facă treaba cu profesionalism și să te reprezinte în controale.",
+    author: "Entrepreneur in Sibiu",
+    source: "Google Review",
+  },
+  {
+    quote:
+      "È stato davvero molto professionale, mi ha spiegato il regime fiscale rumeno e consigliato nel modo migliore. Ogni anno prepara la mia dichiarazione con precisione e puntualità. Consiglio a chiunque.",
+    author: "Italian client",
+    source: "Google Review",
+  },
+];
+
 export const homeContent: HomeContent = {
   heroTitle:
     "English-speaking accountant in Sibiu for companies, freelancers, and foreign-owned businesses",
   heroText:
     "Accounting, payroll, tax advisory, and company setup in Romania — explained clearly and handled properly.",
   heroSubtext:
-    "ALPHACONT GROUP helps LLCs, sole traders, NGOs, expats, and foreign entrepreneurs stay compliant, organized, and in control of their business finances.",
+    "ALPHACONT helps LLCs, sole traders, NGOs, expats, and foreign entrepreneurs stay compliant, organized, and in control of their business finances.",
   heroButton: "Talk to an Accountant",
   heroSecondaryButton: "Chat on WhatsApp",
   heroResponseLine: "We usually reply within the same working day.",
@@ -126,45 +180,21 @@ export const homeContent: HomeContent = {
   specialServicesTitle: "Accounting and tax services in English",
   specialServices,
   supportLanguagesLine: "We communicate in Romanian, English, French, and Italian.",
-  trustItems: [
-    "20+ years of accounting and tax experience",
-    "English-speaking accounting support in Sibiu",
-    "Accounting, payroll, tax advisory, and company setup",
-    "Support during ANAF inspections and complex tax situations",
-    "We take over and reorganize incomplete accounting records",
-  ],
 
-  whyTitle: "Why choose ALPHACONT GROUP",
-  whyItems: [
-    "You speak directly with an accountant, not a call center.",
-    "We explain Romanian tax rules clearly, in English.",
-    "We handle both routine accounting and complex situations.",
-    "We keep documents, deadlines, and tax obligations organized.",
-    "We combine digital workflows with real human support.",
-  ],
-
-  complexityTitle:
-    "More than bookkeeping. Accounting control for your business in Romania.",
-  complexityItems,
+  whyTitle: "Why clients choose ALPHACONT",
+  whyIntro:
+    "We have been working with businesses in Sibiu for more than 20 years. During that time, we have handled both simple and complex situations, represented clients in front of ANAF and Antifraud, and kept one clear standard: no client leaves with a fine because of us.",
+  whyDetails,
 
   processTitle: "How we start working together",
   processItems,
 
   socialProofTitle: "What public reviews say",
-  socialProofRating: "4.9/5 from 21 Google reviews",
-  socialProofItems: [
-    "Professionalism, reliability, and genuine involvement in the collaboration.",
-    "Complete advisory support and constant awareness of legislative changes.",
-    "Prompt replies, clear communication, and useful support for running the business.",
-  ],
-  socialProofNote: "Summary based on aggregated public reviews.",
-  socialProofGoogleLabel: "See Google reviews",
-  socialProofGoogleUrl:
-    "https://maps.app.goo.gl/rombVxLCvRkwJYtq9",
+  socialProofItems,
 
-  aboutTitle: "About ALPHACONT GROUP",
+  aboutTitle: "About ALPHACONT",
   aboutParagraphs: [
-    "ALPHACONT GROUP is an accounting office in Sibiu, Romania, providing accounting, payroll, tax advisory, and business setup support for local and foreign entrepreneurs.",
+    "ALPHACONT is an accounting office in Sibiu, Romania, providing accounting, payroll, tax advisory, and business setup support for local and foreign entrepreneurs.",
     "We work with clients who need more than basic bookkeeping: clear explanations, organized documents, predictable deadlines, and support when decisions or inspections become complex.",
     "We support LLCs, sole traders, NGOs, newly established businesses, expats, and foreign-owned companies that want to understand and manage their Romanian tax obligations correctly.",
   ],
@@ -174,16 +204,6 @@ export const homeContent: HomeContent = {
     "Direct communication by email, phone, and WhatsApp",
     "Support for LLCs, sole traders, NGOs, and new businesses",
   ],
-  securityTitle: "Your data security is one of our priorities",
-  securityText:
-    "Your data and documents are protected through automated backups twice a day, using the 3+2+1 method: 3 backup copies, 2 storage types, and 1 external offsite copy.",
-  securityItems: [
-    "Automated backup twice a day.",
-    "3 backup copies for redundancy.",
-    "2 storage types for additional safety.",
-    "1 external offsite copy.",
-  ],
-
   latestArticlesTitle: "ANAF updates",
   anafLinkLabel: "ANAF fiscal obligations calendar",
   anafLinkUrl:
@@ -248,7 +268,7 @@ export const homeContent: HomeContent = {
   mapsUrl:
     "https://maps.app.goo.gl/rombVxLCvRkwJYtq9",
   mapsEmbedUrl:
-    "https://www.google.com/maps?q=ALPHACONT+GROUP+Sibiu&output=embed",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.5!2d24.1404678!3d45.7782333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474c5d7b3eafca37%3A0xcfedcadf0ae233cc!2sStr.%20Octavian%20Goga%2055%2C%20Sibiu!5e0!3m2!1sro!2sro!4v1234567890",
   seoServiceLinksTitle: "Popular accounting services in Sibiu",
 
   internshipTitle: "Internship",

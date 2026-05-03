@@ -45,7 +45,7 @@ const roPages: Record<string, ServicePageContent> = {
   "contabil-pfa-sibiu": {
     slug: "contabil-pfa-sibiu",
     title: "Contabil PFA Sibiu",
-    metaTitle: "Contabil PFA Sibiu | ALPHACONT GROUP",
+    metaTitle: "Contabil PFA Sibiu | ALPHACONT",
     metaDescription:
       "Servicii de contabil PFA în Sibiu: evidență clară, declarații, organizarea documentelor și sprijin fiscal pentru activitatea curentă.",
     intro:
@@ -63,7 +63,7 @@ const roPages: Record<string, ServicePageContent> = {
   "contabil-srl-sibiu": {
     slug: "contabil-srl-sibiu",
     title: "Contabil SRL Sibiu",
-    metaTitle: "Contabil SRL Sibiu | ALPHACONT GROUP",
+    metaTitle: "Contabil SRL Sibiu | ALPHACONT",
     metaDescription:
       "Contabil SRL în Sibiu pentru firme care vor control, declarații la timp și claritate în documente, taxe și raportare.",
     intro:
@@ -81,7 +81,7 @@ const roPages: Record<string, ServicePageContent> = {
   "infiintare-firma-sibiu": {
     slug: "infiintare-firma-sibiu",
     title: "Înființare firmă Sibiu",
-    metaTitle: "Înființare firmă Sibiu | ALPHACONT GROUP",
+    metaTitle: "Înființare firmă Sibiu | ALPHACONT",
     metaDescription:
       "Sprijin pentru înființare firmă în Sibiu: SRL sau PFA, organizarea documentelor, pașii de început și clarificarea obligațiilor fiscale.",
     intro:
@@ -99,7 +99,7 @@ const roPages: Record<string, ServicePageContent> = {
   "consultanta-fiscala-sibiu": {
     slug: "consultanta-fiscala-sibiu",
     title: "Consultanță fiscală Sibiu",
-    metaTitle: "Consultanță fiscală Sibiu | ALPHACONT GROUP",
+    metaTitle: "Consultanță fiscală Sibiu | ALPHACONT",
     metaDescription:
       "Consultanță fiscală în Sibiu pentru firme care vor claritate înainte de decizii, nu doar explicații după apariția problemelor.",
     intro:
@@ -117,7 +117,7 @@ const roPages: Record<string, ServicePageContent> = {
   "salarizare-sibiu": {
     slug: "salarizare-sibiu",
     title: "Salarizare firme Sibiu",
-    metaTitle: "Salarizare firme Sibiu | ALPHACONT GROUP",
+    metaTitle: "Salarizare firme Sibiu | ALPHACONT",
     metaDescription:
       "Salarizare pentru firme din Sibiu: state, documente de personal, termene și suport pentru un proces fără erori și întârzieri.",
     intro:

@@ -1,12 +1,27 @@
+import type { MetadataRoute } from "next";
 import { getBlogPosts } from "../lib/blog";
 import { servicePageSlugs } from "../lib/service-pages";
 
-export default async function sitemap() {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://alphacont.ro";
+  const today = "2026-05-03";
 
   const pages: string[] = [
     `${baseUrl}/ro`,
     `${baseUrl}/en`,
+    `${baseUrl}/ro/anaf`,
+    `${baseUrl}/en/anaf`,
+    `${baseUrl}/ro/confidentialitate`,
+    `${baseUrl}/en/privacy-policy`,
+    `${baseUrl}/ro/cookie-uri`,
+    `${baseUrl}/en/cookie-policy`,
+    `${baseUrl}/ro/termeni`,
+    `${baseUrl}/en/terms`,
+    `${baseUrl}/ro/stagiu-practica`,
+    `${baseUrl}/ro/servicii`,
+    `${baseUrl}/en/services`,
+    `${baseUrl}/ro/recomandari`,
+    `${baseUrl}/en/recommendations`,
     `${baseUrl}/ro/blog`,
     `${baseUrl}/en/blog`,
   ];
@@ -33,6 +48,6 @@ export default async function sitemap() {
 
   return pages.map((url) => ({
     url,
-    lastModified: new Date(),
+    lastModified: today,
   }));
 }

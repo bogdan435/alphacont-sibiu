@@ -100,7 +100,7 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(baseUrl),
-    title: `${post.title} | ALPHACONT GROUP`,
+    title: `${post.title} | ALPHACONT`,
     description: post.description,
     keywords: [
       post.category,
@@ -119,10 +119,10 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: `${post.title} | ALPHACONT GROUP`,
+      title: `${post.title} | ALPHACONT`,
       description: post.description,
       url: `${baseUrl}/${safeLocale}/blog/${slug}`,
-      siteName: "ALPHACONT GROUP",
+      siteName: "ALPHACONT",
       locale: safeLocale === "ro" ? "ro_RO" : "en_US",
       type: "article",
       images: [
@@ -136,7 +136,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} | ALPHACONT GROUP`,
+      title: `${post.title} | ALPHACONT`,
       description: post.description,
       images: ["/images/hero-office-optimized.webp"],
     },

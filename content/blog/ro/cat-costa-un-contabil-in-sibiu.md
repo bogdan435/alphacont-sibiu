@@ -24,4 +24,4 @@ Pentru un PFA cu activitate simplă, costul va fi diferit față de un SRL cu an
 
 ## Concluzie
 
-La ALPHACONT GROUP, prețurile pornesc de la 300 lei pe lună, iar oferta finală se stabilește clar după câteva detalii despre firmă și volumul de lucru.
+La ALPHACONT, prețurile pornesc de la 300 lei pe lună, iar oferta finală se stabilește clar după câteva detalii despre firmă și volumul de lucru.

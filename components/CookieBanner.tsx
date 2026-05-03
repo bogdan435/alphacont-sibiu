@@ -50,11 +50,11 @@ export default function CookieBanner({ locale = "ro" }: { locale?: string }) {
           {safeLocale === "ro"
             ? "Folosim cookie-uri de analiză doar cu acordul tău."
             : "We use analytics cookies only with your consent."}{" "}
-          <Link href={`/${safeLocale}/cookie-policy`}>
+          <Link href={safeLocale === "ro" ? "/ro/cookie-uri" : "/en/cookie-policy"}>
             {safeLocale === "ro" ? "Politica de cookie-uri" : "Cookie Policy"}
           </Link>{" "}
           ·{" "}
-          <Link href={`/${safeLocale}/privacy-policy`}>
+          <Link href={safeLocale === "ro" ? "/ro/confidentialitate" : "/en/privacy-policy"}>
             {safeLocale === "ro" ? "Politica de confidențialitate" : "Privacy Policy"}
           </Link>
         </p>

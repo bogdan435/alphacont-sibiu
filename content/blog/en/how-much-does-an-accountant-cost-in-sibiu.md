@@ -24,4 +24,4 @@ The cost for a sole trader with simple activity will be different from that of a
 
 ## Conclusion
 
-At ALPHACONT GROUP, prices start from RON 300 per month, and the final quote is set clearly after a few details about the business and workload.
+At ALPHACONT, prices start from RON 300 per month, and the final quote is set clearly after a few details about the business and workload.

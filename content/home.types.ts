@@ -3,11 +3,6 @@ export type SpecialService = {
   description: string;
 };
 
-export type ComplexityItem = {
-  title: string;
-  description: string;
-};
-
 export type ProcessItem = {
   step: string;
   title: string;
@@ -17,6 +12,17 @@ export type ProcessItem = {
 export type FaqItem = {
   question: string;
   answer: string;
+};
+
+export type WhyDetailItem = {
+  title: string;
+  description: string;
+};
+
+export type ReviewItem = {
+  quote: string;
+  author: string;
+  source: string;
 };
 
 export type HomeContent = {
@@ -36,25 +42,16 @@ export type HomeContent = {
   specialServicesTitle: string;
   specialServices: SpecialService[];
   supportLanguagesLine: string;
-  trustItems: string[];
   whyTitle: string;
-  whyItems: string[];
-  complexityTitle: string;
-  complexityItems: ComplexityItem[];
+  whyIntro: string;
+  whyDetails: WhyDetailItem[];
   processTitle: string;
   processItems: ProcessItem[];
   socialProofTitle: string;
-  socialProofRating: string;
-  socialProofItems: string[];
-  socialProofNote: string;
-  socialProofGoogleLabel: string;
-  socialProofGoogleUrl: string;
+  socialProofItems: ReviewItem[];
   aboutTitle: string;
   aboutParagraphs: string[];
   aboutHighlights: string[];
-  securityTitle: string;
-  securityText: string;
-  securityItems: string[];
   latestArticlesTitle: string;
   anafLinkLabel: string;
   anafLinkUrl: string;

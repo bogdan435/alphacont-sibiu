@@ -78,7 +78,7 @@ export async function generateMetadata({
       title: page.metaTitle,
       description: page.metaDescription,
       url: `${baseUrl}/${safeLocale}/${canonicalSlug}`,
-      siteName: "ALPHACONT GROUP",
+      siteName: "ALPHACONT",
       locale: safeLocale === "ro" ? "ro_RO" : "en_US",
       type: "website",
     },
