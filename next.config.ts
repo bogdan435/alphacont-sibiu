@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/",
+        destination: "/ro",
+        statusCode: 301,
+      },
+      {
         source: "/en/contabil-pfa-sibiu",
         destination: "/en/sole-trader-accountant-sibiu",
         permanent: true,
