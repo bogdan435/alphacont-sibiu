@@ -47,24 +47,62 @@ export default async function RecommendationPage({
     notFound();
   }
 
-  const pdfUrl = "/documents/REC_LETTER_ERIC_V.pdf";
+  const recommendationCards = [
+    {
+      initials: "EV",
+      name: "Eric Verdier",
+      role: "Group CFO — MORA International Group, Franța",
+      quote:
+        "Mr. Bogdan ANGHEL took charge of all the accounting production and tax declarations of our Romanian subsidiary.",
+      pdfUrl: "/documents/REC_LETTER_ERIC_V.pdf",
+    },
+    {
+      initials: "ADK",
+      name: "Andre De Kinder",
+      role: "Retired CFO — Mora Group, Franța",
+      quote:
+        "I would highly recommend AlphaCont as an external consultant in accounting and tax matters.",
+      pdfUrl: "/documents/REC_LETTER_DE_KINDER.pdf",
+    },
+  ];
 
   return (
     <main className="site-shell">
       <section className="legal-page document-page">
-        <p className="section-kicker">Documente</p>
+        <p className="section-kicker">Recomandări</p>
         <h1>Scrisori de recomandare</h1>
-        <p className="legal-intro">Poți deschide scrisoarea într-un tab nou.</p>
+        <p className="legal-intro">
+          Fiecare recomandare poate fi deschisă direct într-un tab nou, împreună
+          cu scrisoarea aferentă.
+        </p>
 
-        <div className="document-actions">
-          <a
-            href={pdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button contact-button-primary"
-          >
-            Vizualizează scrisoarea
-          </a>
+        <div className="recommendation-card-grid">
+          {recommendationCards.map((item) => (
+            <article key={item.name} className="recommendation-person-card">
+              <div className="recommendation-person-header">
+                <div className="recommendation-avatar" aria-hidden="true">
+                  {item.initials}
+                </div>
+                <div className="recommendation-person-meta">
+                  <h2 className="recommendation-person-name">{item.name}</h2>
+                  <p className="recommendation-person-role">{item.role}</p>
+                </div>
+              </div>
+
+              <p className="recommendation-person-quote">{item.quote}</p>
+
+              <div className="document-actions">
+                <a
+                  href={item.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button contact-button-primary"
+                >
+                  Vizualizează scrisoarea
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
