@@ -4,7 +4,7 @@ import { servicePageSlugs } from "../lib/service-pages";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://alphacont.ro";
-  const today = "2026-05-05";
+  const today = "2026-05-07";
 
   const pages: string[] = [
     `${baseUrl}/ro`,
