@@ -37,7 +37,7 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
 
   return (
     <footer className="site-footer">
-      <div className="site-footer-grid">
+      <div className={`site-footer-grid${safeLocale === "en" ? " site-footer-grid--en" : ""}`}>
         <div className="site-footer-column site-footer-column--brand">
           <a href={`/${safeLocale}`} className="site-footer-kicker site-footer-brand-link">
             ALPHACONT

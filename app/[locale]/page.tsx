@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Suspense } from "react";
 import LeadTracking from "@/components/LeadTracking";
 import SectionTitle from "@/components/SectionTitle";
-import TrackedMapsLink from "@/components/TrackedMapsLink";
 import SiteFooter from "@/components/SiteFooter";
 import TrackedPhoneLink from "@/components/TrackedPhoneLink";
 import TrackedWhatsAppButton from "@/components/TrackedWhatsAppButton";
@@ -137,7 +136,6 @@ export async function generateMetadata({
 export default async function LocalePage({ params }: LocalePageProps) {
   const { locale } = await params;
   const safeLocale = locale === "en" ? "en" : "ro";
-  const baseUrl = getBaseUrl();
   const homeContent = getHomeContent(safeLocale);
   const allPosts = await getBlogPosts(safeLocale);
 
@@ -629,182 +627,135 @@ export default async function LocalePage({ params }: LocalePageProps) {
 
       <section id="contact" className="contact-section contact-redesign">
         <div className="contact-layout">
-          <div className="contact-copy">
+          <div className="contact-stack">
             <p className="section-kicker">Contact</p>
             <SectionTitle
               title={
                 safeLocale === "ro"
                   ? "Hai să discutăm despre firma ta"
-                  : homeContent.contactTitle
+                  : "Contact an English-speaking accountant in Sibiu"
               }
             />
-            <p className="contact-lead">
-              {safeLocale === "ro"
-                ? "Completezi formularul de mai jos cu câteva detalii despre firmă, iar noi revenim rapid cu pașii următori."
-                : "Complete the form below with a few details about your business and we will get back to you quickly with the next steps."}
-            </p>
-            <p className="contact-extra">
-              {safeLocale === "ro"
-                ? "Ne poți contacta și dacă ai o situație contabilă neclară, un control în desfășurare sau o firmă preluată cu evidență incompletă."
-                : "You can also contact us if you have an unclear accounting situation, an ongoing inspection, or a business taken over with incomplete records."}
-            </p>
-            <p className="pricing-note">{homeContent.pricingNote}</p>
-            <form
-              action={`https://formsubmit.co/${homeContent.contactEmail}`}
-              method="POST"
-              className="lead-form"
-            >
-              <input
-                type="hidden"
-                name="_subject"
-                value={
-                  safeLocale === "ro"
-                    ? "Cerere ofertă nouă - website ALPHACONT"
-                    : "New quote request - ALPHACONT website"
-                }
-              />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-              <input
-                type="hidden"
-                name="_next"
-                value={`${baseUrl}/${safeLocale}?sent=1#contact`}
-              />
-
-              <div className="form-grid">
-                <label className="form-field">
-                  <span>{safeLocale === "ro" ? "Nume" : "Name"}</span>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder={safeLocale === "ro" ? "Numele tău" : "Your name"}
+            {safeLocale === "ro" ? (
+              <>
+                <p className="contact-lead">
+                  Ne poți contacta telefonic, pe WhatsApp sau prin email.
+                </p>
+                <p className="contact-extra">
+                  Ne poți contacta și dacă ai o situație contabilă neclară, un control în
+                  desfășurare sau o firmă preluată cu evidență incompletă.
+                </p>
+                <p className="pricing-note">
+                  Prețurile pornesc de la 300 lei / lună. Costul final depinde de
+                  volumul firmei și de complexitatea serviciilor solicitate.
+                </p>
+                <div className="contact-cta-buttons">
+                  <TrackedPhoneLink
+                    className="button button-primary-dark"
+                    locale={safeLocale}
+                    location="contact_cta"
+                    phoneNumber={homeContent.contactPhone}
+                    label="Sună acum · RO"
+                  >
+                    Sună acum · RO
+                  </TrackedPhoneLink>
+                  <TrackedWhatsAppButton
+                    className="button button-whatsapp"
+                    locale={safeLocale}
+                    location="contact_cta"
+                    phoneNumber={homeContent.whatsappNumber}
+                    label="Scrie pe WhatsApp"
                   />
-                </label>
-
-                <label className="form-field">
-                  <span>{safeLocale === "ro" ? "Firmă" : "Company"}</span>
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder={safeLocale === "ro" ? "Numele firmei" : "Company name"}
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="contact-lead">
+                  Whether you&apos;re setting up a company in Romania, managing an existing
+                  one, or dealing with a tax situation — we&apos;re here to help. Reach us
+                  by phone, WhatsApp, or email.
+                </p>
+                <p className="pricing-note">
+                  Romanian accounting and tax rules can feel like a maze from the
+                  outside. We make sure you always know where you stand — so you can
+                  focus on your business, not on bureaucracy.
+                </p>
+                <div className="contact-cta-buttons">
+                  <TrackedPhoneLink
+                    className="button button-primary-dark"
+                    locale={safeLocale}
+                    location="contact_cta"
+                    phoneNumber={homeContent.contactPhone}
+                    label="Call now · RO"
+                  >
+                    Call now · RO
+                  </TrackedPhoneLink>
+                  <TrackedWhatsAppButton
+                    className="button button-whatsapp"
+                    locale={safeLocale}
+                    location="contact_cta"
+                    phoneNumber={homeContent.whatsappNumber}
+                    label="Message us on WhatsApp"
                   />
-                </label>
-
-                <label className="form-field">
-                  <span>Email</span>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder={safeLocale === "ro" ? "adresa@firma.ro" : "name@company.com"}
-                  />
-                </label>
-
-                <label className="form-field">
-                  <span>{safeLocale === "ro" ? "Telefon" : "Phone"}</span>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder={safeLocale === "ro" ? "+40..." : "+40..."}
-                  />
-                </label>
-
-                <label className="form-field">
-                  <span>{safeLocale === "ro" ? "Tip firmă" : "Business type"}</span>
-                  <select name="business_type" defaultValue="">
-                    <option value="" disabled>
-                      {safeLocale === "ro" ? "Selectează" : "Select"}
-                    </option>
-                    <option value="SRL">SRL / LLC</option>
-                    <option value="PFA">PFA / Sole trader</option>
-                    <option value={safeLocale === "ro" ? "Firmă nouă" : "New business"}>
-                      {safeLocale === "ro" ? "Firmă nouă" : "New business"}
-                    </option>
-                  </select>
-                </label>
-
-                <label className="form-field form-field-full">
-                  <span>{safeLocale === "ro" ? "Mesaj" : "Message"}</span>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    required
-                    placeholder={
-                      safeLocale === "ro"
-                        ? "Spune-ne pe scurt cu ce ai nevoie de ajutor."
-                        : "Tell us briefly what you need help with."
-                    }
-                  />
-                </label>
-              </div>
-
-              <button type="submit" className="button contact-button-primary form-submit">
-                {homeContent.contactFormButton}
-              </button>
-            </form>
-            <div className="contact-secondary-actions">
-              <a
-                href={`https://wa.me/${homeContent.whatsappNumber}`}
-                className="contact-secondary-link whatsapp-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {safeLocale === "ro" ? "Scrie pe WhatsApp" : "Message us on WhatsApp"}
-              </a>
-              <TrackedMapsLink
-                href={homeContent.mapsUrl}
-                className="contact-secondary-link"
-                label="Google Maps"
-                locale={safeLocale}
-                location="contact_section"
-              />
-            </div>
+                </div>
+              </>
+            )}
           </div>
 
-          <div className="contact-card">
-            <div className="contact-row">
-              <p className="contact-label">Email</p>
-              <a href={`mailto:${homeContent.contactEmail}`} className="contact-value">
+          <div className="contact-info-grid">
+            <div className="contact-info-item">
+              <p className="contact-info-label">
+                {safeLocale === "ro" ? "Email" : "Email"}
+              </p>
+              <a
+                href={`mailto:${homeContent.contactEmail}`}
+                className="contact-info-value contact-address-link"
+              >
                 {homeContent.contactEmail}
               </a>
             </div>
 
-            <div className="contact-row">
-              <p className="contact-label">{safeLocale === "ro" ? "Telefon" : "Phone"}</p>
-
-              <div className="contact-phone-buttons">
+            <div className="contact-info-item">
+              <p className="contact-info-label">
+                {safeLocale === "ro" ? "Telefon" : "Phone"}
+              </p>
+              <div className="contact-info-phones">
                 <TrackedPhoneLink
-                  className="contact-phone-button"
                   locale={safeLocale}
-                  location="contact_card_ro"
+                  location="contact_info_ro"
                   phoneNumber={homeContent.contactPhone}
-                  label={`🇷🇴 RO · ${primaryPhoneDisplay}`}
+                  label={`🇷🇴 ${primaryPhoneDisplay}`}
+                  className="contact-info-phone-row"
                 >
-                  <span className="contact-phone-flag" aria-hidden="true">
-                    🇷🇴
-                  </span>
-                  <span className="contact-phone-text">RO · {primaryPhoneDisplay}</span>
+                  <span>🇷🇴</span> {primaryPhoneDisplay}
                 </TrackedPhoneLink>
-
                 <TrackedPhoneLink
-                  className="contact-phone-button"
                   locale={safeLocale}
-                  location="contact_card_it"
+                  location="contact_info_it"
                   phoneNumber={homeContent.contactPhoneSecondary}
-                  label={`🇮🇹 IT · ${secondaryPhoneDisplay}`}
+                  label={`🇮🇹 ${secondaryPhoneDisplay}`}
+                  className="contact-info-phone-row"
                 >
-                  <span className="contact-phone-flag" aria-hidden="true">
-                    🇮🇹
-                  </span>
-                  <span className="contact-phone-text">IT · {secondaryPhoneDisplay}</span>
+                  <span>🇮🇹</span> {secondaryPhoneDisplay}
                 </TrackedPhoneLink>
               </div>
             </div>
 
-            <div className="contact-row">
-              <p className="contact-label">{safeLocale === "ro" ? "Adresa" : "Address"}</p>
-              <p className="contact-value">{homeContent.contactCity}</p>
+            <div className="contact-info-item">
+              <p className="contact-info-label">
+                {safeLocale === "ro" ? "Birou" : "Office"}
+              </p>
+              <a
+                href={homeContent.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-info-value contact-address-link"
+              >
+                {homeContent.contactCity}
+              </a>
+              <p className="contact-info-note">
+                {safeLocale === "ro" ? "Cu programare" : "By appointment"}
+              </p>
             </div>
           </div>
         </div>
