@@ -2,6 +2,7 @@
 title: "How to open a company in Romania"
 description: "A practical guide for opening a company in Romania, including legal form, documents, registration, and the first accounting steps."
 date: "2026-04-24"
+lastModified: "2026-04-24"
 locale: "en"
 category: "Company formation"
 tags: ["company formation", "Romania", "LLC", "PFA", "accounting"]

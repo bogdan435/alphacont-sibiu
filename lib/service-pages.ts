@@ -3,6 +3,7 @@ type ServicePageContent = {
   title: string;
   metaTitle: string;
   metaDescription: string;
+  lastModified: string;
   intro: string;
   summary: string;
   bullets: string[];
@@ -48,6 +49,7 @@ const roPages: Record<string, ServicePageContent> = {
     metaTitle: "Contabil PFA Sibiu | ALPHACONT",
     metaDescription:
       "Servicii de contabil PFA în Sibiu: evidență clară, declarații, organizarea documentelor și sprijin fiscal pentru activitatea curentă.",
+    lastModified: "2026-05-10",
     intro:
       "Dacă ai un PFA în Sibiu, ai nevoie de un contabil care să țină lucrurile clare de la o lună la alta, nu doar să preia documente la final.",
     summary:
@@ -66,6 +68,7 @@ const roPages: Record<string, ServicePageContent> = {
     metaTitle: "Contabil SRL Sibiu | ALPHACONT",
     metaDescription:
       "Contabil SRL în Sibiu pentru firme care vor control, declarații la timp și claritate în documente, taxe și raportare.",
+    lastModified: "2026-05-10",
     intro:
       "Pentru un SRL, contabilitatea înseamnă mai mult decât declarații. Contează să știi ce ai de plată, ce urmează și unde apar riscuri.",
     summary:
@@ -84,6 +87,7 @@ const roPages: Record<string, ServicePageContent> = {
     metaTitle: "Înființare firmă Sibiu | ALPHACONT",
     metaDescription:
       "Sprijin pentru înființare firmă în Sibiu: SRL sau PFA, organizarea documentelor, pașii de început și clarificarea obligațiilor fiscale.",
+    lastModified: "2026-05-10",
     intro:
       "Dacă pornești o firmă în Sibiu, te putem ajuta să începi mai clar și mai organizat, fără să cauți separat pentru fiecare pas.",
     summary:
@@ -102,6 +106,7 @@ const roPages: Record<string, ServicePageContent> = {
     metaTitle: "Consultanță fiscală Sibiu | ALPHACONT",
     metaDescription:
       "Consultanță fiscală în Sibiu pentru firme care vor claritate înainte de decizii, nu doar explicații după apariția problemelor.",
+    lastModified: "2026-05-10",
     intro:
       "Consultanța fiscală bună înseamnă să știi din timp ce taxe urmează, ce impact are o decizie și cum eviți surprizele neplăcute.",
     summary:
@@ -120,6 +125,7 @@ const roPages: Record<string, ServicePageContent> = {
     metaTitle: "Salarizare firme Sibiu | ALPHACONT",
     metaDescription:
       "Salarizare pentru firme din Sibiu: state, documente de personal, termene și suport pentru un proces fără erori și întârzieri.",
+    lastModified: "2026-05-10",
     intro:
       "Salarizarea trebuie să fie corectă, predictibilă și bine organizată. Chiar și o firmă mică are nevoie de un flux clar pentru această zonă.",
     summary:
@@ -141,6 +147,7 @@ const enPages: Record<string, ServicePageContent> = {
     metaTitle: "Sole Trader Accountant in Sibiu | English-Speaking Accounting",
     metaDescription:
       "English-speaking accounting for sole traders, freelancers, and expats in Sibiu. Tax filings, document records, and clear Romanian tax guidance.",
+    lastModified: "2026-05-10",
     intro:
       "If you run a sole trader activity in Sibiu—whether you’re Romanian or an expat—you need an English-speaking accountant who keeps things clear month after month, explains Romanian tax rules up front, and handles more than just collecting papers at the end.",
     summary:
@@ -159,6 +166,7 @@ const enPages: Record<string, ServicePageContent> = {
     metaTitle: "LLC Accountant in Sibiu | English-Speaking Accounting",
     metaDescription:
       "English-speaking accounting for LLCs in Sibiu, including foreign-owned companies: proactive control, timely filings, clarity around documents and taxes, and guidance on Romanian compliance.",
+    lastModified: "2026-05-10",
     intro:
       "For an LLC, accounting means more than filings. You need an English-speaking accountant who tells you what is due, what comes next, and where risks can appear—especially if your company is foreign-owned or employs expats.",
     summary:
@@ -177,6 +185,7 @@ const enPages: Record<string, ServicePageContent> = {
     metaTitle: "Company Formation in Sibiu | Start a Business in Romania",
     metaDescription:
       "English-speaking support for starting a business in Sibiu. We guide foreigners and locals through SRL or PFA formation, handle document preparation, and clarify Romanian tax obligations from day one.",
+    lastModified: "2026-05-10",
     intro:
       "If you are starting a business in Sibiu, we provide end-to-end support in English—from choosing between SRL and PFA to preparing documents, translating paperwork, and dealing with Romanian authorities—so you don’t have to chase separate providers for each step.",
     summary:
@@ -195,6 +204,7 @@ const enPages: Record<string, ServicePageContent> = {
     metaTitle: "Tax Advisory in Sibiu | English-Speaking Tax Support",
     metaDescription:
       "English-speaking tax advisory in Sibiu for businesses, including foreign-owned companies and expats. We provide clarity before decisions, explain Romanian and EU tax rules, and help you avoid unpleasant surprises.",
+    lastModified: "2026-05-10",
     intro:
       "Good tax advisory means knowing in advance which taxes are coming, what a decision changes, and how to avoid unpleasant surprises—especially if you’re not familiar with Romania’s tax system.",
     summary:
@@ -213,6 +223,7 @@ const enPages: Record<string, ServicePageContent> = {
     metaTitle: "Payroll Services in Sibiu | English-Speaking Payroll Support",
     metaDescription:
       "English-speaking payroll services for companies in Sibiu—including firms with expat employees: salary statements, personnel documents, HR deadlines, and guidance on Romanian labour law compliance.",
+    lastModified: "2026-05-10",
     intro:
       "Payroll should be accurate, predictable, and organized. Our English-speaking team makes sure even small businesses and companies with expat employees have a clear workflow for payroll and HR in Romania.",
     summary:

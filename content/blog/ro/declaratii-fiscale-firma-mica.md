@@ -2,6 +2,7 @@
 title: "Declarații fiscale pentru o firmă mică"
 description: "Ce declarații fiscale trebuie urmărite de o firmă mică și de ce contează organizarea lor corectă."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "ro"
 category: "Fiscalitate"
 tags: ["declarații", "fiscalitate", "firmă mică"]

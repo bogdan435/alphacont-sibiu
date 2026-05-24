@@ -2,6 +2,7 @@
 title: "Payroll for small employers"
 description: "What a small employer should monitor in payroll and personnel administration."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "en"
 category: "Payroll"
 tags: ["payroll", "employers", "staff"]

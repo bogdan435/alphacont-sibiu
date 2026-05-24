@@ -3,6 +3,8 @@ import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import { getBaseUrl } from "@/lib/seo";
 
+const lastModified = "2026-05-10";
+
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = getBaseUrl();
 
@@ -10,6 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Politica de cookie-uri | ALPHACONT",
     description:
       "Informații despre utilizarea cookie-urilor pe website-ul ALPHACONT.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/ro/cookie-uri`,
       languages: {

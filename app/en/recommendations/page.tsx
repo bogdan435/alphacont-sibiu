@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 import { getBaseUrl } from "@/lib/seo";
 
+const lastModified = "2026-05-10";
+
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = getBaseUrl();
 
@@ -9,6 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Recommendation letters | ALPHACONT",
     description:
       "Recommendation letters and reference documents for ALPHACONT collaborations, available for online viewing.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/en/recommendations`,
       languages: {

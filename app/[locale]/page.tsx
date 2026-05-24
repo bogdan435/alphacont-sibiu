@@ -17,6 +17,8 @@ type LocalePageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const lastModified = "2026-05-10";
+
 const homepageServiceCards = [
   {
     slug: "contabil-srl-sibiu",
@@ -84,6 +86,9 @@ export async function generateMetadata({
             "accountant for expats Romania",
             "foreign owned company accounting Romania",
           ],
+    other: {
+      lastModified,
+    },
     robots: {
       index: true,
       follow: true,

@@ -2,6 +2,7 @@
 title: "Beneficiile unui partener contabil pentru o afacere în creștere"
 description: "De ce un partener contabil bun poate ajuta o firmă să aibă mai multă claritate și mai puțin stres operațional."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "ro"
 category: "Consultanță"
 tags: ["partener contabil", "creștere", "organizare"]

@@ -2,6 +2,7 @@
 title: "SRL sau PFA în 2026 - ce alegi?"
 description: "Comparație practică între SRL și PFA în 2026: taxe, organizare, risc și potrivirea pentru tipul tău de activitate."
 date: "2026-04-16"
+lastModified: "2026-04-16"
 locale: "ro"
 category: "Fiscalitate"
 tags: ["SRL vs PFA", "SRL sau PFA 2026", "înființare firmă Sibiu"]

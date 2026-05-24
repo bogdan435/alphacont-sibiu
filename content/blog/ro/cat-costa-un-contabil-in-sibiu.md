@@ -2,6 +2,7 @@
 title: "Cât costă un contabil în Sibiu?"
 description: "Ce influențează costul serviciilor de contabilitate în Sibiu și de ce prețul final depinde de volumul și specificul firmei."
 date: "2026-04-16"
+lastModified: "2026-04-16"
 locale: "ro"
 category: "Contabilitate"
 tags: ["cât costă contabil Sibiu", "contabil Sibiu", "preț contabilitate"]

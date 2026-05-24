@@ -2,6 +2,7 @@
 title: "When it makes sense to outsource accounting"
 description: "The signs that show a small or medium business needs an external accounting partner."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "en"
 category: "Advisory"
 tags: ["outsourcing", "accounting", "business"]

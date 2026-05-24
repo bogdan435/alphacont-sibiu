@@ -8,6 +8,8 @@ type LegalPageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const lastModified = "2026-05-10";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -29,6 +31,9 @@ export async function generateMetadata({
     title: "Cookie Policy | ALPHACONT",
     description:
       "Information about the use of cookies on the ALPHACONT website.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/en/cookie-policy`,
       languages: {

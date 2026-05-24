@@ -3,6 +3,8 @@ import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import { getBaseUrl } from "@/lib/seo";
 
+const lastModified = "2026-05-10";
+
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = getBaseUrl();
 
@@ -10,6 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Politica de confidențialitate | ALPHACONT",
     description:
       "Informații despre modul în care ALPHACONT gestionează datele transmise prin website.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/ro/confidentialitate`,
       languages: {

@@ -4,6 +4,8 @@ import SiteFooter from "@/components/SiteFooter";
 import { getBaseUrl } from "@/lib/seo";
 import { getAlternateServicePageSlug } from "@/lib/service-pages";
 
+const lastModified = "2026-05-10";
+
 const primaryServices = [
   {
     slug: "contabil-srl-sibiu",
@@ -72,6 +74,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Servicii contabilitate Sibiu | ALPHACONT",
     description:
       "Servicii complete de contabilitate, fiscalitate și salarizare pentru firme din Sibiu. SRL, PFA, ONG, înființare firmă și asistență ANAF.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/ro/servicii`,
       languages: {

@@ -2,6 +2,7 @@
 title: "Salarizare pentru angajatori mici"
 description: "Ce trebuie să urmărească un angajator mic în procesul de salarizare și administrare de personal."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "ro"
 category: "Salarizare"
 tags: ["salarizare", "angajatori", "personal"]

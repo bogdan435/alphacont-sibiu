@@ -2,6 +2,7 @@
 title: "How much does an accountant cost in Sibiu?"
 description: "What influences the cost of accounting services in Sibiu and why the final price depends on company volume and complexity."
 date: "2026-04-16"
+lastModified: "2026-04-16"
 locale: "en"
 category: "Accounting"
 tags: ["accountant cost Sibiu", "accountant Sibiu", "accounting pricing"]

@@ -107,6 +107,9 @@ export async function generateMetadata({
       ...(post.tags ?? []),
       safeLocale === "ro" ? "contabilitate sibiu" : "accounting sibiu",
     ],
+    other: {
+      lastModified: post.lastModified,
+    },
     robots: {
       index: true,
       follow: true,

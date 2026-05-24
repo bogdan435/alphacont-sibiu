@@ -2,6 +2,7 @@
 title: "SRL or PFA in 2026 - which one should you choose?"
 description: "A practical comparison between SRL and PFA in 2026: taxes, structure, risk, and which option fits your activity better."
 date: "2026-04-16"
+lastModified: "2026-04-16"
 locale: "en"
 category: "Tax"
 tags: ["SRL vs PFA", "SRL or PFA 2026", "business setup Sibiu"]

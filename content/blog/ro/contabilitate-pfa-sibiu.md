@@ -2,6 +2,7 @@
 title: "Contabilitate PFA Sibiu"
 description: "Ce trebuie să știe un PFA din Sibiu despre contabilitate, taxe și evidența documentelor."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "ro"
 category: "PFA"
 tags: ["contabilitate", "PFA", "Sibiu"]

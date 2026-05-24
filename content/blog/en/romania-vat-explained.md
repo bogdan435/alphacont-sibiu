@@ -2,6 +2,7 @@
 title: "Romania VAT Explained (Complete Guide 2026)"
 description: "Understand VAT in Romania in 2026: rates, registration thresholds, who must register, and how VAT works for companies and freelancers."
 date: "2026-04-29"
+lastModified: "2026-04-29"
 category: "taxes"
 tags: ["VAT Romania", "TVA Romania", "Romania tax system", "VAT 2026"]
 ---

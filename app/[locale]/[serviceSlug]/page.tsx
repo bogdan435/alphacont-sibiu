@@ -67,6 +67,9 @@ export async function generateMetadata({
             "payroll services Romania",
             "company formation Romania",
           ],
+    other: {
+      lastModified: page.lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/${safeLocale}/${canonicalSlug}`,
       languages: {

@@ -73,10 +73,13 @@ type BlogPostMeta = {
   title: string;
   description: string;
   date: string;
+  lastModified: string;
   formattedDate: string;
   category: string;
   tags: string[];
 };
+
+const fallbackLastModified = new Date().toISOString().split("T")[0];
 
 export function formatBlogDate(date: string, locale: string) {
   const safeLocale = locale === "en" ? "en-GB" : "ro-RO";
@@ -119,6 +122,7 @@ export async function getBlogPosts(locale: string): Promise<BlogPostMeta[]> {
           title: data.title || file.replace(".md", "").replace(/-/g, " "),
           description: data.description || "",
           date: data.date || "",
+          lastModified: data.lastModified || data.date || fallbackLastModified,
           formattedDate: formatBlogDate(data.date || "", locale),
           category: data.category || "",
           tags: Array.isArray(data.tags) ? data.tags : [],
@@ -146,6 +150,7 @@ export async function getBlogPostBySlug(locale: string, slug: string) {
       title: data.title || slug.replace(/-/g, " "),
       description: data.description || "",
       date: data.date || "",
+      lastModified: data.lastModified || data.date || fallbackLastModified,
       formattedDate: formatBlogDate(data.date || "", locale),
       category: data.category || "",
       tags: Array.isArray(data.tags) ? data.tags : [],

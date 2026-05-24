@@ -2,6 +2,7 @@
 title: "How to prepare for ANAF checks or reviews"
 description: "A few essential things a business should keep in order to handle a tax review more easily."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "en"
 category: "Tax"
 tags: ["ANAF", "review", "documents"]

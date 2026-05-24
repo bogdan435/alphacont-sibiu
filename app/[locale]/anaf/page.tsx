@@ -8,6 +8,8 @@ type AnafPageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const lastModified = "2026-05-10";
+
 export async function generateMetadata({
   params,
 }: AnafPageProps): Promise<Metadata> {
@@ -24,6 +26,9 @@ export async function generateMetadata({
       safeLocale === "ro"
         ? "Asistență în controale ANAF și Antifraudă pentru firme din Sibiu. Linkuri utile, calendar fiscal și sprijin direct în situații complexe."
         : "ANAF and Antifraud assistance for companies in Sibiu. Useful links, fiscal calendar resources, and direct support in complex situations.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/${safeLocale}/anaf`,
       languages: {

@@ -7,6 +7,8 @@ type RecommendationPageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const lastModified = "2026-05-10";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -28,6 +30,9 @@ export async function generateMetadata({
     title: "Scrisori de recomandare | ALPHACONT",
     description:
       "Scrisori de recomandare și documente de referință pentru colaborările ALPHACONT, disponibile pentru vizualizare online.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/ro/recomandari`,
       languages: {

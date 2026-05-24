@@ -9,6 +9,8 @@ type LocaleBlogPageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const lastModified = "2026-05-10";
+
 export async function generateMetadata({
   params,
 }: LocaleBlogPageProps): Promise<Metadata> {
@@ -44,6 +46,9 @@ export async function generateMetadata({
             "tax romania",
             "payroll sibiu",
           ],
+    other: {
+      lastModified,
+    },
     robots: {
       index: true,
       follow: true,

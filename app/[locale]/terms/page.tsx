@@ -8,6 +8,8 @@ type LegalPageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const lastModified = "2026-05-10";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -28,6 +30,9 @@ export async function generateMetadata({
   return {
     title: "Terms and Conditions | ALPHACONT",
     description: "General information regarding the use of the ALPHACONT website.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/en/terms`,
       languages: {

@@ -3,6 +3,8 @@ import SiteFooter from "@/components/SiteFooter";
 import { getHomeContent } from "@/lib/home";
 import { getBaseUrl } from "@/lib/seo";
 
+const lastModified = "2026-05-10";
+
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = getBaseUrl();
 
@@ -10,6 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Internship contabilitate Sibiu | ALPHACONT",
     description:
       "Internship / stagiu de practică la ALPHACONT în Sibiu pentru studenți, absolvenți și tineri interesați de contabilitate, organizare și experiență practică.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/ro/stagiu-practica`,
       languages: {

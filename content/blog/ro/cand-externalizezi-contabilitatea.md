@@ -2,6 +2,7 @@
 title: "Când merită să externalizezi contabilitatea"
 description: "Semnele care arată că o firmă mică sau medie are nevoie de un partener extern pentru contabilitate."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "ro"
 category: "Consultanță"
 tags: ["externalizare", "contabilitate", "business"]

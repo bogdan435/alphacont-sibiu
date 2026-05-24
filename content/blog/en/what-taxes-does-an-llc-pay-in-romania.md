@@ -2,6 +2,7 @@
 title: "What taxes does an LLC pay in Romania?"
 description: "A practical overview of the taxes an LLC pays in Romania and why they need to be tracked correctly month after month."
 date: "2026-04-16"
+lastModified: "2026-04-16"
 locale: "en"
 category: "Tax"
 tags: ["LLC taxes Romania", "what taxes does an LLC pay", "company filings"]

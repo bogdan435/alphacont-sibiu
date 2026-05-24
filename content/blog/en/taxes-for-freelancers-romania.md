@@ -2,6 +2,7 @@
 title: "Taxes for Freelancers in Romania (2026 Guide)"
 description: "Complete guide to taxes for freelancers in Romania: income tax, social contributions, thresholds, and real examples."
 date: "2026-04-25"
+lastModified: "2026-04-25"
 category: "taxes"
 tags: ["freelancer taxes Romania", "PFA Romania", "income tax Romania"]
 ---

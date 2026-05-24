@@ -2,6 +2,7 @@
 title: "Ce taxe plătește un SRL în România?"
 description: "O privire practică asupra taxelor pe care le plătește un SRL în România și de ce contează să le urmărești corect, lună de lună."
 date: "2026-04-16"
+lastModified: "2026-04-16"
 locale: "ro"
 category: "Fiscalitate"
 tags: ["ce taxe plătește un SRL", "taxe SRL România", "declarații firmă"]

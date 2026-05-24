@@ -2,6 +2,7 @@
 title: "Cum te pregătești pentru controale sau verificări ANAF"
 description: "Câteva lucruri esențiale pe care o firmă trebuie să le aibă în ordine pentru a face față mai ușor unei verificări."
 date: "2026-04-14"
+lastModified: "2026-04-14"
 locale: "ro"
 category: "Fiscalitate"
 tags: ["ANAF", "control", "documente"]

@@ -2,6 +2,7 @@
 title: "Monografie capital social"
 description: "Monografie contabilă pentru subscrierea și vărsarea capitalului social la înființarea sau majorarea unei societăți."
 date: "2026-04-19"
+lastModified: "2026-04-19"
 locale: "ro"
 category: "Monografii contabile"
 tags: ["monografie contabilă", "capital social", "SRL", "contabilitate"]

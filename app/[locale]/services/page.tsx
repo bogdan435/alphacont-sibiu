@@ -9,6 +9,8 @@ type ServicesPageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const lastModified = "2026-05-10";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -121,6 +123,9 @@ export async function generateMetadata({
     title: "Accounting Services in Sibiu | ALPHACONT",
     description:
       "Complete accounting, tax, and payroll services for businesses in Sibiu. LLCs, sole traders, NGOs, company formation, and ANAF assistance.",
+    other: {
+      lastModified,
+    },
     alternates: {
       canonical: `${baseUrl}/en/services`,
       languages: {
