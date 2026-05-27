@@ -1,154 +1,138 @@
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import type { MetadataRoute } from "next";
-import { generateMetadata as generateLocaleHomeMetadata } from "./[locale]/page";
-import { generateMetadata as generateAnafMetadata } from "./[locale]/anaf/page";
-import { generateMetadata as generateLocaleBlogMetadata } from "./[locale]/blog/page";
-import { generateMetadata as generateLocaleRecommendationsMetadata } from "./[locale]/recomandari/page";
-import { generateMetadata as generateEnglishServicesMetadata } from "./[locale]/services/page";
-import { generateMetadata as generateEnglishPrivacyPolicyMetadata } from "./[locale]/privacy-policy/page";
-import { generateMetadata as generateEnglishCookiePolicyMetadata } from "./[locale]/cookie-policy/page";
-import { generateMetadata as generateEnglishTermsMetadata } from "./[locale]/terms/page";
-import { generateMetadata as generateEnglishRecommendationsMetadata } from "./en/recommendations/page";
-import { generateMetadata as generateRomanianPrivacyPolicyMetadata } from "./ro/confidentialitate/page";
-import { generateMetadata as generateRomanianCookiePolicyMetadata } from "./ro/cookie-uri/page";
-import { generateMetadata as generateRomanianTermsMetadata } from "./ro/termeni/page";
-import { generateMetadata as generateRomanianInternshipMetadata } from "./ro/stagiu-practica/page";
-import { generateMetadata as generateRomanianServicesMetadata } from "./ro/servicii/page";
 import { getBlogPosts } from "../lib/blog";
-import { getServicePageContent, servicePageSlugs } from "../lib/service-pages";
+import { servicePageSlugs } from "../lib/service-pages";
+
+const execFileAsync = promisify(execFile);
 
 const baseUrl = "https://alphacont.ro";
 const fallbackLastModified = new Date().toISOString().split("T")[0];
 
-type SitemapEntry = {
+type SitemapSourceEntry = {
   url: string;
-  lastModified?: string;
+  sourcePaths: string[];
 };
 
-function resolveLastModified(lastModified?: string) {
-  return lastModified || fallbackLastModified;
+const lastModifiedCache = new Map<string, Promise<string>>();
+
+function getStaticEntries(): SitemapSourceEntry[] {
+  return [
+    {
+      url: `${baseUrl}/ro`,
+      sourcePaths: ["app/[locale]/page.tsx", "content/home-ro.ts", "lib/home.ts"],
+    },
+    {
+      url: `${baseUrl}/en`,
+      sourcePaths: ["app/[locale]/page.tsx", "content/home-en.ts", "lib/home.ts"],
+    },
+    {
+      url: `${baseUrl}/ro/anaf`,
+      sourcePaths: ["app/[locale]/anaf/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/en/anaf`,
+      sourcePaths: ["app/[locale]/anaf/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/ro/confidentialitate`,
+      sourcePaths: ["app/ro/confidentialitate/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/en/privacy-policy`,
+      sourcePaths: ["app/[locale]/privacy-policy/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/ro/cookie-uri`,
+      sourcePaths: ["app/ro/cookie-uri/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/en/cookie-policy`,
+      sourcePaths: ["app/[locale]/cookie-policy/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/ro/termeni`,
+      sourcePaths: ["app/ro/termeni/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/en/terms`,
+      sourcePaths: ["app/[locale]/terms/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/ro/stagiu-practica`,
+      sourcePaths: ["app/ro/stagiu-practica/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/ro/servicii`,
+      sourcePaths: ["app/ro/servicii/page.tsx", "lib/service-pages.ts"],
+    },
+    {
+      url: `${baseUrl}/en/services`,
+      sourcePaths: ["app/[locale]/services/page.tsx", "lib/service-pages.ts"],
+    },
+    {
+      url: `${baseUrl}/ro/recomandari`,
+      sourcePaths: ["app/[locale]/recomandari/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/en/recommendations`,
+      sourcePaths: ["app/en/recommendations/page.tsx"],
+    },
+    {
+      url: `${baseUrl}/ro/blog`,
+      sourcePaths: ["app/[locale]/blog/page.tsx", "lib/blog.ts", "content/blog/ro"],
+    },
+    {
+      url: `${baseUrl}/en/blog`,
+      sourcePaths: ["app/[locale]/blog/page.tsx", "lib/blog.ts", "content/blog/en"],
+    },
+  ];
 }
 
-function readLastModified(metadata: { other?: Record<string, unknown> }) {
-  const lastModified = metadata.other?.lastModified;
+function getCachedLastModified(sourcePaths: string[]) {
+  const cacheKey = sourcePaths.join("|");
 
-  if (typeof lastModified === "string") {
-    return lastModified;
+  if (!lastModifiedCache.has(cacheKey)) {
+    lastModifiedCache.set(cacheKey, readLastModifiedFromGit(sourcePaths));
+  }
+
+  return lastModifiedCache.get(cacheKey)!;
+}
+
+async function readLastModifiedFromGit(sourcePaths: string[]) {
+  try {
+    const { stdout } = await execFileAsync(
+      "git",
+      ["log", "-1", "--format=%cI", "--", ...sourcePaths],
+      { cwd: process.cwd() },
+    );
+
+    const gitDate = stdout.trim();
+
+    if (gitDate) {
+      return gitDate;
+    }
+  } catch {
+    // Fall back to a stable date if git metadata is unavailable in the build context.
   }
 
   return fallbackLastModified;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [
-    localeHomeRoMetadata,
-    localeHomeEnMetadata,
-    anafRoMetadata,
-    anafEnMetadata,
-    romanianPrivacyPolicyMetadata,
-    englishPrivacyPolicyMetadata,
-    romanianCookiePolicyMetadata,
-    englishCookiePolicyMetadata,
-    romanianTermsMetadata,
-    englishTermsMetadata,
-    romanianInternshipMetadata,
-    romanianServicesMetadata,
-    englishServicesMetadata,
-    localeRecommendationsMetadata,
-    englishRecommendationsMetadata,
-    localeBlogRoMetadata,
-    localeBlogEnMetadata,
-  ] = await Promise.all([
-    generateLocaleHomeMetadata({ params: Promise.resolve({ locale: "ro" }) }),
-    generateLocaleHomeMetadata({ params: Promise.resolve({ locale: "en" }) }),
-    generateAnafMetadata({ params: Promise.resolve({ locale: "ro" }) }),
-    generateAnafMetadata({ params: Promise.resolve({ locale: "en" }) }),
-    generateRomanianPrivacyPolicyMetadata(),
-    generateEnglishPrivacyPolicyMetadata({ params: Promise.resolve({ locale: "en" }) }),
-    generateRomanianCookiePolicyMetadata(),
-    generateEnglishCookiePolicyMetadata({ params: Promise.resolve({ locale: "en" }) }),
-    generateRomanianTermsMetadata(),
-    generateEnglishTermsMetadata({ params: Promise.resolve({ locale: "en" }) }),
-    generateRomanianInternshipMetadata(),
-    generateRomanianServicesMetadata(),
-    generateEnglishServicesMetadata({ params: Promise.resolve({ locale: "en" }) }),
-    generateLocaleRecommendationsMetadata({ params: Promise.resolve({ locale: "ro" }) }),
-    generateEnglishRecommendationsMetadata(),
-    generateLocaleBlogMetadata({ params: Promise.resolve({ locale: "ro" }) }),
-    generateLocaleBlogMetadata({ params: Promise.resolve({ locale: "en" }) }),
-  ]);
-
-  const entries: SitemapEntry[] = [
-    { url: `${baseUrl}/ro`, lastModified: readLastModified(localeHomeRoMetadata) },
-    { url: `${baseUrl}/en`, lastModified: readLastModified(localeHomeEnMetadata) },
-    { url: `${baseUrl}/ro/anaf`, lastModified: readLastModified(anafRoMetadata) },
-    { url: `${baseUrl}/en/anaf`, lastModified: readLastModified(anafEnMetadata) },
-    {
-      url: `${baseUrl}/ro/confidentialitate`,
-      lastModified: readLastModified(romanianPrivacyPolicyMetadata),
-    },
-    {
-      url: `${baseUrl}/en/privacy-policy`,
-      lastModified: readLastModified(englishPrivacyPolicyMetadata),
-    },
-    {
-      url: `${baseUrl}/ro/cookie-uri`,
-      lastModified: readLastModified(romanianCookiePolicyMetadata),
-    },
-    {
-      url: `${baseUrl}/en/cookie-policy`,
-      lastModified: readLastModified(englishCookiePolicyMetadata),
-    },
-    {
-      url: `${baseUrl}/ro/termeni`,
-      lastModified: readLastModified(romanianTermsMetadata),
-    },
-    {
-      url: `${baseUrl}/en/terms`,
-      lastModified: readLastModified(englishTermsMetadata),
-    },
-    {
-      url: `${baseUrl}/ro/stagiu-practica`,
-      lastModified: readLastModified(romanianInternshipMetadata),
-    },
-    {
-      url: `${baseUrl}/ro/servicii`,
-      lastModified: readLastModified(romanianServicesMetadata),
-    },
-    {
-      url: `${baseUrl}/en/services`,
-      lastModified: readLastModified(englishServicesMetadata),
-    },
-    {
-      url: `${baseUrl}/ro/recomandari`,
-      lastModified: readLastModified(localeRecommendationsMetadata),
-    },
-    {
-      url: `${baseUrl}/en/recommendations`,
-      lastModified: readLastModified(englishRecommendationsMetadata),
-    },
-    {
-      url: `${baseUrl}/ro/blog`,
-      lastModified: readLastModified(localeBlogRoMetadata),
-    },
-    {
-      url: `${baseUrl}/en/blog`,
-      lastModified: readLastModified(localeBlogEnMetadata),
-    },
-  ];
+  const entries = getStaticEntries();
 
   for (const slug of servicePageSlugs.ro) {
-    const page = getServicePageContent("ro", slug);
     entries.push({
       url: `${baseUrl}/ro/${slug}`,
-      lastModified: page?.lastModified,
+      sourcePaths: ["app/[locale]/[serviceSlug]/page.tsx", "lib/service-pages.ts"],
     });
   }
 
   for (const slug of servicePageSlugs.en) {
-    const page = getServicePageContent("en", slug);
     entries.push({
       url: `${baseUrl}/en/${slug}`,
-      lastModified: page?.lastModified,
+      sourcePaths: ["app/[locale]/[serviceSlug]/page.tsx", "lib/service-pages.ts"],
     });
   }
 
@@ -157,19 +141,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const post of blogEn) {
     entries.push({
       url: `${baseUrl}/en/blog/${post.slug}`,
-      lastModified: post.lastModified,
+      sourcePaths: [
+        "app/[locale]/blog/[slug]/page.tsx",
+        "lib/blog.ts",
+        `content/blog/en/${post.slug}.md`,
+      ],
     });
   }
 
   for (const post of blogRo) {
     entries.push({
       url: `${baseUrl}/ro/blog/${post.slug}`,
-      lastModified: post.lastModified,
+      sourcePaths: [
+        "app/[locale]/blog/[slug]/page.tsx",
+        "lib/blog.ts",
+        `content/blog/ro/${post.slug}.md`,
+      ],
     });
   }
 
-  return entries.map(({ url, lastModified }) => ({
-    url,
-    lastModified: resolveLastModified(lastModified),
-  }));
+  return Promise.all(
+    entries.map(async ({ url, sourcePaths }) => ({
+      url,
+      lastModified: await getCachedLastModified(sourcePaths),
+    })),
+  );
 }

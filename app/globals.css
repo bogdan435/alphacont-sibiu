@@ -30,10 +30,14 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  overflow-x: hidden;
   color: var(--text);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   background:
@@ -65,12 +69,14 @@ samp {
 }
 
 main {
+  width: min(100%, 1180px);
   max-width: 1180px;
   margin: 0 auto;
   padding: 36px 24px 100px;
 }
 
 .site-shell {
+  width: min(100%, 1180px);
   max-width: 1180px;
   margin: 0 auto;
 }
@@ -1698,9 +1704,14 @@ li {
 
 .contact-info-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+}
+
+.contact-info-item,
+.contact-info-phones {
+  min-width: 0;
 }
 
 .contact-info-label {
@@ -1716,9 +1727,13 @@ li {
   font-size: 16px;
   font-weight: 400;
   color: var(--color-text-primary);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-address-link {
+  display: inline-block;
+  max-width: 100%;
   color: #185FA5;
   text-decoration: none;
   font-weight: 500;
@@ -1731,13 +1746,20 @@ li {
 
 .contact-info-phone-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   font-size: 16px;
   font-weight: 400;
   color: var(--color-text-primary);
   text-decoration: none;
   margin-bottom: 6px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.45;
+}
+
+.contact-info-phone-row > span:first-child {
+  flex-shrink: 0;
 }
 
 .contact-info-phone-row:hover {
@@ -2730,6 +2752,11 @@ li {
   .contact-layout {
     gap: 18px;
     align-items: stretch;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .cta-points {
